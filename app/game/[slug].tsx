@@ -7,6 +7,8 @@ import { Stack, useLocalSearchParams } from 'expo-router';
 const games = {
   'tiny-fishing': '/tiny-fishing/index.html',
   'ragdoll-archers': '/ragdoll-archers/index.html',
+  'subway-surfers': '/subway-surfers/index.html',
+  'clash-royale': '/clash-royale/index.html'
 };
 
 export default function GameScreen() {

@@ -5,4 +5,6 @@
 export const gameIcons = {
   'tiny fishing': require('./game-icons/tiny-fishing.jpg'),
   'ragdoll archers': require('./game-icons/ragdoll-archers.jpg'),
+  'subway surfers': require('./game-icons/subway-surfers.jpg'),
+  'clash royale': require('./game-icons/clash-royale.jpg'),
 };
