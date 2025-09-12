@@ -14752,7 +14752,6 @@ ig.module("game.entities.ui.time-game").requires("impact.entity", "game.entities
             b.restore()
         },
         drawingBeginningBattle: function() {
-			sdk.showBanner();
             this.drawingBgMiddle();
             var b = ig.system.context;
             b.font = "30pt troika";
@@ -15769,7 +15768,6 @@ ig.module("game.main").requires("impact.game", "plugins.patches.webkit-image-smo
                 this.getStorageSettings();
             
             this.finalize();
-			sdk.showBanner();
         },
         setupMarketJsGameCenter: function() {
         
