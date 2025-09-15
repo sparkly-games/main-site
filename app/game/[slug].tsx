@@ -8,7 +8,8 @@ const games = {
   'tiny-fishing': '/tiny-fishing/index.html',
   'ragdoll-archers': '/ragdoll-archers/index.html',
   'subway-surfers': '/subway-surfers/index.html',
-  'clash-royale': '/clash-royale/index.html'
+  'clash-royale': '/clash-royale/index.html',
+  'duck-duck-clicker': '/duck-duck-clicker/index.html'
 };
 
 export default function GameScreen() {

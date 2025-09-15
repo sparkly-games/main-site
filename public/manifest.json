@@ -1,0 +1,14 @@
+{
+  "short_name": "Games Hub 2025",
+  "name": "Games Hub",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "type": "image/ico"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "black",
+  "background_color": "white"
+}

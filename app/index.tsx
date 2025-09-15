@@ -30,6 +30,11 @@ export default function Index() {
           imageSource={gameIcons['clash royale']}
           onPress={() => router.push('/game/clash-royale')}
         />
+        <Game
+          name="Duck Duck Clicker"
+          imageSource={gameIcons['duck-duck-clicker']}
+          onPress={() => router.push('/game/duck-duck-clicker')}
+        />
       </View>
     </View>
   );
