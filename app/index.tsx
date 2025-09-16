@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, ScrollView, Image } from "react-native";
 import { Game } from '@/components/Game';
 import { gameIcons } from '@/assets/images/GameIcons';
 import { useRouter } from 'expo-router';
@@ -19,7 +19,10 @@ export default function Index() {
     {
       id: 'game-information',
       title: 'Game Info',
-      message: 'Thorns and Balloons: The game currently has no sound. [TD;LR]',
+      message: `
+      Thorns and Balloons: The game currently has no sound. [TD;LR]
+      Tiny Fishing: Before May 2024 update. (No fish after purple seahorse) [TD;LR]
+      `,
     },
   ];
 
@@ -56,7 +59,7 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Game Hub</Text>
+      <Image source={require('@/assets/images/og12_logo_banner.png')} style={{ height: 225, width: 500, marginBottom: 20, borderRadius: 10 }} />
       <View style={styles.gameList}>
         <Game
           name="Tiny Fishing"
