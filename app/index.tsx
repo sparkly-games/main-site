@@ -13,7 +13,7 @@ export default function Index() {
   const [loading, setLoading] = useState<boolean>(false);
 
   // You can change this URL to point to your own GitHub markdown file
-  const changelogUrl = 'https://raw.githubusercontent.com/facebook/react-native/main/CHANGELOG.md';
+  const changelogUrl = '/CHANGELOG.md';
 
   const notices = [
     {
@@ -45,37 +45,7 @@ export default function Index() {
     } catch (error) {
       console.error('Failed to fetch changelog:', error);
       // Fallback to local markdown content
-      const fallbackMarkdown = `# Changelog
-
-## Version 2.1.0 - September 16, 2025
-### Added
-- New notices section with dropdown functionality
-- Enhanced game selection interface
-- Improved user experience
-
-### Fixed
-- Performance optimizations
-- UI responsiveness improvements
-
-### Changed
-- Updated color scheme for better accessibility
-- Modernized component styling
-
-## Version 2.0.0 - September 1, 2025
-### Added
-- Complete redesign of the game hub
-- New game selection system
-- Mobile-first responsive design
-
-### Breaking Changes
-- Removed legacy game loading system
-- Updated routing structure
-
-## Version 1.5.0 - August 15, 2025
-### Added
-- Added 6 new games to the collection
-- Improved loading times
-- Better error handling`;
+      const fallbackMarkdown = `Error fetching changelog. Please check your internet connection and try again.`;
       
       setChangelogContent(fallbackMarkdown);
       setShowChangelog(true);
