@@ -10,9 +10,9 @@ export default function Index() {
 
   const notices = [
     {
-      id: 'maintenance',
-      title: 'Scheduled Maintenance',
-      message: 'Server maintenance will be performed on Friday, September 20th from 2:00 AM to 4:00 AM EST. Some games may be temporarily unavailable during this time.',
+      id: 'game-information',
+      title: 'Game Info',
+      message: 'Thorns and Bal',
     },
     {
       id: 'newgames',
