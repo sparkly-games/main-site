@@ -9,7 +9,8 @@ const games = {
   'ragdoll-archers': '/ragdoll-archers/index.html',
   'subway-surfers': '/subway-surfers/index.html',
   'clash-royale': '/clash-royale/index.html',
-  'duck-duck-clicker': '/duck-duck-clicker/index.html'
+  'duck-duck-clicker': '/duck-duck-clicker/index.html',
+  'thorns-and-balloons': '/thorns-and-balloons/index.html'
 };
 
 export default function GameScreen() {

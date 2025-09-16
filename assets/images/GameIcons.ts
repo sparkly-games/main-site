@@ -8,4 +8,5 @@ export const gameIcons = {
   'subway surfers': require('./game-icons/subway-surfers.jpg'),
   'clash royale': require('./game-icons/clash-royale.jpg'),
   'duck-duck-clicker': require('./game-icons/duck-duck-clicker.png'),
+  'thorns and balloons': require('./game-icons/thorns-and-balloons.png')
 };
