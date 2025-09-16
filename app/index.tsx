@@ -1,28 +1,25 @@
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import { Game } from '@/components/Game';
 import { gameIcons } from '@/assets/images/GameIcons';
 import { useRouter } from 'expo-router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Markdown from 'react-native-markdown-display';
 
 export default function Index() {
   const router = useRouter();
   const [expandedNotices, setExpandedNotices] = useState<{ [key: string]: boolean }>({});
+  const [changelogContent, setChangelogContent] = useState<string>('');
+  const [showChangelog, setShowChangelog] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  // You can change this URL to point to your own GitHub markdown file
+  const changelogUrl = 'https://raw.githubusercontent.com/facebook/react-native/main/CHANGELOG.md';
 
   const notices = [
     {
       id: 'game-information',
       title: 'Game Info',
-      message: 'Thorns and Bal',
-    },
-    {
-      id: 'newgames',
-      title: 'New Games Added',
-      message: 'We\'ve added three new exciting games to our collection! Check out the latest additions and enjoy hours of entertainment.',
-    },
-    {
-      id: 'update',
-      title: 'App Update Available',
-      message: 'Version 2.1.0 is now available with improved performance, bug fixes, and enhanced user experience. Update now for the best gaming experience.',
+      message: 'Thorns and Balloons: The game currently has no sound. [TD;LR]',
     },
   ];
 
@@ -31,6 +28,60 @@ export default function Index() {
       ...prev,
       [noticeId]: !prev[noticeId]
     }));
+  };
+
+  const fetchChangelog = async () => {
+    if (changelogContent) {
+      setShowChangelog(!showChangelog);
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch(changelogUrl);
+      const text = await response.text();
+      setChangelogContent(text);
+      setShowChangelog(true);
+    } catch (error) {
+      console.error('Failed to fetch changelog:', error);
+      // Fallback to local markdown content
+      const fallbackMarkdown = `# Changelog
+
+## Version 2.1.0 - September 16, 2025
+### Added
+- New notices section with dropdown functionality
+- Enhanced game selection interface
+- Improved user experience
+
+### Fixed
+- Performance optimizations
+- UI responsiveness improvements
+
+### Changed
+- Updated color scheme for better accessibility
+- Modernized component styling
+
+## Version 2.0.0 - September 1, 2025
+### Added
+- Complete redesign of the game hub
+- New game selection system
+- Mobile-first responsive design
+
+### Breaking Changes
+- Removed legacy game loading system
+- Updated routing structure
+
+## Version 1.5.0 - August 15, 2025
+### Added
+- Added 6 new games to the collection
+- Improved loading times
+- Better error handling`;
+      
+      setChangelogContent(fallbackMarkdown);
+      setShowChangelog(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -89,6 +140,22 @@ export default function Index() {
             )}
           </View>
         ))}
+      </View>
+      
+      <View style={styles.changelogSection}>
+        <TouchableOpacity style={styles.changelogButton} onPress={fetchChangelog}>
+          <Text style={styles.changelogButtonText}>
+            {loading ? 'Loading...' : showChangelog ? 'Hide Changelog' : 'View Changelog'}
+          </Text>
+        </TouchableOpacity>
+        
+        {showChangelog && (
+          <ScrollView style={styles.changelogContainer} nestedScrollEnabled>
+            <Markdown style={markdownStyles}>
+              {changelogContent}
+            </Markdown>
+          </ScrollView>
+        )}
       </View>
     </View>
   );
@@ -157,5 +224,86 @@ const styles = StyleSheet.create({
     color: '#cccccc',
     fontSize: 14,
     lineHeight: 20,
+  },
+  changelogSection: {
+    width: '90%',
+    maxWidth: 600,
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  changelogButton: {
+    backgroundColor: '#4a90e2',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  changelogButtonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  changelogContainer: {
+    maxHeight: 400,
+    backgroundColor: '#2a2a2a',
+    borderRadius: 8,
+    padding: 15,
+  },
+});
+
+const markdownStyles = StyleSheet.create({
+  body: {
+    color: '#ffffff',
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  heading1: {
+    color: '#ffffff',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    marginTop: 20,
+  },
+  heading2: {
+    color: '#ffffff',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    marginTop: 15,
+  },
+  heading3: {
+    color: '#ffffff',
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 6,
+    marginTop: 12,
+  },
+  paragraph: {
+    color: '#cccccc',
+    marginBottom: 10,
+  },
+  list_item: {
+    color: '#cccccc',
+    marginBottom: 5,
+  },
+  code_inline: {
+    backgroundColor: '#444444',
+    color: '#ffffff',
+    paddingHorizontal: 4,
+    paddingVertical: 2,
+    borderRadius: 3,
+    fontSize: 13,
+  },
+  code_block: {
+    backgroundColor: '#333333',
+    color: '#ffffff',
+    padding: 10,
+    borderRadius: 5,
+    marginVertical: 8,
+  },
+  strong: {
+    color: '#ffffff',
+    fontWeight: 'bold',
   },
 });
