@@ -59,77 +59,79 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
-      <Image source={require('@/assets/images/og12_logo_banner.png')} style={{ height: 225, width: 500, marginBottom: 20, borderRadius: 10 }} />
-      <View style={styles.gameList}>
-        <Game
-          name="Tiny Fishing"
-          imageSource={gameIcons['tiny fishing']}
-          onPress={() => router.push('/game/tiny-fishing')}
-        />
-        <Game
-          name="Ragdoll Archers"
-          imageSource={gameIcons['ragdoll archers']}
-          onPress={() => router.push('/game/ragdoll-archers')}
-        />
-        <Game
-          name="Subway Surfers"
-          imageSource={gameIcons['subway surfers']}
-          onPress={() => router.push('/game/subway-surfers')}
-        />
-        <Game
-          name="Clash Royale"
-          imageSource={gameIcons['clash royale']}
-          onPress={() => router.push('/game/clash-royale')}
-        />
-        <Game
-          name="Duck Duck Clicker"
-          imageSource={gameIcons['duck-duck-clicker']}
-          onPress={() => router.push('/game/duck-duck-clicker')}
-        />
-        <Game
-          name="Thorns and Balloons"
-          imageSource={gameIcons['thorns and balloons']}
-          onPress={() => router.push('/game/thorns-and-balloons')}
-        />
-      </View>
-      
-      <View style={styles.noticesSection}>
-        <Text style={styles.noticesTitle}>Notices</Text>
-        {notices.map((notice) => (
-          <View key={notice.id} style={styles.noticeItem}>
-            <TouchableOpacity
-              style={styles.noticeHeader}
-              onPress={() => toggleNotice(notice.id)}
-            >
-              <Text style={styles.noticeHeaderText}>{notice.title}</Text>
-              <Text style={styles.dropdownArrow}>
-                {expandedNotices[notice.id] ? '▼' : '▶'}
-              </Text>
-            </TouchableOpacity>
-            {expandedNotices[notice.id] && (
-              <View style={styles.noticeContent}>
-                <Text style={styles.noticeMessage}>{notice.message}</Text>
-              </View>
-            )}
-          </View>
-        ))}
-      </View>
-      
-      <View style={styles.changelogSection}>
-        <TouchableOpacity style={styles.changelogButton} onPress={fetchChangelog}>
-          <Text style={styles.changelogButtonText}>
-            {loading ? 'Loading...' : showChangelog ? 'Hide Changelog' : 'View Changelog'}
-          </Text>
-        </TouchableOpacity>
+      <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+        <Image source={require('@/assets/images/og12_logo_banner.png')} style={{ height: 225, width: 500, marginBottom: 20, borderRadius: 10 }} />
+        <View style={styles.gameList}>
+          <Game
+            name="Tiny Fishing"
+            imageSource={gameIcons['tiny fishing']}
+            onPress={() => router.push('/game/tiny-fishing')}
+          />
+          <Game
+            name="Ragdoll Archers"
+            imageSource={gameIcons['ragdoll archers']}
+            onPress={() => router.push('/game/ragdoll-archers')}
+          />
+          <Game
+            name="Subway Surfers"
+            imageSource={gameIcons['subway surfers']}
+            onPress={() => router.push('/game/subway-surfers')}
+          />
+          <Game
+            name="Clash Royale"
+            imageSource={gameIcons['clash royale']}
+            onPress={() => router.push('/game/clash-royale')}
+          />
+          <Game
+            name="Duck Duck Clicker"
+            imageSource={gameIcons['duck-duck-clicker']}
+            onPress={() => router.push('/game/duck-duck-clicker')}
+          />
+          <Game
+            name="Thorns and Balloons"
+            imageSource={gameIcons['thorns and balloons']}
+            onPress={() => router.push('/game/thorns-and-balloons')}
+          />
+        </View>
         
-        {showChangelog && (
-          <ScrollView style={styles.changelogContainer} nestedScrollEnabled>
-            <Markdown style={markdownStyles}>
-              {changelogContent}
-            </Markdown>
-          </ScrollView>
-        )}
-      </View>
+        <View style={styles.noticesSection}>
+          <Text style={styles.noticesTitle}>Notices</Text>
+          {notices.map((notice) => (
+            <View key={notice.id} style={styles.noticeItem}>
+              <TouchableOpacity
+                style={styles.noticeHeader}
+                onPress={() => toggleNotice(notice.id)}
+              >
+                <Text style={styles.noticeHeaderText}>{notice.title}</Text>
+                <Text style={styles.dropdownArrow}>
+                  {expandedNotices[notice.id] ? '▼' : '▶'}
+                </Text>
+              </TouchableOpacity>
+              {expandedNotices[notice.id] && (
+                <View style={styles.noticeContent}>
+                  <Text style={styles.noticeMessage}>{notice.message}</Text>
+                </View>
+              )}
+            </View>
+          ))}
+        </View>
+        
+        <View style={styles.changelogSection}>
+          <TouchableOpacity style={styles.changelogButton} onPress={fetchChangelog}>
+            <Text style={styles.changelogButtonText}>
+              {loading ? 'Loading...' : showChangelog ? 'Hide Changelog' : 'View Changelog'}
+            </Text>
+          </TouchableOpacity>
+          
+          {showChangelog && (
+            <ScrollView style={styles.changelogContainer} nestedScrollEnabled>
+              <Markdown style={markdownStyles}>
+                {changelogContent}
+              </Markdown>
+            </ScrollView>
+          )}
+        </View>
+      </ScrollView>
     </View>
   );
 }
@@ -137,9 +139,13 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#202020',
+  },
+  scrollContent: {
+    flexGrow: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: '#202020',
+    paddingVertical: 20,
   },
   title: {
     fontSize: 24,
