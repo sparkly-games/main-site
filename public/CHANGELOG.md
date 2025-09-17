@@ -2,6 +2,12 @@
 
 Last updated: 16th September 2025, 18:38.
 
+## 0.1.46 [Beta]
+- Added "OvO" game. (Complete, no issues) - From TylerPalko.
+- Added "Bitlife" game. (Untested) - From UBG44.
+- Added "Gunspin" game. (May have a tab issue, opens new occasionally) - From UBG44.
+- Added "Happy Wheels" game. (Untested) - From UBG44.
+
 ## 0.1.39 [Beta]
 - Added "Thorns and Balloons" game (Sound implementation pending, requires further testing).
 - Implemented Changelog feature within the Home Menu.
