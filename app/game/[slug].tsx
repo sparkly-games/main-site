@@ -10,7 +10,11 @@ const games = {
   'subway-surfers': '/subway-surfers/index.html',
   'clash-royale': '/clash-royale/index.html',
   'duck-duck-clicker': '/duck-duck-clicker/index.html',
-  'thorns-and-balloons': '/thorns-and-balloons/index.html'
+  'thorns-and-balloons': '/thorns-and-balloons/index.html',
+  'bitlife': '/bitlife/index.html',
+  'ovo': '/ovo/index.html',
+  'happy-wheels': '/happy-wheels/index.html',
+  'gunspin': '/gunspin/index.html'
 };
 
 export default function GameScreen() {
