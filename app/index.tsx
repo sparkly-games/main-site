@@ -13,7 +13,7 @@ export default function Index() {
   const [loading, setLoading] = useState<boolean>(false);
 
   // You can change this URL to point to your own GitHub markdown file
-  const changelogUrl = '/CHANGELOG.md';
+  const changelogUrl = 'https://raw.githubusercontent.com/rilwag2612/onlinegames12/main/CHANGELOG.md';
 
   const notices = [
     {
@@ -22,6 +22,9 @@ export default function Index() {
       message: `
       Thorns and Balloons: The game currently has no sound. [TD;LR]
       Tiny Fishing: Before May 2024 update. (No fish after purple seahorse) [TD;LR]
+      Bitlife: Untested. [TD;LR]
+      Happy Wheels: Untested. [TD;LR]
+      Gunspin: May open blocked tabs periodically. [TD;LR]
       `,
     },
   ];
