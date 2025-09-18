@@ -2,19 +2,21 @@ import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { Stack, useLocalSearchParams } from 'expo-router';
 
+const prefix = '..';
+
 // This object maps the game slug to the relative URL of your game's HTML file.
 // Place your game folders (e.g., 'tiny-fishing/') inside the 'public' directory at the root of your project.
 const games = {
-  'tiny-fishing': '/tiny-fishing/index.html',
-  'ragdoll-archers': '/ragdoll-archers/index.html',
-  'subway-surfers': '/subway-surfers/index.html',
-  'clash-royale': '/clash-royale/index.html',
-  'duck-duck-clicker': '/duck-duck-clicker/index.html',
-  'thorns-and-balloons': '/thorns-and-balloons/index.html',
-  'bitlife': '/bitlife/index.html',
-  'ovo': '/ovo/index.html',
-  'happy-wheels': '/happy-wheels/index.html',
-  'gunspin': '/gunspin/index.html'
+  'tiny-fishing': `${prefix}/tiny-fishing/index.html`,
+  'ragdoll-archers': `${prefix}/ragdoll-archers/index.html`,
+  'subway-surfers': `${prefix}/subway-surfers/index.html`,
+  'clash-royale': `${prefix}/clash-royale/index.html`,
+  'duck-duck-clicker': `${prefix}/duck-duck-clicker/index.html`,
+  'thorns-and-balloons': `${prefix}/thorns-and-balloons/index.html`,
+  'bitlife': `${prefix}/bitlife/index.html`,
+  'ovo': `${prefix}/ovo/index.html`,
+  'happy-wheels': `${prefix}/happy-wheels/index.html`,
+  'gunspin': `${prefix}/gunspin/index.html`
 };
 
 export default function GameScreen() {
