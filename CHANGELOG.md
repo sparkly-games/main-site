@@ -2,6 +2,10 @@
 
 Last updated: 16th September 2025, 18:38.
 
+## 0.1.54 [Beta]
+- Integrated a Microsoft Teams button into the header.
+- Integrate GitHub base url.
+
 ## 0.1.46 [Beta]
 - Added "OvO" game. (Complete, no issues) - From TylerPalko.
 - Added "Bitlife" game. (Untested) - From UBG44.
