@@ -18,6 +18,9 @@ This is a full-stack Expo project and you can find the exported static assets fo
 
 https://onlinegames12.github.io <br>
 https://onlinegames12.vercel.app <br>
-https://onlinegames12.onrender.com
+https://onlinegames12.onrender.com <br>
+https://new-onlinegames12.netlify.app <br>
+https://onlinegames12.static.app (COMING SOON)
+
 
 Made by SBC Inc.
