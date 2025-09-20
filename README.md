@@ -2,11 +2,11 @@
 ----
 To run locally, clone the repo and run 
 ``` bash
-onlinegames12 $ npm run dev
+onlinegames12 $ git clone https://github.com/onlinegames12/onlinegames12.github.io
 ```
 and
 ``` bash
-onlinegames12 $ npm run dev
+onlinegames12 $ npm run start
 ```
 
 ## Contributing
