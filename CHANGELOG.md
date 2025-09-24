@@ -2,6 +2,9 @@
 
 Last updated: 16th September 2025, 18:38.
 
+## 0.2.1 [Soft Launch, Beta]
+- Integrated support for GitHub Pages, Vercel, Render, and Netlify web hosting services.
+
 ## 0.1.54 [Beta]
 - Integrated a Microsoft Teams button into the header.
 - Integrate GitHub base url.

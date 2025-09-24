@@ -16,7 +16,8 @@ const games = {
   'bitlife': `${prefix}/bitlife/index.html`,
   'ovo': `${prefix}/ovo/index.html`,
   'happy-wheels': `${prefix}/happy-wheels/index.html`,
-  'gunspin': `${prefix}/gunspin/index.html`
+  'gunspin': `${prefix}/gunspin/index.html`,
+  'drive-mad': `${prefix}/drive-mad/index.html`,
 };
 
 export default function GameScreen() {

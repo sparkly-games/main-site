@@ -13,7 +13,7 @@ export default function Index() {
   const [loading, setLoading] = useState<boolean>(false);
 
   // You can change this URL to point to your own GitHub markdown file
-  const changelogUrl = 'https://raw.githubusercontent.com/rilwag2612/onlinegames12/main/CHANGELOG.md';
+  const changelogUrl = 'https://raw.githubusercontent.com/onlinegames19/onlinegames19.github.io/main/CHANGELOG.md';
 
   const notices = [
     {
@@ -27,6 +27,13 @@ export default function Index() {
       Gunspin: May open blocked tabs periodically. [TD;LR]
       `,
     },
+    {
+      id: 'sitewide-bugs',
+      title: 'Sitewide Bugs',
+      message: `
+      If you reload the tab, the server WILL return a 404 error. You will need to use the back button to return and re enter the game. [TD;LR]
+      `,
+    }
   ];
 
   const toggleNotice = (noticeId: string) => {
@@ -79,6 +86,11 @@ export default function Index() {
             name="Subway Surfers"
             imageSource={gameIcons['subway surfers']}
             onPress={() => router.push('/game/subway-surfers')}
+          />
+          <Game
+            name="Drive Mad"
+            imageSource={gameIcons['drive mad']}
+            onPress={() => router.push('/game/drive-mad')}
           />
           <Game
             name="Clash Royale"

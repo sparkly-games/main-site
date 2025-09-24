@@ -1,0 +1,5 @@
+name: sparxapi19
+app_id: da_K1EIZtMUQ6Oy
+owner: rilwag2612
+package: '.'
+kind: wasmer.io/App.v0

@@ -10,7 +10,12 @@
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint",
-    "deploy": "gh-pages --nojekyll -d dist",
+    "render-deploy": "render deploys create srv-d36li58dl3ps738fg7q0 -o text --confirm",
+    "wasmer-deploy": "wasmer deploy",
+    "gh-pages-deploy": "gh-pages --nojekyll -d dist",
+    "netlify-deploy": "netlify deploy --prod",
+    "vercel-deploy": "vercel --prod",
+    "deploy": "npm run gh-pages-deploy && npm run render-deploy && npm run wasmer-deploy && npm run netlify-deploy && npm run vercel-deploy",
     "predeploy": "expo export --platform web"
   },
   "jest": {
@@ -21,6 +26,7 @@
     "@react-navigation/bottom-tabs": "^7.3.10",
     "@react-navigation/elements": "^2.3.8",
     "@react-navigation/native": "^7.1.6",
+    "@wasmer/sdk": "^0.9.0",
     "expo": "~53.0.9",
     "expo-blur": "~14.1.4",
     "expo-constants": "~17.1.6",

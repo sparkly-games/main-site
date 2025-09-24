@@ -13,4 +13,5 @@ export const gameIcons = {
   'ovo': require('./game-icons/ovo.jpg'),
   'happy wheels': require('./game-icons/happy-wheels.png'),
   'gunspin': require('./game-icons/gunspin.jpg'),
+  'drive mad': require('./game-icons/drive-mad.jpg'),
 };
