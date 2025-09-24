@@ -1,6 +1,9 @@
 # Changelog
 
-Last updated: 16th September 2025, 18:38.
+Last updated: 24th September 2025, 19:18.
+
+## 0.2.1 [Soft Launch, Beta]
+- Integrated Wasmer and also drive mad.
 
 ## 0.2.1 [Soft Launch, Beta]
 - Integrated support for GitHub Pages, Vercel, Render, and Netlify web hosting services.
