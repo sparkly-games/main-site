@@ -127,6 +127,16 @@ export default function Index() {
             imageSource={gameIcons['gunspin']}
             onPress={() => router.push('/game/gunspin')}
           />
+          <Game
+            name="DTA 6"
+            imageSource={gameIcons['dta 6']}
+            onPress={() => router.push('/game/dta-6')}
+          />
+          <Game
+            name="Crazy Crash Landing"
+            imageSource={gameIcons['crazy crash landing']}
+            onPress={() => router.push('/game/crazy-crash-landing')}
+          />
         </View>
         
         <View style={styles.noticesSection}>

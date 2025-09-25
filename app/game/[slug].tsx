@@ -18,6 +18,8 @@ const games = {
   'happy-wheels': `${prefix}/happy-wheels/index.html`,
   'gunspin': `${prefix}/gunspin/index.html`,
   'drive-mad': `${prefix}/drive-mad/index.html`,
+  'dta-6': `${prefix}/dta-6/index.html`,
+  'crazy-crash-landing': `${prefix}/crazy-crash-landing/index.html`,
 };
 
 export default function GameScreen() {

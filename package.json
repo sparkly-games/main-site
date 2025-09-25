@@ -11,7 +11,7 @@
     "test": "jest --watchAll",
     "lint": "expo lint",
     "render-deploy": "render deploys create srv-d36li58dl3ps738fg7q0 -o text --confirm",
-    "wasmer-deploy": "wasmer deploy",
+    "wasmer-deploy": "wasmer publish && wasmer deploy",
     "gh-pages-deploy": "gh-pages --nojekyll -d dist",
     "netlify-deploy": "netlify deploy --prod",
     "vercel-deploy": "vercel --prod",

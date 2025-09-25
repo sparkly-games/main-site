@@ -14,4 +14,6 @@ export const gameIcons = {
   'happy wheels': require('./game-icons/happy-wheels.png'),
   'gunspin': require('./game-icons/gunspin.jpg'),
   'drive mad': require('./game-icons/drive-mad.jpg'),
+  'dta 6': require('./game-icons/dta-6.jpg'),
+  'crazy crash landing': require('./game-icons/crazy-crash-landing.jpg'),
 };
