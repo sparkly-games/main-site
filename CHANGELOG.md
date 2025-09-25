@@ -1,8 +1,15 @@
 # Changelog
 
-Last updated: 24th September 2025, 19:18.
+Last updated: 25th September 2025, 17:18.
 
-## 0.2.1 [Soft Launch, Beta]
+## 0.2.7 [EPR]
+- Fixed Crazy Crash Landing
+- Added FnaF 1 to 3.
+
+## 0.2.4 [EPR]
+- Added DTA 6 and Crazy Crash Landing [broken]
+
+## 0.2.1 [Hard Launch, Early Public Release (EPR)]
 - Integrated Wasmer and also drive mad.
 
 ## 0.2.1 [Soft Launch, Beta]

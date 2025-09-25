@@ -21,6 +21,8 @@ const games = {
   'dta-6': `${prefix}/dta-6/index.html`,
   'crazy-crash-landing': `${prefix}/crazy-crash-landing/index.html`,
   'fnaf-1': `${prefix}/fnaf-1/index.html`,
+  'fnaf-2': `${prefix}/fnaf-2/index.html`,
+  'fnaf-3': `${prefix}/fnaf-3/index.html`,
 };
 
 export default function GameScreen() {

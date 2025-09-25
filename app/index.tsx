@@ -137,11 +137,20 @@ export default function Index() {
             imageSource={gameIcons['crazy crash landing']}
             onPress={() => router.push('/game/crazy-crash-landing')}
           />
-          <Text style={styles.title}>FnaF Series</Text>
           <Game
             name="FnaF 1"
-            imageSource={gameIcons['fnaf 1']}
+            imageSource={gameIcons['fnaf']}
             onPress={() => router.push('/game/fanf-1')}
+          />
+          <Game
+            name="FnaF 2"
+            imageSource={gameIcons['fnaf']}
+            onPress={() => router.push('/game/fanf-2')}
+          />
+          <Game
+            name="FnaF 3"
+            imageSource={gameIcons['fnaf']}
+            onPress={() => router.push('/game/fanf-3')}
           />
         </View>
         
