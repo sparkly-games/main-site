@@ -28,6 +28,23 @@ export default function Index() {
       `,
     },
     {
+      id: 'temporary-removals',
+      title: 'Temporary Removals',
+      message: `
+      The following games will be temporarily removed due to size constraints. We are working hard to bring them back, faster and smaller than ever.
+      - BitLife
+      - GunSpin
+
+      Some games have been permanently removed:
+      - Happy Wheels
+      - Crazy Crash Landing
+      - FnaF 3
+      - DTA 6
+
+      They may return in the future, but for now, they are gone.
+      `,
+    },
+    {
       id: 'sitewide-bugs',
       title: 'Sitewide Bugs',
       message: `
@@ -107,50 +124,29 @@ export default function Index() {
             imageSource={gameIcons['thorns and balloons']}
             onPress={() => router.push('/game/thorns-and-balloons')}
           />
+          {/* SIZE ISSUES
           <Game
             name="BitLife"
             imageSource={gameIcons['bitlife']}
             onPress={() => router.push('/game/bitlife')}
           />
+          */}
           <Game
             name="OVO"
             imageSource={gameIcons['ovo']}
             onPress={() => router.push('/game/ovo')}
           />
-          <Game
-            name="Happy Wheels"
-            imageSource={gameIcons['happy wheels']}
-            onPress={() => router.push('/game/happy-wheels')}
-          />
+          {/* SIZE ISSUES
           <Game
             name="GunSpin"
             imageSource={gameIcons['gunspin']}
             onPress={() => router.push('/game/gunspin')}
           />
-          <Game
-            name="DTA 6"
-            imageSource={gameIcons['dta 6']}
-            onPress={() => router.push('/game/dta-6')}
-          />
-          <Game
-            name="Crazy Crash Landing"
-            imageSource={gameIcons['crazy crash landing']}
-            onPress={() => router.push('/game/crazy-crash-landing')}
-          />
+          */}
           <Game
             name="FnaF 1"
             imageSource={gameIcons['fnaf']}
             onPress={() => router.push('/game/fnaf-1')}
-          />
-          <Game
-            name="FnaF 2"
-            imageSource={gameIcons['fnaf']}
-            onPress={() => router.push('/game/fnaf-2')}
-          />
-          <Game
-            name="FnaF 3"
-            imageSource={gameIcons['fnaf']}
-            onPress={() => router.push('/game/fnaf-3')}
           />
         </View>
         
