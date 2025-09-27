@@ -1,10 +1,15 @@
 # Changelog
 
-Last updated: 25th September 2025, 17:18.
+Last updated: 27th September 2025, 17:50.
+
+## 0.3.0 [EPR]
+- Removed Games
+- Temporarily suspended games
+- Add Roper (Fancade)
 
 ## 0.2.7 [EPR]
 - Fixed Crazy Crash Landing
-- Added FnaF 1 to 3.
+- Added FnaF 1.
 
 ## 0.2.4 [EPR]
 - Added DTA 6 and Crazy Crash Landing [broken]

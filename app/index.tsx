@@ -4,6 +4,7 @@ import { gameIcons } from '@/assets/images/GameIcons';
 import { useRouter } from 'expo-router';
 import { useState, useEffect } from 'react';
 import Markdown from 'react-native-markdown-display';
+import AdCarousel from './AdCarousel';
 
 export default function Index() {
   const router = useRouter();
@@ -87,7 +88,9 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-        <Image source={require('@/assets/images/og12_logo_banner.png')} style={{ height: 225, width: 500, marginBottom: 20, borderRadius: 10 }} />
+        {// <AdCarousel />
+        }
+        <Image source={require('@/assets/images/og12_logo_banner.png')} style={{ height: 225, width: 500, borderRadius: 10 }} />
         <View style={styles.gameList}>
           <Game
             name="Tiny Fishing"
@@ -123,6 +126,11 @@ export default function Index() {
             name="Thorns and Balloons"
             imageSource={gameIcons['thorns and balloons']}
             onPress={() => router.push('/game/thorns-and-balloons')}
+          />
+          <Game
+            name="Roper"
+            imageSource={gameIcons['roper']}
+            onPress={() => router.push('/game/roper')}
           />
           {/* SIZE ISSUES
           <Game

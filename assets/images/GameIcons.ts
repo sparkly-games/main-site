@@ -17,4 +17,5 @@ export const gameIcons = {
   'dta 6': require('./game-icons/dta-6.jpg'),
   'crazy crash landing': require('./game-icons/crazy-crash-landing.jpg'),
   'fnaf': require('./game-icons/fnaf.jpg'),
+  'roper': require('./game-icons/roper.jpg'),
 };

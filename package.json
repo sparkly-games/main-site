@@ -15,7 +15,7 @@
     "gh-pages-deploy": "gh-pages --nojekyll -d dist",
     "netlify-deploy": "netlify deploy --prod",
     "vercel-deploy": "vercel --prod",
-    "deploy": "npm run gh-pages-deploy && npm run render-deploy && npm run wasmer-deploy && npm run netlify-deploy && npm run vercel-deploy",
+    "deploy": "npm run gh-pages-deploy && npm run render-deploy && npm run wasmer-deploy && npm run vercel-deploy",
     "predeploy": "expo export --platform web"
   },
   "jest": {
