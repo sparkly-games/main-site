@@ -149,6 +149,11 @@ export default function Index() {
             imageSource={gameIcons['ragdoll hit']}
             onPress={() => router.push('/game/ragdoll-hit')}
           />
+          <Game
+            name="Emoji Kitchen"
+            imageSource={gameIcons['emoji kitchen']}
+            onPress={() => router.push('/game/emoji-kitchen')}
+          />
           {/* SIZE ISSUES
           <Game
             name="GunSpin"

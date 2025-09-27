@@ -2,6 +2,9 @@
 
 Last updated: 27th September 2025, 17:50.
 
+## 0.3.3 [EPR]
+- Added Emoji Kitchen
+
 ## 0.3.1 [EPR]
 - Added Ragdoll Hit
 
