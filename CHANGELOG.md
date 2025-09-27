@@ -2,6 +2,9 @@
 
 Last updated: 27th September 2025, 17:50.
 
+## 0.3.1 [EPR]
+- Added Ragdoll Hit
+
 ## 0.3.0 [EPR]
 - Removed Games
 - Temporarily suspended games

@@ -19,6 +19,7 @@ const games = {
   'drive-mad': `${prefix}/drive-mad/index.html`,
   'fnaf-1': `${prefix}/fnaf-1/index.html`,
   'roper': `${prefix}/roper/index.html`,
+  'ragdoll-hit': `${prefix}/ragdoll-hit/index.html`,
 };
 
 export default function GameScreen() {
