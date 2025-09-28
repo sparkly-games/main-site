@@ -4,7 +4,6 @@ import { gameIcons } from '@/assets/images/GameIcons';
 import { useRouter } from 'expo-router';
 import { useState, useEffect } from 'react';
 import Markdown from 'react-native-markdown-display';
-import AdCarousel from './AdCarousel';
 
 export default function Index() {
   const router = useRouter();
@@ -12,6 +11,7 @@ export default function Index() {
   const [changelogContent, setChangelogContent] = useState<string>('');
   const [showChangelog, setShowChangelog] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const [showHorror, setShowHorror] = useState<boolean>(false);
 
   // You can change this URL to point to your own GitHub markdown file
   const changelogUrl = 'https://raw.githubusercontent.com/onlinegames19/onlinegames19.github.io/main/CHANGELOG.md';
@@ -23,9 +23,6 @@ export default function Index() {
       message: `
       Thorns and Balloons: The game currently has no sound. [TD;LR]
       Tiny Fishing: Before May 2024 update. (No fish after purple seahorse) [TD;LR]
-      Bitlife: Untested. [TD;LR]
-      Happy Wheels: Untested. [TD;LR]
-      Gunspin: May open blocked tabs periodically. [TD;LR]
       `,
     },
     {
@@ -33,8 +30,8 @@ export default function Index() {
       title: 'Temporary Removals',
       message: `
       The following games will be temporarily removed due to size constraints. We are working hard to bring them back, faster and smaller than ever.
-      - BitLife
-      - GunSpin
+      [x] BitLife
+      [x] GunSpin
 
       Some games have been permanently removed:
       - Happy Wheels
@@ -49,7 +46,7 @@ export default function Index() {
       id: 'sitewide-bugs',
       title: 'Sitewide Bugs',
       message: `
-      If you reload the tab, the server WILL return a 404 error. You will need to use the back button to return and re enter the game. [TD;LR]
+      If you reload the tab, you may see the home screen for a second before the game loads. This is a known issue with the configuration and is being worked on. [TD;LR]
       `,
     }
   ];
@@ -132,13 +129,11 @@ export default function Index() {
             imageSource={gameIcons['roper']}
             onPress={() => router.push('/game/roper')}
           />
-          {/* SIZE ISSUES
           <Game
             name="BitLife"
             imageSource={gameIcons['bitlife']}
             onPress={() => router.push('/game/bitlife')}
           />
-          */}
           <Game
             name="OVO"
             imageSource={gameIcons['ovo']}
@@ -150,21 +145,9 @@ export default function Index() {
             onPress={() => router.push('/game/ragdoll-hit')}
           />
           <Game
-            name="Emoji Kitchen"
-            imageSource={gameIcons['emoji kitchen']}
-            onPress={() => router.push('/game/emoji-kitchen')}
-          />
-          {/* SIZE ISSUES
-          <Game
             name="GunSpin"
             imageSource={gameIcons['gunspin']}
             onPress={() => router.push('/game/gunspin')}
-          />
-          */}
-          <Game
-            name="FnaF 1"
-            imageSource={gameIcons['fnaf']}
-            onPress={() => router.push('/game/fnaf-1')}
           />
         </View>
         
@@ -189,7 +172,23 @@ export default function Index() {
             </View>
           ))}
         </View>
-        
+        <TouchableOpacity style={styles.changelogButton} onPress={setShowHorror.bind(this, !showHorror)}>
+            <Text style={styles.changelogButtonText}>
+              {showHorror ? 'Hide Horror' : 'Show Horror'}
+            </Text>
+          </TouchableOpacity>
+        {showHorror && (
+          <>
+            <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' }}>Horror Games</Text>
+            <View style={styles.gameList}>
+              <Game
+                name="FnaF 1"
+                imageSource={gameIcons['fnaf']}
+                onPress={() => router.push('/game/fnaf-1')}
+              />
+            </View>
+          </>
+        )}
         <View style={styles.changelogSection}>
           <TouchableOpacity style={styles.changelogButton} onPress={fetchChangelog}>
             <Text style={styles.changelogButtonText}>

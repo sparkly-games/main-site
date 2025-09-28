@@ -11,13 +11,9 @@ export const gameIcons = {
   'thorns and balloons': require('./game-icons/thorns-and-balloons.png'),
   'bitlife': require('./game-icons/bitlife.jpg'),
   'ovo': require('./game-icons/ovo.jpg'),
-  'happy wheels': require('./game-icons/happy-wheels.png'),
   'gunspin': require('./game-icons/gunspin.jpg'),
   'drive mad': require('./game-icons/drive-mad.jpg'),
-  'dta 6': require('./game-icons/dta-6.jpg'),
-  'crazy crash landing': require('./game-icons/crazy-crash-landing.jpg'),
   'fnaf': require('./game-icons/fnaf.jpg'),
   'roper': require('./game-icons/roper.jpg'),
   'ragdoll hit': require('./game-icons/ragdoll-hit.png'),
-  'emoji kitchen': require('./game-icons/emoji-kitchen.png'),
 };

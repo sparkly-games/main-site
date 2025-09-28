@@ -2,6 +2,11 @@
 
 Last updated: 27th September 2025, 17:50.
 
+## 0.3.5 [EPR]
+- Removed Emoji Kitchen.
+- Unsuspended BitLife and GunSpin.
+- Add horror show switch.
+
 ## 0.3.3 [EPR]
 - Added Emoji Kitchen
 

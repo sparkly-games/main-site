@@ -13,14 +13,13 @@ const games = {
   'clash-royale': `${prefix}/clash-royale/index.html`,
   'duck-duck-clicker': `${prefix}/duck-duck-clicker/index.html`,
   'thorns-and-balloons': `${prefix}/thorns-and-balloons/index.html`,
-  // 'bitlife': `${prefix}/bitlife/index.html`,
+  'bitlife': `${prefix}/bitlife/index.html`,
   'ovo': `${prefix}/ovo/index.html`,
-  // 'gunspin': `${prefix}/gunspin/index.html`,
+  'gunspin': `${prefix}/gunspin/index.html`,
   'drive-mad': `${prefix}/drive-mad/index.html`,
   'fnaf-1': `${prefix}/fnaf-1/index.html`,
   'roper': `${prefix}/roper/index.html`,
   'ragdoll-hit': `${prefix}/ragdoll-hit/index.html`,
-  'emoji-kitchen': `${prefix}/emoji-kitchen/index.html`,
 };
 
 export default function GameScreen() {
