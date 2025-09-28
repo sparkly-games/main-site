@@ -1,6 +1,6 @@
 # Changelog
 
-Last updated: 27th September 2025, 17:50.
+Last updated: 28th September 2025, 16:45.
 
 ## 0.3.5 [EPR]
 - Removed Emoji Kitchen.
