@@ -16,4 +16,5 @@ export const gameIcons = {
   'fnaf': require('./game-icons/fnaf.jpg'),
   'roper': require('./game-icons/roper.jpg'),
   'ragdoll hit': require('./game-icons/ragdoll-hit.png'),
+  'survival race': require('./game-icons/survival-race.jpg'),
 };

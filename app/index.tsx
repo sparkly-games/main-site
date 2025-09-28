@@ -91,6 +91,11 @@ export default function Index() {
             <Image source={require('@/assets/images/og12_logo_banner.png')} style={{ height: 225, width: 500, borderRadius: 10 }} />
             <View style={styles.gameList}>
               <Game
+                name="Survival Race"
+                imageSource={gameIcons['survival race']}
+                onPress={() => router.push('/game/survival-race')}
+              />
+              <Game
                 name="Tiny Fishing"
                 imageSource={gameIcons['tiny fishing']}
                 onPress={() => router.push('/game/tiny-fishing')}
