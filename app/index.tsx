@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, TouchableOpacity, ScrollView, Image } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, ScrollView, Image, ImageBackground } from "react-native";
 import { Game } from '@/components/Game';
 import { gameIcons } from '@/assets/images/GameIcons';
 import { useRouter } from 'expo-router';
@@ -83,136 +83,137 @@ export default function Index() {
   };
 
   return (
-    <View style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-        {// <AdCarousel />
-        }
-        <Image source={require('@/assets/images/og12_logo_banner.png')} style={{ height: 225, width: 500, borderRadius: 10 }} />
-        <View style={styles.gameList}>
-          <Game
-            name="Tiny Fishing"
-            imageSource={gameIcons['tiny fishing']}
-            onPress={() => router.push('/game/tiny-fishing')}
-          />
-          <Game
-            name="Ragdoll Archers"
-            imageSource={gameIcons['ragdoll archers']}
-            onPress={() => router.push('/game/ragdoll-archers')}
-          />
-          <Game
-            name="Subway Surfers"
-            imageSource={gameIcons['subway surfers']}
-            onPress={() => router.push('/game/subway-surfers')}
-          />
-          <Game
-            name="Drive Mad"
-            imageSource={gameIcons['drive mad']}
-            onPress={() => router.push('/game/drive-mad')}
-          />
-          <Game
-            name="Clash Royale"
-            imageSource={gameIcons['clash royale']}
-            onPress={() => router.push('/game/clash-royale')}
-          />
-          <Game
-            name="Duck Duck Clicker"
-            imageSource={gameIcons['duck-duck-clicker']}
-            onPress={() => router.push('/game/duck-duck-clicker')}
-          />
-          <Game
-            name="Thorns and Balloons"
-            imageSource={gameIcons['thorns and balloons']}
-            onPress={() => router.push('/game/thorns-and-balloons')}
-          />
-          <Game
-            name="Roper"
-            imageSource={gameIcons['roper']}
-            onPress={() => router.push('/game/roper')}
-          />
-          <Game
-            name="BitLife"
-            imageSource={gameIcons['bitlife']}
-            onPress={() => router.push('/game/bitlife')}
-          />
-          <Game
-            name="OVO"
-            imageSource={gameIcons['ovo']}
-            onPress={() => router.push('/game/ovo')}
-          />
-          <Game
-            name="Ragdoll Hit"
-            imageSource={gameIcons['ragdoll hit']}
-            onPress={() => router.push('/game/ragdoll-hit')}
-          />
-          <Game
-            name="GunSpin"
-            imageSource={gameIcons['gunspin']}
-            onPress={() => router.push('/game/gunspin')}
-          />
-        </View>
-        
-        <View style={styles.noticesSection}>
-          <Text style={styles.noticesTitle}>Notices</Text>
-          {notices.map((notice) => (
-            <View key={notice.id} style={styles.noticeItem}>
-              <TouchableOpacity
-                style={styles.noticeHeader}
-                onPress={() => toggleNotice(notice.id)}
-              >
-                <Text style={styles.noticeHeaderText}>{notice.title}</Text>
-                <Text style={styles.dropdownArrow}>
-                  {expandedNotices[notice.id] ? '▼' : '▶'}
-                </Text>
-              </TouchableOpacity>
-              {expandedNotices[notice.id] && (
-                <View style={styles.noticeContent}>
-                  <Text style={styles.noticeMessage}>{notice.message}</Text>
-                </View>
-              )}
-            </View>
-          ))}
-        </View>
-        <TouchableOpacity style={styles.changelogButton} onPress={setShowHorror.bind(this, !showHorror)}>
-            <Text style={styles.changelogButtonText}>
-              {showHorror ? 'Hide Horror' : 'Show Horror'}
-            </Text>
-          </TouchableOpacity>
-        {showHorror && (
-          <>
-            <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' }}>Horror Games</Text>
+    <ImageBackground source={require('@/assets/images/background.jpg')} resizeMode="cover" style={{ flex: 1, justifyContent: 'center' }}>
+        <View style={styles.container}>
+          <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+            {// <AdCarousel />
+            }
+            <Image source={require('@/assets/images/og12_logo_banner.png')} style={{ height: 225, width: 500, borderRadius: 10 }} />
             <View style={styles.gameList}>
               <Game
-                name="FnaF 1"
-                imageSource={gameIcons['fnaf']}
-                onPress={() => router.push('/game/fnaf-1')}
+                name="Tiny Fishing"
+                imageSource={gameIcons['tiny fishing']}
+                onPress={() => router.push('/game/tiny-fishing')}
+              />
+              <Game
+                name="Ragdoll Archers"
+                imageSource={gameIcons['ragdoll archers']}
+                onPress={() => router.push('/game/ragdoll-archers')}
+              />
+              <Game
+                name="Subway Surfers"
+                imageSource={gameIcons['subway surfers']}
+                onPress={() => router.push('/game/subway-surfers')}
+              />
+              <Game
+                name="Drive Mad"
+                imageSource={gameIcons['drive mad']}
+                onPress={() => router.push('/game/drive-mad')}
+              />
+              <Game
+                name="Clash Royale"
+                imageSource={gameIcons['clash royale']}
+                onPress={() => router.push('/game/clash-royale')}
+              />
+              <Game
+                name="Duck Duck Clicker"
+                imageSource={gameIcons['duck-duck-clicker']}
+                onPress={() => router.push('/game/duck-duck-clicker')}
+              />
+              <Game
+                name="Thorns and Balloons"
+                imageSource={gameIcons['thorns and balloons']}
+                onPress={() => router.push('/game/thorns-and-balloons')}
+              />
+              <Game
+                name="Roper"
+                imageSource={gameIcons['roper']}
+                onPress={() => router.push('/game/roper')}
+              />
+              <Game
+                name="BitLife"
+                imageSource={gameIcons['bitlife']}
+                onPress={() => router.push('/game/bitlife')}
+              />
+              <Game
+                name="OVO"
+                imageSource={gameIcons['ovo']}
+                onPress={() => router.push('/game/ovo')}
+              />
+              <Game
+                name="Ragdoll Hit"
+                imageSource={gameIcons['ragdoll hit']}
+                onPress={() => router.push('/game/ragdoll-hit')}
+              />
+              <Game
+                name="GunSpin"
+                imageSource={gameIcons['gunspin']}
+                onPress={() => router.push('/game/gunspin')}
               />
             </View>
-          </>
-        )}
-        <View style={styles.changelogSection}>
-          <TouchableOpacity style={styles.changelogButton} onPress={fetchChangelog}>
-            <Text style={styles.changelogButtonText}>
-              {loading ? 'Loading...' : showChangelog ? 'Hide Changelog' : 'View Changelog'}
-            </Text>
-          </TouchableOpacity>
-          
-          {showChangelog && (
-            <ScrollView style={styles.changelogContainer} nestedScrollEnabled>
-              <Markdown style={markdownStyles}>
-                {changelogContent}
-              </Markdown>
-            </ScrollView>
-          )}
+            
+            <View style={styles.noticesSection}>
+              <Text style={styles.noticesTitle}>Notices</Text>
+              {notices.map((notice) => (
+                <View key={notice.id} style={styles.noticeItem}>
+                  <TouchableOpacity
+                    style={styles.noticeHeader}
+                    onPress={() => toggleNotice(notice.id)}
+                  >
+                    <Text style={styles.noticeHeaderText}>{notice.title}</Text>
+                    <Text style={styles.dropdownArrow}>
+                      {expandedNotices[notice.id] ? '▼' : '▶'}
+                    </Text>
+                  </TouchableOpacity>
+                  {expandedNotices[notice.id] && (
+                    <View style={styles.noticeContent}>
+                      <Text style={styles.noticeMessage}>{notice.message}</Text>
+                    </View>
+                  )}
+                </View>
+              ))}
+            </View>
+            <TouchableOpacity style={styles.changelogButton} onPress={setShowHorror.bind(this, !showHorror)}>
+                <Text style={styles.changelogButtonText}>
+                  {showHorror ? 'Hide Horror' : 'Show Horror'}
+                </Text>
+              </TouchableOpacity>
+            {showHorror && (
+              <>
+                <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' }}>Horror Games</Text>
+                <View style={styles.gameList}>
+                  <Game
+                    name="FnaF 1"
+                    imageSource={gameIcons['fnaf']}
+                    onPress={() => router.push('/game/fnaf-1')}
+                  />
+                </View>
+              </>
+            )}
+            <View style={styles.changelogSection}>
+              <TouchableOpacity style={styles.changelogButton} onPress={fetchChangelog}>
+                <Text style={styles.changelogButtonText}>
+                  {loading ? 'Loading...' : showChangelog ? 'Hide Changelog' : 'View Changelog'}
+                </Text>
+              </TouchableOpacity>
+              
+              {showChangelog && (
+                <ScrollView style={styles.changelogContainer} nestedScrollEnabled>
+                  <Markdown style={markdownStyles}>
+                    {changelogContent}
+                  </Markdown>
+                </ScrollView>
+              )}
+            </View>
+          </ScrollView>
         </View>
-      </ScrollView>
-    </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#202020',
   },
   scrollContent: {
     flexGrow: 1,

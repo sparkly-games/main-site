@@ -2,6 +2,9 @@
 
 Last updated: 28th September 2025, 16:45.
 
+## 0.3.5.1 [EPR]
+- Added image background.
+
 ## 0.3.5 [EPR]
 - Removed Emoji Kitchen.
 - Unsuspended BitLife and GunSpin.
