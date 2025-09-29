@@ -23,6 +23,7 @@ export default function Index() {
       message: `
       Thorns and Balloons: The game currently has no sound. [TD;LR]
       Tiny Fishing: Before May 2024 update. (No fish after purple seahorse) [TD;LR]
+      Survival Race: Flying is not available. [TD;LR]
       `,
     },
     {
@@ -32,6 +33,7 @@ export default function Index() {
       The following games will be temporarily removed due to size constraints. We are working hard to bring them back, faster and smaller than ever.
       [x] BitLife
       [x] GunSpin
+      [n] FnaF 1
 
       Some games have been permanently removed:
       - Happy Wheels
@@ -121,6 +123,11 @@ export default function Index() {
                 onPress={() => router.push('/game/clash-royale')}
               />
               <Game
+                name="Penalty Kick Online"
+                imageSource={gameIcons['pen kick']}
+                onPress={() => router.push('/game/pen-kick')}
+              />
+              <Game
                 name="Duck Duck Clicker"
                 imageSource={gameIcons['duck-duck-clicker']}
                 onPress={() => router.push('/game/duck-duck-clicker')}
@@ -187,11 +194,11 @@ export default function Index() {
               <>
                 <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' }}>Horror Games</Text>
                 <View style={styles.gameList}>
-                  <Game
+                  {/*<Game
                     name="FnaF 1"
                     imageSource={gameIcons['fnaf']}
                     onPress={() => router.push('/game/fnaf-1')}
-                  />
+                  />*/}
                 </View>
               </>
             )}

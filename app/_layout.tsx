@@ -1,5 +1,6 @@
 import { Stack } from "expo-router";
 import TeamsHeaderButton from '@/components/TeamsButton';
+import SparxHeaderButton from "@/components/SparxButton";
 
 export default function RootLayout() {
   return (
@@ -8,7 +9,7 @@ export default function RootLayout() {
         name="index"
         options={{
           title: "onlinegames12",
-          headerRight: () => <TeamsHeaderButton />,
+          headerRight: () => <><SparxHeaderButton /><TeamsHeaderButton /></>,
         }}
       />
     </Stack>

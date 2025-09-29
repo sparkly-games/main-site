@@ -17,10 +17,11 @@ const games = {
   'ovo': `${prefix}/ovo/index.html`,
   'gunspin': `${prefix}/gunspin/index.html`,
   'drive-mad': `${prefix}/drive-mad/index.html`,
-  'fnaf-1': `${prefix}/fnaf-1/index.html`,
+  // 'fnaf-1': `${prefix}/fnaf-1/index.html`,
   'roper': `${prefix}/roper/index.html`,
   'ragdoll-hit': `${prefix}/ragdoll-hit/index.html`,
   'survival-race': `${prefix}/survival-race/index.html`,
+  'pen-kick': `${prefix}/penkick/index.html`
 };
 
 export default function GameScreen() {

@@ -2,6 +2,12 @@
 
 Last updated: 28th September 2025, 16:45.
 
+## 0.4.0 [MPR]
+- Added some notices.
+- Penalty Kick Online
+- 4 new sparx buttons in the header.
+- Suspend FnaF 1 for fixing.
+
 ## 0.3.7 [EPR]
 - Added Survival Race - GameStreeem on Github.
 
