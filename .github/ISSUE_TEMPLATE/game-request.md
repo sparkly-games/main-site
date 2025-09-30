@@ -1,10 +1,10 @@
 ---
 name: Game Request
 about: Request a game for the project.
-title: "[GAME REQUEST] - [game name]"
-labels: ''
+title: "[GAME REQUEST] - gm"
+labels: 'enhancement'
 assignees: rilwag2612
-
+type: "Feature"
 ---
 
 **Game Req.**
