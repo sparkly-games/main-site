@@ -20,7 +20,7 @@ const games = {
   'a': `${prefix}/fnaf/1`,
   'b': `${prefix}/roper`,
   'c': `${prefix}/ragdoll-hit`,
-  'd': `${prefix}/survival-race`,
+  'd': `https://survival-race.wasmer.app`,
   'e': `${prefix}/penkick`
 };
 
