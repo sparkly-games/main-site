@@ -12,10 +12,9 @@
     "lint": "expo lint",
     "render-deploy": "render deploys create srv-d36li58dl3ps738fg7q0 -o text --confirm",
     "wasmer-deploy": "wasmer publish && wasmer deploy",
-    "gh-pages-deploy": "gh-pages --nojekyll -d dist",
     "netlify-deploy": "netlify deploy --prod",
     "vercel-deploy": "vercel --prod",
-    "deploy": "npm run gh-pages-deploy && npm run render-deploy && npm run wasmer-deploy && npm run vercel-deploy",
+    "deploy": "npm run render-deploy && npm run wasmer-deploy && npm run vercel-deploy",
     "predeploy": "expo export --platform web"
   },
   "jest": {
