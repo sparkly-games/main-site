@@ -1,6 +1,6 @@
 # Changelog
 
-Last updated: 3rd October - 3:56pm.
+Last updated: 3rd October - 4:00pm.
 
 ## 0.5.0 [Major]
 - Fixed FnaF 1
@@ -9,6 +9,7 @@ Last updated: 3rd October - 3:56pm.
 - Fix Survival Race (Default English, Game modes, flying.)
 - Added Seneca Button.
 - Sorted the games into categories.
+- Added 8BP
 
 
 ## 0.4.0 [MPR]

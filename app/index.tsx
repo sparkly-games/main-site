@@ -134,6 +134,11 @@ export default function Index(this: any) {
                 imageSource={gameIcons['d']}
                 onPress={() => router.push('/game/d')}
               />
+              <Game
+                name="8 Ball Pool"
+                imageSource={gameIcons['f']}
+                onPress={() => router.push('/game/f')}
+              />
             </View>
 
             <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 20, marginBottom: 10, textAlign: 'center' }}>Ragdoll Games</Text>
