@@ -9,8 +9,6 @@ Last updated: 3rd October - 4:00pm.
 - Fix Survival Race (Default English, Game modes, flying.)
 - Added Seneca Button.
 - Sorted the games into categories.
-- Added 8BP
-
 
 ## 0.4.0 [MPR]
 - Added some notices.

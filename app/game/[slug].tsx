@@ -21,8 +21,7 @@ const games = {
   'b': `${prefix}/roper`,
   'c': `${prefix}/ragdoll-hit`,
   'd': `${prefix}/survival-race`,
-  'e': `${prefix}/penkick`,
-  'f': `${prefix}/8bp`
+  'e': `${prefix}/penkick`
 };
 
 export default function GameScreen() {
