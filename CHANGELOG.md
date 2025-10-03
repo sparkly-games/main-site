@@ -1,6 +1,15 @@
 # Changelog
 
-Last updated: 28th September 2025, 16:45.
+Last updated: 3rd October - 3:56pm.
+
+## 0.5.0 [Major]
+- Fixed FnaF 1
+- Add header buttons to the game pages.
+- Minify Game Slugs
+- Fix Survival Race (Default English, Game modes, flying.)
+- Added Seneca Button.
+- Sorted the games into categories.
+
 
 ## 0.4.0 [MPR]
 - Added some notices.

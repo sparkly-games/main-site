@@ -4,13 +4,20 @@ import SparxHeaderButton from "@/components/SparxButton";
 
 export default function RootLayout() {
   return (
-    <Stack>
+    <Stack
+      screenOptions={{
+        headerBackVisible: true,
+        headerRight: () => (
+          <>
+            <SparxHeaderButton />
+            <TeamsHeaderButton />
+          </>
+        ),
+      }}
+    >
       <Stack.Screen
         name="index"
-        options={{
-          title: "onlinegames12",
-          headerRight: () => <><SparxHeaderButton /><TeamsHeaderButton /></>,
-        }}
+        options={{ title: "onlinegames12" }}
       />
     </Stack>
   );

@@ -7,28 +7,21 @@ const prefix = '..';
 // This object maps the game slug to the relative URL of your game's HTML file.
 // Place your game folders (e.g., 'tiny-fishing/') inside the 'public' directory at the root of your project.
 const games = {
-  'tiny-fishing': `${prefix}/tiny-fishing/index.html`,
-  'ragdoll-archers': `${prefix}/ragdoll-archers/index.html`,
-  'subway-surfers': `${prefix}/subway-surfers/index.html`,
-  'clash-royale': `${prefix}/clash-royale/index.html`,
-  'duck-duck-clicker': `${prefix}/duck-duck-clicker/index.html`,
-  'thorns-and-balloons': `${prefix}/thorns-and-balloons/index.html`,
-  'bitlife': `${prefix}/bitlife/index.html`,
-  'ovo': `${prefix}/ovo/index.html`,
-  'gunspin': `${prefix}/gunspin/index.html`,
-  'drive-mad': `${prefix}/drive-mad/index.html`,
-  // 'fnaf-1': `${prefix}/fnaf/1/index.html`,
-  // 'fnaf-2': `${prefix}/fnaf/2/index.html`,
-  // 'fnaf-3': `${prefix}/fnaf/3/index.html`,
-  // 'fnaf-4': `${prefix}/fnaf/4/index.html`,
-  // 'fnaf-w': `${prefix}/fnaf/w/index.html`,
-  // 'fnaf-sl': `${prefix}/fnaf/sl/index.html`,
-  // 'fnaf-ps': `${prefix}/fnaf/ps/index.html`,
-  // 'fnaf-ucn': `${prefix}/fnaf/ucn/index.html`,
-  'roper': `${prefix}/roper/index.html`,
-  'ragdoll-hit': `${prefix}/ragdoll-hit/index.html`,
-  'survival-race': `${prefix}/survival-race/index.html`,
-  'pen-kick': `${prefix}/penkick/index.html`
+  '0': `${prefix}/clash-royale`,
+  '1': `${prefix}/tiny-fishing`,
+  '2': `${prefix}/ragdoll-archers`,
+  '3': `${prefix}/subway-surfers`,
+  '4': `${prefix}/duck-duck-clicker`,
+  '5': `${prefix}/thorns-and-balloons`,
+  '6': `${prefix}/bitlife`,
+  '7': `${prefix}/ovo`,
+  '8': `${prefix}/gunspin`,
+  '9': `${prefix}/drive-mad`,
+  'a': `${prefix}/fnaf/1`,
+  'b': `${prefix}/roper`,
+  'c': `${prefix}/ragdoll-hit`,
+  'd': `${prefix}/survival-race`,
+  'e': `${prefix}/penkick`
 };
 
 export default function GameScreen() {

@@ -1,7 +1,6 @@
 // components/TeamsHeaderButton.js
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Linking, Alert, Image } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const SparxHeaderButton = () => {
   const handlePressMain = async () => {
@@ -56,6 +55,19 @@ const SparxHeaderButton = () => {
       Alert.alert('Error', 'Could not open Sparx.');
     }
   };
+  const handlePressSeneca = async () => {
+    const url = 'https://app.senecalearning.com/dashboard/assignments/todo';
+    try {
+      const supported = await Linking.canOpenURL(url);
+
+      if (supported) {
+        await Linking.openURL(url);
+      }
+    } catch (error) {
+      console.error('Failed to open URL:', error);
+      Alert.alert('Error', 'Could not open Seneca.');
+    }
+  };
 
   return (
     <>
@@ -70,6 +82,9 @@ const SparxHeaderButton = () => {
     </TouchableOpacity>
     <TouchableOpacity onPress={handlePressMain} style={styles.button}>
        <Image source={{uri: 'https://sparx-learning.com/favicons/apple-touch-icon.png'}} style={{ width: 30, height: 30 }} />
+    </TouchableOpacity>
+    <TouchableOpacity onPress={handlePressSeneca} style={styles.button}>
+       <Image source={{uri: 'https://senecalearning.com/icons/icon-512x512.png'}} style={{ width: 30, height: 30 }} />
     </TouchableOpacity>
     </>
   );

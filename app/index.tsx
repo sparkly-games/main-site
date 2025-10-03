@@ -2,10 +2,10 @@ import { Text, View, StyleSheet, TouchableOpacity, ScrollView, Image, ImageBackg
 import { Game } from '@/components/Game';
 import { gameIcons } from '@/assets/images/GameIcons';
 import { useRouter } from 'expo-router';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Markdown from 'react-native-markdown-display';
 
-export default function Index() {
+export default function Index(this: any) {
   const router = useRouter();
   const [expandedNotices, setExpandedNotices] = useState<{ [key: string]: boolean }>({});
   const [changelogContent, setChangelogContent] = useState<string>('');
@@ -21,34 +21,7 @@ export default function Index() {
       id: 'game-information',
       title: 'Game Info',
       message: `
-      Thorns and Balloons: The game currently has no sound. [TD;LR]
       Tiny Fishing: Before May 2024 update. (No fish after purple seahorse) [TD;LR]
-      Survival Race: Flying is not available. [TD;LR]
-      `,
-    },
-    {
-      id: 'temporary-removals',
-      title: 'Temporary Removals',
-      message: `
-      The following games will be temporarily removed due to size constraints. We are working hard to bring them back, faster and smaller than ever.
-      [x] BitLife
-      [x] GunSpin
-      [n] FnaF 1
-
-      Some games have been permanently removed:
-      - Happy Wheels
-      - Crazy Crash Landing
-      - FnaF 3
-      - DTA 6
-
-      They may return in the future, but for now, they are gone.
-      `,
-    },
-    {
-      id: 'sitewide-bugs',
-      title: 'Sitewide Bugs',
-      message: `
-      If you reload the tab, you may see the home screen for a second before the game loads. This is a known issue with the configuration and is being worked on. [TD;LR]
       `,
     }
   ];
@@ -91,79 +64,108 @@ export default function Index() {
             {// <AdCarousel />
             }
             <Image source={require('@/assets/images/og12_logo_banner.png')} style={{ height: 225, width: 500, borderRadius: 10 }} />
+            
+            <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 10, marginBottom: 10, textAlign: 'center' }}>Endless Games</Text>
             <View style={styles.gameList}>
               <Game
-                name="Survival Race"
-                imageSource={gameIcons['survival race']}
-                onPress={() => router.push('/game/survival-race')}
-              />
-              <Game
                 name="Tiny Fishing"
-                imageSource={gameIcons['tiny fishing']}
-                onPress={() => router.push('/game/tiny-fishing')}
-              />
-              <Game
-                name="Ragdoll Archers"
-                imageSource={gameIcons['ragdoll archers']}
-                onPress={() => router.push('/game/ragdoll-archers')}
+                imageSource={gameIcons['1']}
+                onPress={() => router.push('/game/1')}
               />
               <Game
                 name="Subway Surfers"
-                imageSource={gameIcons['subway surfers']}
-                onPress={() => router.push('/game/subway-surfers')}
-              />
-              <Game
-                name="Drive Mad"
-                imageSource={gameIcons['drive mad']}
-                onPress={() => router.push('/game/drive-mad')}
-              />
-              <Game
-                name="Clash Royale"
-                imageSource={gameIcons['clash royale']}
-                onPress={() => router.push('/game/clash-royale')}
-              />
-              <Game
-                name="Penalty Kick Online"
-                imageSource={gameIcons['pen kick']}
-                onPress={() => router.push('/game/pen-kick')}
+                imageSource={gameIcons['3']}
+                onPress={() => router.push('/game/3')}
               />
               <Game
                 name="Duck Duck Clicker"
-                imageSource={gameIcons['duck-duck-clicker']}
-                onPress={() => router.push('/game/duck-duck-clicker')}
-              />
-              <Game
-                name="Thorns and Balloons"
-                imageSource={gameIcons['thorns and balloons']}
-                onPress={() => router.push('/game/thorns-and-balloons')}
-              />
-              <Game
-                name="Roper"
-                imageSource={gameIcons['roper']}
-                onPress={() => router.push('/game/roper')}
-              />
-              <Game
-                name="BitLife"
-                imageSource={gameIcons['bitlife']}
-                onPress={() => router.push('/game/bitlife')}
-              />
-              <Game
-                name="OVO"
-                imageSource={gameIcons['ovo']}
-                onPress={() => router.push('/game/ovo')}
-              />
-              <Game
-                name="Ragdoll Hit"
-                imageSource={gameIcons['ragdoll hit']}
-                onPress={() => router.push('/game/ragdoll-hit')}
+                imageSource={gameIcons['4']}
+                onPress={() => router.push('/game/4')}
               />
               <Game
                 name="GunSpin"
-                imageSource={gameIcons['gunspin']}
-                onPress={() => router.push('/game/gunspin')}
+                imageSource={gameIcons['8']}
+                onPress={() => router.push('/game/8')}
               />
             </View>
-            
+
+            <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 20, marginBottom: 10, textAlign: 'center' }}>Arcade Games</Text>
+            <View style={styles.gameList}>
+              <Game
+                name="Thorns and Balloons"
+                imageSource={gameIcons['5']}
+                onPress={() => router.push('/game/5')}
+              />
+              <Game
+                name="BitLife"
+                imageSource={gameIcons['6']}
+                onPress={() => router.push('/game/6')}
+              />
+              <Game
+                name="OVO"
+                imageSource={gameIcons['7']}
+                onPress={() => router.push('/game/7')}
+              />
+            </View>
+
+            <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 20, marginBottom: 10, textAlign: 'center' }}>Fancade</Text>
+            <View style={styles.gameList}>
+              <Game
+                name="Drive Mad"
+                imageSource={gameIcons['9']}
+                onPress={() => router.push('/game/9')}
+              />
+              <Game
+                name="Roper"
+                imageSource={gameIcons['b']}
+                onPress={() => router.push('/game/b')}
+              />
+            </View>
+
+            <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 20, marginBottom: 10, textAlign: 'center' }}>Sports Games</Text>
+            <View style={styles.gameList}>
+              <Game
+                name="Penalty Kick Online"
+                imageSource={gameIcons['e']}
+                onPress={() => router.push('/game/e')}
+              />
+              <Game
+                name="Survival Race"
+                imageSource={gameIcons['d']}
+                onPress={() => router.push('/game/d')}
+              />
+            </View>
+
+            <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 20, marginBottom: 10, textAlign: 'center' }}>Ragdoll Games</Text>
+            <View style={styles.gameList}>
+              <Game
+                name="Ragdoll Hit"
+                imageSource={gameIcons['c']}
+                onPress={() => router.push('/game/c')}
+              />
+              <Game
+                name="Ragdoll Archers"
+                imageSource={gameIcons['2']}
+                onPress={() => router.push('/game/2')}
+              />
+            </View>
+            <TouchableOpacity style={styles.changelogButton} onPress={setShowHorror.bind(this, !showHorror)}>
+                <Text style={styles.changelogButtonText}>
+                  {showHorror ? 'Hide Horror' : 'Show Horror'}
+                </Text>
+              </TouchableOpacity>
+            {showHorror && (
+              <>
+                <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' }}>Horror Games</Text>
+                <View style={styles.gameList}>
+                  <Game
+                    name="FnaF 1"
+                    imageSource={gameIcons['a']}
+                    onPress={() => router.push('/game/a')}
+                  />
+                </View>
+              </>
+            )}  
             <View style={styles.noticesSection}>
               <Text style={styles.noticesTitle}>Notices</Text>
               {notices.map((notice) => (
@@ -185,23 +187,6 @@ export default function Index() {
                 </View>
               ))}
             </View>
-            <TouchableOpacity style={styles.changelogButton} onPress={setShowHorror.bind(this, !showHorror)}>
-                <Text style={styles.changelogButtonText}>
-                  {showHorror ? 'Hide Horror' : 'Show Horror'}
-                </Text>
-              </TouchableOpacity>
-            {showHorror && (
-              <>
-                <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' }}>Horror Games</Text>
-                <View style={styles.gameList}>
-                  {/*<Game
-                    name="FnaF 1"
-                    imageSource={gameIcons['fnaf']}
-                    onPress={() => router.push('/game/fnaf-1')}
-                  />*/}
-                </View>
-              </>
-            )}
             <View style={styles.changelogSection}>
               <TouchableOpacity style={styles.changelogButton} onPress={fetchChangelog}>
                 <Text style={styles.changelogButtonText}>
@@ -216,6 +201,14 @@ export default function Index() {
                   </Markdown>
                 </ScrollView>
               )}
+            </View>
+            <Text style={styles.deprecatedTitle}>Deprecated Games</Text>
+            <View style={styles.gameList}>
+              <Game
+                name="Clash Royale"
+                imageSource={gameIcons['0']}
+                onPress={() => router.push('/game/0')}
+              />
             </View>
           </ScrollView>
         </View>
@@ -243,6 +236,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
+  },
+  deprecatedTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: 20,
+    marginBottom: 10,
+    textAlign: 'center',
+    color: '#888888',
   },
   noticesSection: {
     width: '90%',
