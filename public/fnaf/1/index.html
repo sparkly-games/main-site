@@ -195,7 +195,7 @@ window.onload = async function() {
     // Extract single ZIP
     async function extract() {
         updateProgress('LOADING RESOURCES...', 0);
-        const res = await fetch("resources.zip");
+        const res = await fetch("https://github.com/onlinegames19/main-site/releases/download/fnaf/resources-optimized.zip");
         const arrayBuffer = await res.arrayBuffer();
         const zip = await JSZip.loadAsync(arrayBuffer);
         const files = Object.keys(zip.files).filter(name => !zip.files[name].dir);
