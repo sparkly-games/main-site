@@ -22,6 +22,7 @@ export default function Index(this: any) {
       title: 'Game Info',
       message: `
       Tiny Fishing: Before May 2024 update. (No fish after purple seahorse) [TD;LR]
+      PREPREPRE
       `,
     }
   ];
