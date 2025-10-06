@@ -2,6 +2,12 @@
 
 Last updated: 5rd October - 5:00pm.
 
+## 0.5.4 [MPR]
+- Fixed FNaF 1
+- Added Sister Location
+- Added Darts Pro
+- Add big red notices at page top.
+
 ## 0.5.1 [MPR]
 - Added G-Tag integration for analytics.
 
