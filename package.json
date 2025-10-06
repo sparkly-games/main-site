@@ -11,7 +11,7 @@
     "test": "jest --watchAll",
     "lint": "expo lint",
     "render-deploy": "render deploys create srv-d36li58dl3ps738fg7q0 -o text --confirm",
-    "wasmer-deploy": "wasmer deploy",
+    "wasmer-deploy": "wasmer publish && wasmer deploy",
     "netlify-deploy": "netlify deploy --prod",
     "vercel-deploy": "vercel --prod",
     "deploy": "npm run render-deploy && npm run wasmer-deploy && npm run vercel-deploy",
@@ -39,6 +39,7 @@
     "expo-symbols": "~0.4.4",
     "expo-system-ui": "~5.0.7",
     "expo-web-browser": "~14.1.6",
+    "firebase": "^12.3.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "0.79.2",
@@ -48,7 +49,8 @@
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.10.0",
     "react-native-web": "~0.20.0",
-    "react-native-webview": "13.13.5"
+    "react-native-webview": "13.13.5",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

@@ -1,6 +1,9 @@
 # Changelog
 
-Last updated: 3rd October - 4:00pm.
+Last updated: 5rd October - 5:00pm.
+
+## 0.5.1 [MPR]
+- Added G-Tag integration for analytics.
 
 ## 0.5.0 [Major]
 - Fixed FnaF 1

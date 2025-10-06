@@ -1,38 +1,131 @@
-import { Text, View, StyleSheet, TouchableOpacity, ScrollView, Image, ImageBackground } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, ScrollView, ImageBackground } from "react-native";
 import { Game } from '@/components/Game';
 import { gameIcons } from '@/assets/images/GameIcons';
 import { useRouter } from 'expo-router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Markdown from 'react-native-markdown-display';
+
+// --- Types and Constants ---
+
+// Define the structure of a remote notice item
+interface RemoteNotice {
+  name: string;
+  info: string;
+  noticeDetails: string;
+  end: number; // Unix timestamp in seconds
+}
+
+// URL for the remote notice file (Placeholder URL used)
+const errorNoticesUrl = 'https://raw.githubusercontent.com/onlinegames19/main-site/main/errors.md';
+const changelogUrl = 'https://raw.githubusercontent.com/onlinegames19/main-site/main/CHANGELOG.md';
+
+/**
+ * Custom parser for the YAML-like front-matter blocks.
+ * It expects blocks separated by '---'.
+ */
+const parseNotices = (rawText: string): RemoteNotice[] => {
+  // Split by '---', filter out empty strings, and exclude the first and last (if they are just delimiters)
+  const blocks = rawText.split('---').filter(block => block.trim().length > 0);
+  const notices: RemoteNotice[] = [];
+
+  blocks.forEach(block => {
+    try {
+      const data: Partial<RemoteNotice> = {};
+      const lines = block.trim().split('\n').filter(line => line.trim().length > 0);
+      
+      lines.forEach(line => {
+        // Simple key: value extraction
+        const parts = line.split(':');
+        if (parts.length < 2) return;
+        
+        const key = parts[0].trim();
+        // Join the rest of the parts to handle colons in the message, then clean up quotes
+        const value = parts.slice(1).join(':').trim().replace(/^['"]|['"]$/g, '');
+        
+        if (key === 'name') data.name = value;
+        else if (key === 'info') data.info = value;
+        else if (key === 'noticeDetails') data.noticeDetails = value;
+        // Parse end as an integer
+        else if (key === 'end') data.end = parseInt(value, 10);
+      });
+
+      // Validate that all required fields are present
+      if (data.name && data.info && data.noticeDetails && typeof data.end === 'number' && !isNaN(data.end)) {
+        notices.push(data as RemoteNotice);
+      }
+    } catch (e) {
+      console.error('Error parsing notice block:', e);
+    }
+  });
+
+  return notices;
+};
+
+// --- Main Component ---
 
 export default function Index(this: any) {
   const router = useRouter();
-  const [expandedNotices, setExpandedNotices] = useState<{ [key: string]: boolean }>({});
+  // State for the single, active notice fetched remotely
+  const [activeNotice, setActiveNotice] = useState<RemoteNotice | null>(null); 
   const [changelogContent, setChangelogContent] = useState<string>('');
   const [showChangelog, setShowChangelog] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [showHorror, setShowHorror] = useState<boolean>(false);
 
-  // You can change this URL to point to your own GitHub markdown file
-  const changelogUrl = 'https://raw.githubusercontent.com/onlinegames19/onlinegames19.github.io/main/CHANGELOG.md';
+  const gameGo = (path: string) => {
+    router.push(`/game/${path}`);
+  }
 
-  const notices = [
-    {
-      id: 'game-information',
-      title: 'Game Info',
-      message: `
-      Tiny Fishing: Before May 2024 update. (No fish after purple seahorse) [TD;LR]
-      PREPREPRE
-      `,
+  /**
+   * Fetches the remote notices, parses them, and finds the first one 
+   * that is still active (end timestamp is in the future).
+   */
+  const fetchAndFilterNotices = async () => {
+    try {
+      // Exponential backoff for network requests
+      const maxRetries = 3;
+      let response: Response | null = null;
+      
+      for (let i = 0; i < maxRetries; i++) {
+        try {
+          response = await fetch(errorNoticesUrl);
+          if (response.ok) break;
+        } catch (error) {
+          // Wait before retrying
+          await new Promise(resolve => setTimeout(resolve, Math.pow(2, i) * 1000));
+        }
+      }
+      
+      if (!response || !response.ok) {
+        console.error('Failed to fetch notices after multiple retries.');
+        setActiveNotice(null);
+        return;
+      }
+
+      const rawText = await response.text();
+      const allNotices = parseNotices(rawText);
+
+      // Current time in milliseconds
+      const nowMs = Date.now(); 
+
+      // Find the first notice in the list whose end time (converted to milliseconds) is in the future
+      const active = allNotices.find(notice => notice.end * 1000 > nowMs);
+
+      if (active) {
+        setActiveNotice(active);
+      } else {
+        setActiveNotice(null);
+      }
+
+    } catch (error) {
+      console.error('Failed to process active notices:', error);
     }
-  ];
-
-  const toggleNotice = (noticeId: string) => {
-    setExpandedNotices(prev => ({
-      ...prev,
-      [noticeId]: !prev[noticeId]
-    }));
   };
+
+  // Run the notice fetching logic once on component mount
+  useEffect(() => {
+    fetchAndFilterNotices();
+  }, []);
 
   const fetchChangelog = async () => {
     if (changelogContent) {
@@ -59,34 +152,48 @@ export default function Index(this: any) {
   };
 
   return (
+    // Note: The ImageBackground source needs to be locally resolvable in a real React Native environment
     <ImageBackground source={require('@/assets/images/background.jpg')} resizeMode="cover" style={{ flex: 1, justifyContent: 'center' }}>
         <View style={styles.container}>
           <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-            {// <AdCarousel />
-            }
-            <Image source={require('@/assets/images/og12_logo_banner.png')} style={{ height: 225, width: 500, borderRadius: 10 }} />
-            
-            <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 10, marginBottom: 10, textAlign: 'center' }}>Endless Games</Text>
+            <Text style={styles.title}>
+              Endless Games
+            </Text>
+
+            {/* Conditional Display for the Active Notice (as requested, right under the title) */}
+            {activeNotice && (
+              <View style={styles.activeNoticeContainer}>
+                <Text style={styles.activeNoticeTitle}>{activeNotice.name}</Text>
+                <Text style={styles.activeNoticeInfo}>{activeNotice.info}</Text>
+                <Text style={styles.activeNoticeDetails}>
+                  <Text style={{fontWeight: 'bold'}}>Dates: </Text>{activeNotice.noticeDetails}
+                </Text>
+                <Text style={styles.activeNoticeTimestamp}>
+                  Ends: {new Date(activeNotice.end * 1000).toLocaleDateString()}
+                </Text>
+              </View>
+            )}
+
             <View style={styles.gameList}>
               <Game
                 name="Tiny Fishing"
                 imageSource={gameIcons['1']}
-                onPress={() => router.push('/game/1')}
+                onPress={() => gameGo('1')}
               />
               <Game
                 name="Subway Surfers"
                 imageSource={gameIcons['3']}
-                onPress={() => router.push('/game/3')}
+                onPress={() => gameGo('3')}
               />
               <Game
                 name="Duck Duck Clicker"
                 imageSource={gameIcons['4']}
-                onPress={() => router.push('/game/4')}
+                onPress={() => gameGo('4')}
               />
               <Game
                 name="GunSpin"
                 imageSource={gameIcons['8']}
-                onPress={() => router.push('/game/8')}
+                onPress={() => gameGo('8')}
               />
             </View>
 
@@ -95,17 +202,17 @@ export default function Index(this: any) {
               <Game
                 name="Thorns and Balloons"
                 imageSource={gameIcons['5']}
-                onPress={() => router.push('/game/5')}
+                onPress={() => gameGo('5')}
               />
               <Game
                 name="BitLife"
                 imageSource={gameIcons['6']}
-                onPress={() => router.push('/game/6')}
+                onPress={() => gameGo('6')}
               />
               <Game
                 name="OVO"
                 imageSource={gameIcons['7']}
-                onPress={() => router.push('/game/7')}
+                onPress={() => gameGo('7')}
               />
             </View>
 
@@ -114,12 +221,12 @@ export default function Index(this: any) {
               <Game
                 name="Drive Mad"
                 imageSource={gameIcons['9']}
-                onPress={() => router.push('/game/9')}
+                onPress={() => gameGo('9')}
               />
               <Game
                 name="Roper"
                 imageSource={gameIcons['b']}
-                onPress={() => router.push('/game/b')}
+                onPress={() => gameGo('b')}
               />
             </View>
 
@@ -128,12 +235,12 @@ export default function Index(this: any) {
               <Game
                 name="Penalty Kick Online"
                 imageSource={gameIcons['e']}
-                onPress={() => router.push('/game/e')}
+                onPress={() => gameGo('e')}
               />
               <Game
                 name="Survival Race"
                 imageSource={gameIcons['d']}
-                onPress={() => router.push('/game/d')}
+                onPress={() => gameGo('d')}
               />
             </View>
 
@@ -142,12 +249,12 @@ export default function Index(this: any) {
               <Game
                 name="Ragdoll Hit"
                 imageSource={gameIcons['c']}
-                onPress={() => router.push('/game/c')}
+                onPress={() => gameGo('c')}
               />
               <Game
                 name="Ragdoll Archers"
                 imageSource={gameIcons['2']}
-                onPress={() => router.push('/game/2')}
+                onPress={() => gameGo('2')}
               />
             </View>
             <TouchableOpacity style={styles.changelogButton} onPress={setShowHorror.bind(this, !showHorror)}>
@@ -162,32 +269,14 @@ export default function Index(this: any) {
                   <Game
                     name="FnaF 1"
                     imageSource={gameIcons['a']}
-                    onPress={() => router.push('/game/a')}
+                    onPress={() => gameGo('a')}
                   />
                 </View>
               </>
             )}  
-            <View style={styles.noticesSection}>
-              <Text style={styles.noticesTitle}>Notices</Text>
-              {notices.map((notice) => (
-                <View key={notice.id} style={styles.noticeItem}>
-                  <TouchableOpacity
-                    style={styles.noticeHeader}
-                    onPress={() => toggleNotice(notice.id)}
-                  >
-                    <Text style={styles.noticeHeaderText}>{notice.title}</Text>
-                    <Text style={styles.dropdownArrow}>
-                      {expandedNotices[notice.id] ? '▼' : '▶'}
-                    </Text>
-                  </TouchableOpacity>
-                  {expandedNotices[notice.id] && (
-                    <View style={styles.noticeContent}>
-                      <Text style={styles.noticeMessage}>{notice.message}</Text>
-                    </View>
-                  )}
-                </View>
-              ))}
-            </View>
+            
+            {/* The old hardcoded notices section has been removed */}
+            
             <View style={styles.changelogSection}>
               <TouchableOpacity style={styles.changelogButton} onPress={fetchChangelog}>
                 <Text style={styles.changelogButtonText}>
@@ -208,7 +297,7 @@ export default function Index(this: any) {
               <Game
                 name="Clash Royale"
                 imageSource={gameIcons['0']}
-                onPress={() => router.push('/game/0')}
+                onPress={() => gameGo('0')}
               />
             </View>
           </ScrollView>
@@ -246,52 +335,53 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#888888',
   },
-  noticesSection: {
+  
+  // NEW STYLES for the Active Notice
+  activeNoticeContainer: {
     width: '90%',
     maxWidth: 600,
-    marginTop: 30,
+    backgroundColor: '#D9534F', // Red background for important warning
+    padding: 15,
+    borderRadius: 12,
     marginBottom: 20,
+    borderWidth: 2,
+    borderColor: '#FFDDC1', // Light border for contrast
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.5,
+    shadowRadius: 6,
+    elevation: 8,
   },
-  noticesTitle: {
+  activeNoticeTitle: {
+    color: 'white',
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'white',
-    marginBottom: 15,
+    marginBottom: 5,
     textAlign: 'center',
   },
-  noticeItem: {
-    backgroundColor: '#333333',
-    borderRadius: 8,
-    marginBottom: 10,
-    overflow: 'hidden',
-  },
-  noticeHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 15,
-    backgroundColor: '#444444',
-  },
-  noticeHeaderText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: '500',
-    flex: 1,
-  },
-  dropdownArrow: {
-    color: 'white',
-    fontSize: 12,
-    marginLeft: 10,
-  },
-  noticeContent: {
-    padding: 15,
-    backgroundColor: '#333333',
-  },
-  noticeMessage: {
-    color: '#cccccc',
+  activeNoticeInfo: {
+    color: '#ffe0e0',
     fontSize: 14,
-    lineHeight: 20,
+    marginBottom: 8,
+    textAlign: 'center',
   },
+  activeNoticeDetails: {
+    color: 'white',
+    fontSize: 14,
+    paddingTop: 5,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255, 255, 255, 0.3)',
+  },
+  activeNoticeTimestamp: {
+    color: '#ffc6c6',
+    fontSize: 12,
+    marginTop: 5,
+    textAlign: 'right',
+  },
+  // END NEW STYLES
+  
+  // Removed old noticesSection styles
+
   changelogSection: {
     width: '90%',
     maxWidth: 600,
