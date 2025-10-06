@@ -196,7 +196,26 @@ export default function Index(this: any) {
                 onPress={() => gameGo('8')}
               />
             </View>
-
+                        
+            <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 20, marginBottom: 10, textAlign: 'center' }}>Sports Games</Text>
+            <View style={styles.gameList}>
+              <Game
+                name="Penalty Kick Online"
+                imageSource={gameIcons['e']}
+                onPress={() => gameGo('e')}
+              />
+              <Game
+                name="Darts Pro"
+                imageSource={gameIcons['f']}
+                onPress={() => gameGo('f')}
+              />
+              <Game
+                name="Survival Race"
+                imageSource={gameIcons['d']}
+                onPress={() => gameGo('d')}
+              />
+            </View>
+            
             <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 20, marginBottom: 10, textAlign: 'center' }}>Arcade Games</Text>
             <View style={styles.gameList}>
               <Game
@@ -230,20 +249,6 @@ export default function Index(this: any) {
               />
             </View>
 
-            <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 20, marginBottom: 10, textAlign: 'center' }}>Sports Games</Text>
-            <View style={styles.gameList}>
-              <Game
-                name="Penalty Kick Online"
-                imageSource={gameIcons['e']}
-                onPress={() => gameGo('e')}
-              />
-              <Game
-                name="Survival Race"
-                imageSource={gameIcons['d']}
-                onPress={() => gameGo('d')}
-              />
-            </View>
-
             <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 20, marginBottom: 10, textAlign: 'center' }}>Ragdoll Games</Text>
             <View style={styles.gameList}>
               <Game
@@ -270,6 +275,11 @@ export default function Index(this: any) {
                     name="FnaF 1"
                     imageSource={gameIcons['a']}
                     onPress={() => gameGo('a')}
+                  />
+                  <Game
+                    name="FnaF Sister Location"
+                    imageSource={gameIcons['g']}
+                    onPress={() => gameGo('g')}
                   />
                 </View>
               </>

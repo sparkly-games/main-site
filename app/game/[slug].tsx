@@ -24,6 +24,7 @@ const games = {
   'd': `https://survival-race.wasmer.app`,
   'e': `${prefix}/penkick`,
   'f': `${prefix}/dartspro`,
+  'g': `${prefix}/fnaf/sl`,
 };
 
 export default function GameScreen() {

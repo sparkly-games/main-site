@@ -13,9 +13,11 @@ export const gameIcons = {
   '7': require('./game-icons/7.jpg'),
   '8': require('./game-icons/8.jpg'),
   '9': require('./game-icons/9.jpg'),
-  'a': require('./game-icons/a.jpg'),
+  'a': require('/fnaf/1/favicon.ico'),
   'b': require('./game-icons/b.jpg'),
   'c': require('./game-icons/c.png'),
   'd': require('./game-icons/d.jpg'),
-  'e': require('./game-icons/e.jpg')
+  'e': require('./game-icons/e.jpg'),
+  'f': require('/dartspro/sprites/200x200.jpg'),
+  'g': require('/fnaf/sl/favicon.ico'),
 };
