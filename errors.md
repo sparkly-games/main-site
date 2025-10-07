@@ -1,4 +1,10 @@
 ---
+name: '404'
+info: 'If you reload a game, it will return 404 Not Found. To fix, go back to the home screen and re open the game. (To be fixed).'
+noticeDetails: '7/10/25 onwards.'
+end: 2222222222
+---
+---
 name: 'Game Removals'
 info: 'On these dates, some games will be removed with warning. This may be due to unpopularity. This is your months notice.'
 noticeDetails: '6/11/25 onwards.'
