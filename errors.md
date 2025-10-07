@@ -1,8 +1,8 @@
 ---
 name: '404'
-info: 'Some games are recieving the 404 Epidemic. To be fixed shortly. Sorry for the inconvenience caused.'
-noticeDetails: '7/10/25 onwards.'
-end: 2222222222
+info: 'If you recieve a 404 with no buttons like the ones above or a letter/number, press back and go to the game again. To be fixed.'
+noticeDetails: 'Unknown Start Date'
+end: 999999999999999999
 ---
 ---
 name: 'Game Removals'

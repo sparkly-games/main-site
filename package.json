@@ -15,7 +15,7 @@
     "netlify-deploy": "netlify deploy --prod",
     "vercel-deploy": "vercel --prod",
     "deploy": "npm run render-deploy && npm run wasmer-deploy && npm run vercel-deploy",
-    "predeploy": "expo export --platform web"
+    "predeploy": "rm -rf dist && expo export --platform web"
   },
   "jest": {
     "preset": "jest-expo"

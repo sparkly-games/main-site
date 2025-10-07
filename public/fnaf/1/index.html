@@ -320,7 +320,7 @@
             return parts;
         }
         Promise.all([
-            mergeFiles(getParts("https://raw.githubusercontent.com/onlinegames19/survival-race/main/fnaf/resources.zip", 1, parts))
+            mergeFiles(getParts("https://raw.githubusercontent.com/irv77/hd_fnaf/main/1/src/resources.zip", 1, parts))
         ]).then(([resources]) => {
             window.fetch = async function (url, ...args) {
                 if (url.endsWith("resources.zip")) {

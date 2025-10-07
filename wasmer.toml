@@ -1,6 +1,6 @@
 [package]
 name = "rilwag2612/onlinegames190"
-version = "0.5.7"
+version = "0.5.8"
 
 [dependencies]
 "wasmer/static-web-server" = "^1"

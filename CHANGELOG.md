@@ -3,6 +3,12 @@
 Last updated: 5rd October - 5:00pm.
 
 ## 0.5.4 [MPR]
+- Tried to fix 404.
+- Fixed SL.
+- Added Maintenance Mode.
+- Added UCN.
+
+## 0.5.4 [MPR]
 - Fixed FNaF 1
 - Added Sister Location
 - Added Darts Pro
