@@ -1,12 +1,13 @@
 [package]
 name = "rilwag2612/onlinegames190"
-version = "0.5.8"
+version = "0.5.9"
 
 [dependencies]
 "wasmer/static-web-server" = "^1"
 
 [fs]
 "/public" = "dist"
+"/settings" = "settings"
 
 [[command]]
 name = "script"
