@@ -320,7 +320,7 @@
             return parts;
         }
         Promise.all([
-            mergeFiles(getParts("https://survival-race.wasmer.app/fnaf/sl/resources.zip", 1, parts))
+            mergeFiles(getParts("https://raw.githubusercontent.com/irv77/hd-fnaf/sl/resources.zip", 1, parts))
         ]).then(([resources]) => {
             window.fetch = async function (url, ...args) {
                 if (url.endsWith("resources.zip")) {
