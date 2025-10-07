@@ -1,6 +1,6 @@
 ---
 name: '404'
-info: 'If you reload a game, it will return 404 Not Found. To fix, go back to the home screen and re open the game. (To be fixed).'
+info: 'Some games are recieving the 404 Epidemic. To be fixed shortly. Sorry for the inconvenience caused.'
 noticeDetails: '7/10/25 onwards.'
 end: 2222222222
 ---
