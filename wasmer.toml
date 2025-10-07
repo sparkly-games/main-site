@@ -1,6 +1,6 @@
 [package]
 name = "rilwag2612/onlinegames190"
-version = "0.5.4"
+version = "0.5.7"
 
 [dependencies]
 "wasmer/static-web-server" = "^1"
@@ -14,4 +14,4 @@ module = "wasmer/static-web-server:webserver"
 runner = "https://webc.org/runner/wasi"
 
 [command.annotations.wasi]
-main-args = ["-w", "/public"]
+main-args = ["-w", "/settings/config.toml"]
