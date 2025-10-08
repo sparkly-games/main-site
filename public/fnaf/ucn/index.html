@@ -320,7 +320,7 @@
             return parts;
         }
         Promise.all([
-            mergeFiles(getParts("https://raw.githubusercontent.com/ivr77/hd_fnaf/ucn/src/resources.zip", 1, parts))
+            mergeFiles(getParts("https://raw.githubusercontent.com/irv77/hd_fnaf/ucn/src/resources.zip", 1, parts))
         ]).then(([resources]) => {
             window.fetch = async function (url, ...args) {
                 if (url.endsWith("resources.zip")) {
