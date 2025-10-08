@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, TouchableOpacity, ScrollView, ImageBackground } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, ScrollView, ImageBackground, Image } from "react-native";
 import { Game } from '@/components/Game';
 import { gameIcons } from '@/assets/images/GameIcons';
 import { useRouter } from 'expo-router';
@@ -156,10 +156,7 @@ export default function Index(this: any) {
     <ImageBackground source={require('@/assets/images/background.jpg')} resizeMode="cover" style={{ flex: 1, justifyContent: 'center' }}>
         <View style={styles.container}>
           <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-            <Text style={styles.title}>
-              Endless Games
-            </Text>
-
+            <Image source={require('@/assets/images/og12_logo_banner.png')} style={{ width: 600, height: 200, marginBottom: 20, borderRadius: 10 }} />
             {/* Conditional Display for the Active Notice (as requested, right under the title) */}
             {activeNotice && (
               <View style={styles.activeNoticeContainer}>
@@ -173,65 +170,86 @@ export default function Index(this: any) {
                 </Text>
               </View>
             )}
-
+            <Text style={styles.title}>
+              Endless Games
+            </Text>
             <View style={styles.gameList}>
               <Game
                 name="Tiny Fishing"
                 imageSource={gameIcons['1']}
-                onPress={() => gameGo('1')}
+                onPress={() => gameGo('tiny-fishing')}
               />
               <Game
                 name="Subway Surfers"
                 imageSource={gameIcons['3']}
-                onPress={() => gameGo('3')}
+                onPress={() => gameGo('subway-surfers')}
               />
               <Game
                 name="Duck Duck Clicker"
                 imageSource={gameIcons['4']}
-                onPress={() => gameGo('4')}
+                onPress={() => gameGo('duck-duck-clicker')}
+              />
+              <Game
+                name="Survival Race"
+                imageSource={gameIcons['d']}
+                onPress={() => gameGo('survival-race')}
               />
               <Game
                 name="GunSpin"
                 imageSource={gameIcons['8']}
-                onPress={() => gameGo('8')}
+                onPress={() => gameGo('gunspin')}
               />
             </View>
-                        
+                        <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 20, marginBottom: 10, textAlign: 'center' }}>Arcade Games</Text>
+            <View style={styles.gameList}>
+              <Game
+                name="Thorns and Balloons"
+                imageSource={gameIcons['5']}
+                onPress={() => gameGo('thorns-and-balloons')}
+              />
+              <Game
+                name="BitLife"
+                imageSource={gameIcons['6']}
+                onPress={() => gameGo('bitlife')}
+              />
+              <Game
+                name="OVO"
+                imageSource={gameIcons['7']}
+                onPress={() => gameGo('ovo')}
+              />
+              <Game
+                name="Awesome Tanks 2"
+                imageSource={gameIcons['i']}
+                onPress={() => gameGo('awesome-tanks')}
+              />
+              <Game
+                name="Hotline Miami (UNSTABLE, PC)"
+                imageSource={gameIcons['l']}
+                onPress={() => gameGo('hotline-miami')}
+              />
+            </View>
+
             <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 20, marginBottom: 10, textAlign: 'center' }}>Sports Games</Text>
             <View style={styles.gameList}>
               <Game
                 name="Penalty Kick Online"
                 imageSource={gameIcons['e']}
-                onPress={() => gameGo('e')}
+                onPress={() => gameGo('penkick')}
               />
               <Game
                 name="Darts Pro"
                 imageSource={gameIcons['f']}
-                onPress={() => gameGo('f')}
+                onPress={() => gameGo('darts-pro')}
               />
               <Game
-                name="Survival Race"
-                imageSource={gameIcons['d']}
-                onPress={() => gameGo('d')}
-              />
-            </View>
-            
-            <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 20, marginBottom: 10, textAlign: 'center' }}>Arcade Games</Text>
-            <View style={styles.gameList}>
-              <Game
-                name="Thorns and Balloons"
-                imageSource={gameIcons['5']}
-                onPress={() => gameGo('5')}
+                name="Idle Football Manager"
+                imageSource={gameIcons['k']}
+                onPress={() => gameGo('idle-football')}
               />
               <Game
-                name="BitLife"
-                imageSource={gameIcons['6']}
-                onPress={() => gameGo('6')}
-              />
-              <Game
-                name="OVO"
-                imageSource={gameIcons['7']}
-                onPress={() => gameGo('7')}
+                name="Golf Champions"
+                imageSource={gameIcons['j']}
+                onPress={() => gameGo('golf-champs')}
               />
             </View>
 
@@ -240,12 +258,12 @@ export default function Index(this: any) {
               <Game
                 name="Drive Mad"
                 imageSource={gameIcons['9']}
-                onPress={() => gameGo('9')}
+                onPress={() => gameGo('drive-mad')}
               />
               <Game
                 name="Roper"
                 imageSource={gameIcons['b']}
-                onPress={() => gameGo('b')}
+                onPress={() => gameGo('roper')}
               />
             </View>
 
@@ -254,12 +272,12 @@ export default function Index(this: any) {
               <Game
                 name="Ragdoll Hit"
                 imageSource={gameIcons['c']}
-                onPress={() => gameGo('c')}
+                onPress={() => gameGo('ragdoll-hit')}
               />
               <Game
                 name="Ragdoll Archers"
                 imageSource={gameIcons['2']}
-                onPress={() => gameGo('2')}
+                onPress={() => gameGo('ragdoll-archers')}
               />
             </View>
             <TouchableOpacity style={styles.changelogButton} onPress={setShowHorror.bind(this, !showHorror)}>
@@ -274,12 +292,17 @@ export default function Index(this: any) {
                   <Game
                     name="FnaF 1"
                     imageSource={gameIcons['a']}
-                    onPress={() => gameGo('a')}
+                    onPress={() => gameGo('fnaf-1')}
                   />
                   <Game
                     name="FnaF Sister Location"
                     imageSource={gameIcons['g']}
-                    onPress={() => gameGo('g')}
+                    onPress={() => gameGo('sl')}
+                  />
+                  <Game
+                    name="FnaF UCN"
+                    imageSource={gameIcons['h']}
+                    onPress={() => gameGo('ucn')}
                   />
                 </View>
               </>
@@ -307,7 +330,7 @@ export default function Index(this: any) {
               <Game
                 name="Clash Royale"
                 imageSource={gameIcons['0']}
-                onPress={() => gameGo('0')}
+                onPress={() => gameGo('clash')}
               />
             </View>
           </ScrollView>

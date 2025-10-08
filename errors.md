@@ -1,9 +1,8 @@
 ---
-name: 'Tiny Fishing'
-info: 'Tiny Fishing saves will be saved, but the game will be updated. This means new fish after purple seahorse may magically appear soon.'
-noticeDetails: 'Date not planned.'
-end: 0
-<!--end: 1760009400-->
+name: 'Hotline Miami'
+info: 'Hotline Miami is a 2D top down game. The version on this website is unstable and may not work properly; it does not currently support mobile, but this is planned for the future.'
+noticeDetails: ''
+end: 1760117400
 ---
 ---
 name: 'Game Removals'
