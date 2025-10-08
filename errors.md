@@ -1,8 +1,9 @@
 ---
-name: '404'
-info: 'If you recieve a 404 with no buttons like the ones above or a letter/number, press back and go to the game again. To be fixed.'
-noticeDetails: 'Unknown Start Date'
+name: 'Tiny Fishing'
+info: 'Tiny Fishing saves will be saved, but the game will be updated. This means new fish after purple seahorse may magically appear soon.'
+noticeDetails: 'Date not planned.'
 end: 0
+<!--end: 1760009400-->
 ---
 ---
 name: 'Game Removals'
