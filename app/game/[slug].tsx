@@ -8,28 +8,29 @@ const prefix = '..';
 
 // Map game slugs to URLs
 const games = {
-  'clash': `${prefix}/clash-royale`,
-  'tiny-fishing': `${prefix}/tiny-fishing`,
-  'ragdoll-archers': `${prefix}/ragdoll-archers`,
-  'subway-surfers': `${prefix}/subway-surfers`,
-  'duck-duck-clicker': `${prefix}/duck-duck-clicker`,
-  'thorns-and-balloons': `${prefix}/thorns-and-balloons`,
-  'bitlife': `${prefix}/bitlife`,
-  'ovo': `${prefix}/ovo`,
-  'gunspin': `${prefix}/gunspin`,
-  'drive-mad': `${prefix}/drive-mad`,
-  'fnaf-1': `${prefix}/fnaf/1`,
-  'roper': `${prefix}/roper`,
-  'ragdoll-hit': `${prefix}/ragdoll-hit`,
-  'survival-race': `https://survival-race.wasmer.app`,
-  'penkick': `${prefix}/penkick`,
-  'darts-pro': `${prefix}/dartspro`,
-  'sl': `${prefix}/fnaf/sl`,
-  'ucn': `${prefix}/fnaf/ucn`,
-  'awesome-tanks': `${prefix}/at2`,
-  'golf-champs': `${prefix}/golf-champs`,
-  'idle-football': `${prefix}/idle-football`,
-  'hotline-miami': `${prefix}/hotlinemiami`,
+  'Clash': `${prefix}/clash-royale`,
+  'Tiny-Fishing': `${prefix}/tiny-fishing`,
+  'Ragdoll-Archers': `${prefix}/ragdoll-archers`,
+  'Subway-Surfers': `${prefix}/subway-surfers`,
+  'Duck-Duck-Clicker': `${prefix}/duck-duck-clicker`,
+  'Thorns-and-Balloons': `${prefix}/thorns-and-balloons`,
+  'BitLife': `${prefix}/bitlife`,
+  'OvO': `${prefix}/ovo`,
+  'GunSpin': `${prefix}/gunspin`,
+  'Drive-Mad': `${prefix}/drive-mad`,
+  'FNaF-1': `${prefix}/fnaf/1`,
+  'Roper': `${prefix}/roper`,
+  'Ragdoll-Hit': `${prefix}/ragdoll-hit`,
+  'Survival-Race': `https://survival-race.wasmer.app`,
+  'Pen-Kick': `${prefix}/penkick`,
+  'Darts-Pro': `${prefix}/darts-pro`,
+  'SL': `${prefix}/fnaf/sl`,
+  'UCN': `${prefix}/fnaf/ucn`,
+  'Awesome-Tanks-2': `${prefix}/at2`,
+  'Golf-Champs': `${prefix}/golf-champs`,
+  'Idle-Football': `${prefix}/idle-football`,
+  'Hotline-Miami': `https://hotlinemiami.wasmer.app`,
+  'BTD-5': `${prefix}/btd5.htm`,
 };
 
 export default function GameScreen() {
@@ -64,7 +65,7 @@ export default function GameScreen() {
 
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{ title: slug.replace(/-/g, ' ').toUpperCase() }} />
+      <Stack.Screen options={{ title: slug.replace(/-/g, ' ') }} />
       <iframe
         src={gameUrl}
         style={styles.iframe}

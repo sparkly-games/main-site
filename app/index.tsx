@@ -177,27 +177,32 @@ export default function Index(this: any) {
               <Game
                 name="Tiny Fishing"
                 imageSource={gameIcons['1']}
-                onPress={() => gameGo('tiny-fishing')}
+                onPress={() => gameGo('Tiny-Fishing')}
               />
               <Game
                 name="Subway Surfers"
                 imageSource={gameIcons['3']}
-                onPress={() => gameGo('subway-surfers')}
+                onPress={() => gameGo('Subway-Surfers')}
               />
               <Game
                 name="Duck Duck Clicker"
                 imageSource={gameIcons['4']}
-                onPress={() => gameGo('duck-duck-clicker')}
+                onPress={() => gameGo('Duck-Duck-Clicker')}
               />
               <Game
                 name="Survival Race"
                 imageSource={gameIcons['d']}
-                onPress={() => gameGo('survival-race')}
+                onPress={() => gameGo('Survival-Race')}
               />
               <Game
                 name="GunSpin"
                 imageSource={gameIcons['8']}
-                onPress={() => gameGo('gunspin')}
+                onPress={() => gameGo('GunSpin')}
+              />
+              <Game
+                name="BTD 5"
+                imageSource={gameIcons['m']}
+                onPress={() => gameGo('BTD-5')}
               />
             </View>
                         <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 20, marginBottom: 10, textAlign: 'center' }}>Arcade Games</Text>
@@ -205,27 +210,27 @@ export default function Index(this: any) {
               <Game
                 name="Thorns and Balloons"
                 imageSource={gameIcons['5']}
-                onPress={() => gameGo('thorns-and-balloons')}
+                onPress={() => gameGo('Thorns-and-Balloons')}
               />
               <Game
                 name="BitLife"
                 imageSource={gameIcons['6']}
-                onPress={() => gameGo('bitlife')}
+                onPress={() => gameGo('BitLife')}
               />
               <Game
                 name="OVO"
                 imageSource={gameIcons['7']}
-                onPress={() => gameGo('ovo')}
+                onPress={() => gameGo('OvO')}
               />
               <Game
                 name="Awesome Tanks 2"
                 imageSource={gameIcons['i']}
-                onPress={() => gameGo('awesome-tanks')}
+                onPress={() => gameGo('Awesome-Tanks-2')}
               />
               <Game
                 name="Hotline Miami (UNSTABLE, PC)"
                 imageSource={gameIcons['l']}
-                onPress={() => gameGo('hotline-miami')}
+                onPress={() => gameGo('Hotline-Miami')}
               />
             </View>
 
@@ -234,22 +239,22 @@ export default function Index(this: any) {
               <Game
                 name="Penalty Kick Online"
                 imageSource={gameIcons['e']}
-                onPress={() => gameGo('penkick')}
+                onPress={() => gameGo('Pen-Kick')}
               />
               <Game
                 name="Darts Pro"
                 imageSource={gameIcons['f']}
-                onPress={() => gameGo('darts-pro')}
+                onPress={() => gameGo('Darts-Pro')}
               />
               <Game
                 name="Idle Football Manager"
                 imageSource={gameIcons['k']}
-                onPress={() => gameGo('idle-football')}
+                onPress={() => gameGo('Idle-Football')}
               />
               <Game
                 name="Golf Champions"
                 imageSource={gameIcons['j']}
-                onPress={() => gameGo('golf-champs')}
+                onPress={() => gameGo('Golf-Champs')}
               />
             </View>
 
@@ -258,12 +263,12 @@ export default function Index(this: any) {
               <Game
                 name="Drive Mad"
                 imageSource={gameIcons['9']}
-                onPress={() => gameGo('drive-mad')}
+                onPress={() => gameGo('Drive-Mad')}
               />
               <Game
                 name="Roper"
                 imageSource={gameIcons['b']}
-                onPress={() => gameGo('roper')}
+                onPress={() => gameGo('Roper')}
               />
             </View>
 
@@ -272,12 +277,12 @@ export default function Index(this: any) {
               <Game
                 name="Ragdoll Hit"
                 imageSource={gameIcons['c']}
-                onPress={() => gameGo('ragdoll-hit')}
+                onPress={() => gameGo('Ragdoll-Hit')}
               />
               <Game
                 name="Ragdoll Archers"
                 imageSource={gameIcons['2']}
-                onPress={() => gameGo('ragdoll-archers')}
+                onPress={() => gameGo('Ragdoll-Archers')}
               />
             </View>
             <TouchableOpacity style={styles.changelogButton} onPress={setShowHorror.bind(this, !showHorror)}>
@@ -292,17 +297,17 @@ export default function Index(this: any) {
                   <Game
                     name="FnaF 1"
                     imageSource={gameIcons['a']}
-                    onPress={() => gameGo('fnaf-1')}
+                    onPress={() => gameGo('FNaF-1')}
                   />
                   <Game
                     name="FnaF Sister Location"
                     imageSource={gameIcons['g']}
-                    onPress={() => gameGo('sl')}
+                    onPress={() => gameGo('SL')}
                   />
                   <Game
                     name="FnaF UCN"
                     imageSource={gameIcons['h']}
-                    onPress={() => gameGo('ucn')}
+                    onPress={() => gameGo('UCN')}
                   />
                 </View>
               </>
@@ -330,7 +335,7 @@ export default function Index(this: any) {
               <Game
                 name="Clash Royale"
                 imageSource={gameIcons['0']}
-                onPress={() => gameGo('clash')}
+                onPress={() => gameGo('Clash')}
               />
             </View>
           </ScrollView>
