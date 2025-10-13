@@ -23,7 +23,7 @@ const games = {
   'Ragdoll-Hit': `${prefix}/ragdoll-hit`,
   'Survival-Race': `https://survival-race.wasmer.app`,
   'Pen-Kick': `${prefix}/penkick`,
-  'Darts-Pro': `${prefix}/darts-pro`,
+  'Darts-Pro': `${prefix}/dartspro`,
   'SL': `${prefix}/fnaf/sl`,
   'UCN': `${prefix}/fnaf/ucn`,
   'Awesome-Tanks-2': `${prefix}/at2`,
@@ -31,6 +31,7 @@ const games = {
   'Idle-Football': `${prefix}/idle-football`,
   'Hotline-Miami': `https://hotlinemiami.wasmer.app`,
   'BTD-5': `${prefix}/btd5.htm`,
+  // '': `${prefix}/`,
 };
 
 export default function GameScreen() {
