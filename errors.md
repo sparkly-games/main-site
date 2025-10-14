@@ -1,8 +1,8 @@
 ---
-name: 'Poki DMCA Notice'
-info: 'Some games WILL be removed as soon as possible due to Poki DMCA complaints. Games affected: Ragdoll Hit, '
-noticeDetails: 'ASAP (14th October and onwards)'
-end: 222222222222222222
+name: 'Tiny Fishing'
+info: 'Tiny Fishing has been updated! Your save *should* stay perfectly safe and the new fish will appear.'
+noticeDetails: 'Now.'
+end: 1760542117
 ---
 ---
 name: 'Game Removals'

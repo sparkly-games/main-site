@@ -186,6 +186,11 @@ export default function Index(this: any) {
                 onPress={() => gameGo('Subway-Surfers')}
               />
               <Game
+                name="Run 3"
+                imageSource={gameIcons['o']}
+                onPress={() => gameGo('Run-3')}
+              />
+              <Game
                 name="Duck Duck Clicker"
                 imageSource={gameIcons['4']}
                 onPress={() => gameGo('Duck-Duck-Clicker')}

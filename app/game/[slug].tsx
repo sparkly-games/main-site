@@ -32,6 +32,7 @@ const games = {
   'Hotline-Miami': `https://hotlinemiami.wasmer.app`,
   'BTD-5': `${prefix}/btd5.htm`,
   'Crazy-Crash-Landing': `${prefix}/ccl.htm`,
+  'Run-3': `${prefix}/run3`,
   // '': `${prefix}/`,
 };
 
