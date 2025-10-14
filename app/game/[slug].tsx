@@ -20,7 +20,7 @@ const games = {
   'Drive-Mad': `${prefix}/drive-mad`,
   'FNaF-1': `${prefix}/fnaf/1`,
   'Roper': `${prefix}/roper`,
-  'Ragdoll-Hit': `${prefix}/ragdoll-hit`,
+  // 'Ragdoll-Hit': `${prefix}/ragdoll-hit`,
   'Survival-Race': `https://survival-race.wasmer.app`,
   'Pen-Kick': `${prefix}/penkick`,
   'Darts-Pro': `${prefix}/dartspro`,
@@ -31,6 +31,7 @@ const games = {
   'Idle-Football': `${prefix}/idle-football`,
   'Hotline-Miami': `https://hotlinemiami.wasmer.app`,
   'BTD-5': `${prefix}/btd5.htm`,
+  'Crazy-Crash-Landing': `${prefix}/ccl.htm`,
   // '': `${prefix}/`,
 };
 

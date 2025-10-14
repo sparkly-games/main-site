@@ -73,6 +73,7 @@ export default function Index(this: any) {
   const [showHorror, setShowHorror] = useState<boolean>(false);
 
   const gameGo = (path: string) => {
+    path.replace(/ /g, '-');
     router.push(`/game/${path}`);
   }
 
@@ -223,6 +224,11 @@ export default function Index(this: any) {
                 onPress={() => gameGo('OvO')}
               />
               <Game
+                name="Crazy Crash Landing"
+                imageSource={gameIcons['n']}
+                onPress={() => gameGo('Crazy-Crash-Landing')}
+              />
+              <Game
                 name="Awesome Tanks 2"
                 imageSource={gameIcons['i']}
                 onPress={() => gameGo('Awesome-Tanks-2')}
@@ -274,11 +280,11 @@ export default function Index(this: any) {
 
             <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 20, marginBottom: 10, textAlign: 'center' }}>Ragdoll Games</Text>
             <View style={styles.gameList}>
-              <Game
+              {/* <Game
                 name="Ragdoll Hit"
                 imageSource={gameIcons['c']}
                 onPress={() => gameGo('Ragdoll-Hit')}
-              />
+              /> */}
               <Game
                 name="Ragdoll Archers"
                 imageSource={gameIcons['2']}
