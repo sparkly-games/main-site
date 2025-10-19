@@ -1,14 +1,8 @@
 ---
-name: 'Tiny Fishing'
-info: 'Tiny Fishing has been updated! Your save *should* stay perfectly safe and the new fish will appear.'
-noticeDetails: 'Now.'
-end: 1760542117
----
----
 name: 'Game Removals'
 info: 'On these dates, some games will be removed with warning. This may be due to unpopularity. This is your months notice.'
 noticeDetails: '6/11/25 onwards.'
-end: 1762792200
+end: 0
 ---
 ---
 name: 'Support Cease'
