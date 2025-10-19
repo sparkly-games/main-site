@@ -229,6 +229,11 @@ export default function Index(this: any) {
                 onPress={() => gameGo('OvO')}
               />
               <Game
+                name="Plants vs Zombies"
+                imageSource={gameIcons['p']}
+                onPress={() => gameGo('Plants-VS-Zombies')}
+              />
+              <Game
                 name="Crazy Crash Landing"
                 imageSource={gameIcons['n']}
                 onPress={() => gameGo('Crazy-Crash-Landing')}
@@ -237,11 +242,6 @@ export default function Index(this: any) {
                 name="Awesome Tanks 2"
                 imageSource={gameIcons['i']}
                 onPress={() => gameGo('Awesome-Tanks-2')}
-              />
-              <Game
-                name="Hotline Miami (UNSTABLE, PC)"
-                imageSource={gameIcons['l']}
-                onPress={() => gameGo('Hotline-Miami')}
               />
             </View>
 
@@ -280,6 +280,11 @@ export default function Index(this: any) {
                 name="Roper"
                 imageSource={gameIcons['b']}
                 onPress={() => gameGo('Roper')}
+              />
+              <Game
+                name="[BROKEN]"
+                imageSource={gameIcons['q']}
+                onPress={() => gameGo('Snek-Left')}
               />
             </View>
 

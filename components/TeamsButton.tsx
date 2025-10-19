@@ -34,10 +34,44 @@ const TeamsHeaderButton = () => {
     }
   };
 
-  return (
+  const handlePressSeneca = async () => {
+      const url = 'https://app.senecalearning.com/dashboard/assignments/todo';
+      try {
+        const supported = await Linking.canOpenURL(url);
+  
+        if (supported) {
+          await Linking.openURL(url);
+        }
+      } catch (error) {
+        console.error('Failed to open URL:', error);
+        Alert.alert('Error', 'Could not open Seneca.');
+      }
+    };
+    const bugReportButton = async () => {
+      const url = '/bugreport';
+      try {
+        const supported = await Linking.canOpenURL(url);
+  
+        if (supported) {
+          await Linking.openURL(url);
+        }
+      } catch (error) {
+        console.error('Failed to open URL:', error);
+        Alert.alert('Error', 'Could not open Bug Report.');
+      }
+    };
+
+  return (<>
     <TouchableOpacity onPress={handlePress} style={styles.button}>
        <Image source={{uri: 'https://teams.microsoft.com/favicon.ico'}} style={{ width: 30, height: 30 }} />
     </TouchableOpacity>
+    <TouchableOpacity onPress={handlePressSeneca} style={styles.button}>
+       <Image source={{uri: 'https://senecalearning.com/icons/icon-512x512.png'}} style={{ width: 30, height: 30 }} />
+    </TouchableOpacity>
+    <TouchableOpacity onPress={bugReportButton} style={styles.button}>
+       <Image source={require("@/assets/images/bugReport.png")} style={{ width: 30, height: 30 }} />
+    </TouchableOpacity>
+    </>
   );
 };
 

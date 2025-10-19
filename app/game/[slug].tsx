@@ -33,6 +33,8 @@ const games = {
   'BTD-5': `${prefix}/btd5.htm`,
   'Crazy-Crash-Landing': `${prefix}/ccl.htm`,
   'Run-3': `${prefix}/run3`,
+  'Plants-VS-Zombies': `${prefix}/pvz`,
+  'Snek-Left': `${prefix}/snek-left`,
   // '': `${prefix}/`,
 };
 

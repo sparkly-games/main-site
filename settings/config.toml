@@ -18,6 +18,6 @@ redirect-trailing-slash = true
 compression-static = true
 health = false
 index-files = "index.html, index.htm"
-maintenance-mode = true
+maintenance-mode = false
 maintenance-mode-status = 503
 maintenance-mode-file = "https://survival-race.wasmer.app/maintenance.html"

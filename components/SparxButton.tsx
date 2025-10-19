@@ -3,19 +3,6 @@ import React from 'react';
 import { TouchableOpacity, StyleSheet, Linking, Alert, Image } from 'react-native';
 
 const SparxHeaderButton = () => {
-  const handlePressMain = async () => {
-    const url = 'https://sparx-learning.com/';
-    try {
-      const supported = await Linking.canOpenURL(url);
-
-      if (supported) {
-        await Linking.openURL(url);
-      }
-    } catch (error) {
-      console.error('Failed to open URL:', error);
-      Alert.alert('Error', 'Could not open Sparx.');
-    }
-  };
   const handlePressMaths = async () => {
     const url = 'https://sparxmaths.uk/';
     try {
@@ -55,8 +42,8 @@ const SparxHeaderButton = () => {
       Alert.alert('Error', 'Could not open Sparx.');
     }
   };
-  const handlePressSeneca = async () => {
-    const url = 'https://app.senecalearning.com/dashboard/assignments/todo';
+  const handlePressEDU = async () => {
+    const url = 'https://edulinkone.com/';
     try {
       const supported = await Linking.canOpenURL(url);
 
@@ -65,7 +52,7 @@ const SparxHeaderButton = () => {
       }
     } catch (error) {
       console.error('Failed to open URL:', error);
-      Alert.alert('Error', 'Could not open Seneca.');
+      Alert.alert('Error', 'Could not open Edulink One.');
     }
   };
 
@@ -80,11 +67,8 @@ const SparxHeaderButton = () => {
     <TouchableOpacity onPress={handlePressScience} style={styles.button}>
        <Image source={{uri: 'https://sparxscience.com/favicon.ico'}} style={{ width: 30, height: 30 }} />
     </TouchableOpacity>
-    <TouchableOpacity onPress={handlePressMain} style={styles.button}>
-       <Image source={{uri: 'https://sparx-learning.com/favicons/apple-touch-icon.png'}} style={{ width: 30, height: 30 }} />
-    </TouchableOpacity>
-    <TouchableOpacity onPress={handlePressSeneca} style={styles.button}>
-       <Image source={{uri: 'https://senecalearning.com/icons/icon-512x512.png'}} style={{ width: 30, height: 30 }} />
+    <TouchableOpacity onPress={handlePressEDU} style={styles.button}>
+       <Image source={{uri: 'https://edulinkone.com/favicon.ico'}} style={{ width: 30, height: 30 }} />
     </TouchableOpacity>
     </>
   );
