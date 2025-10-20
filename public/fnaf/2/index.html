@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Five Nights at Freddy's Ultimate Custom Night</title>
+    <title>Five Nights at Freddy's 2</title>
     <link rel="icon" href="favicon.ico" />
     <style>
         html {
@@ -127,7 +127,7 @@
 </head>
 
 <body>
-    <canvas id="MMFCanvas" width="1920" height="1080"> Your browser does not support Canvas, Please try again.</canvas>
+    <canvas id="MMFCanvas" width="1024" height="768"> Your browser does not support Canvas, Please try again.</canvas>
     <div class="selection" id="selection">
         <img id="title" src="resources/title.png">
         <img id="animatronic" src="resources/animatronic.png">
@@ -149,7 +149,7 @@
     const parts = 20;
     let gametitle, runtimecanvas
     gametitle = document.title;
-    runtimecanvas = "resources/UCNHTML5.cch";
+    runtimecanvas = "resources/FiveNights2NOHACKS.cch";
     // Prevents touchscreen move
     window.addEventListener("scroll", preventMotion, false);
     window.addEventListener("touchmove", preventMotion, false);
@@ -320,7 +320,7 @@
             return parts;
         }
         Promise.all([
-            mergeFiles(getParts("https://raw.githubusercontent.com/irv77/hd_fnaf/main/ucn/src/resources.zip", 1, parts))
+            mergeFiles(getParts("https://raw.githubusercontent.com/irv77/hd_fnaf/main/2/src/resources.zip", 1, parts))
         ]).then(([resources]) => {
             window.fetch = async function (url, ...args) {
                 if (url.endsWith("resources.zip")) {

@@ -35,6 +35,11 @@ const games = {
   'Run-3': `${prefix}/run3`,
   'Plants-VS-Zombies': `${prefix}/pvz`,
   'Snek-Left': `${prefix}/snek-left`,
+  'FNaF-2': `${prefix}/fnaf/2`,
+  'FNaF-3': `${prefix}/fnaf/3`,
+  'FNaF-4': `${prefix}/fnaf/4`,
+  'FNaF-Pizzeria-Simulator': `${prefix}/fnaf/ps`,
+  'FNaF-World': `${prefix}/fnaf/w`,
   // '': `${prefix}/`,
 };
 

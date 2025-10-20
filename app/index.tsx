@@ -316,9 +316,34 @@ export default function Index(this: any) {
                     onPress={() => gameGo('FNaF-1')}
                   />
                   <Game
+                    name="FnaF 2"
+                    imageSource={gameIcons['r']}
+                    onPress={() => gameGo('FNaF-2')}
+                  />
+                  <Game
+                    name="FnaF 3"
+                    imageSource={gameIcons['s']}
+                    onPress={() => gameGo('FNaF-3')}
+                  />
+                  <Game
+                    name="FnaF 4"
+                    imageSource={gameIcons['t']}
+                    onPress={() => gameGo('FNaF-4')}
+                  />
+                  <Game
+                    name="FnaF World"
+                    imageSource={gameIcons['u']}
+                    onPress={() => gameGo('FNaF-World')}
+                  />
+                  <Game
                     name="FnaF Sister Location"
                     imageSource={gameIcons['g']}
                     onPress={() => gameGo('SL')}
+                  />
+                  <Game
+                    name="FnaF Pizzeria Simulator"
+                    imageSource={gameIcons['v']}
+                    onPress={() => gameGo('FNaF-Pizzeria-Simulator')}
                   />
                   <Game
                     name="FnaF UCN"
@@ -328,24 +353,6 @@ export default function Index(this: any) {
                 </View>
               </>
             )}  
-            
-            {/* The old hardcoded notices section has been removed */}
-            
-            <View style={styles.changelogSection}>
-              <TouchableOpacity style={styles.changelogButton} onPress={fetchChangelog}>
-                <Text style={styles.changelogButtonText}>
-                  {loading ? 'Loading...' : showChangelog ? 'Hide Changelog' : 'View Changelog'}
-                </Text>
-              </TouchableOpacity>
-              
-              {showChangelog && (
-                <ScrollView style={styles.changelogContainer} nestedScrollEnabled>
-                  <Markdown style={markdownStyles}>
-                    {changelogContent}
-                  </Markdown>
-                </ScrollView>
-              )}
-            </View>
             <Text style={styles.deprecatedTitle}>Deprecated Games</Text>
             <View style={styles.gameList}>
               <Game
