@@ -6,46 +6,46 @@ import { v4 as uuidv4 } from 'uuid';
 
 const prefix = '..';
 
-// Map game slugs to URLs
+// Map game slugs to URLs and display names
 const games = {
-  'Clash': `${prefix}/clash-royale`,
-  'Tiny-Fishing': `${prefix}/tiny-fishing`,
-  'Ragdoll-Archers': `${prefix}/ragdoll-archers`,
-  'Subway-Surfers': `${prefix}/subway-surfers`,
-  'Duck-Duck-Clicker': `${prefix}/duck-duck-clicker`,
-  'Thorns-and-Balloons': `${prefix}/thorns-and-balloons`,
-  'BitLife': `${prefix}/bitlife`,
-  'OvO': `${prefix}/ovo`,
-  'GunSpin': `${prefix}/gunspin`,
-  'Drive-Mad': `${prefix}/drive-mad`,
-  'FNaF-1': `${prefix}/fnaf/1`,
-  'Roper': `${prefix}/roper`,
-  // 'Ragdoll-Hit': `${prefix}/ragdoll-hit`,
-  'Survival-Race': `https://survival-race.wasmer.app`,
-  'Pen-Kick': `${prefix}/penkick`,
-  'Darts-Pro': `${prefix}/dartspro`,
-  'SL': `${prefix}/fnaf/sl`,
-  'UCN': `${prefix}/fnaf/ucn`,
-  'Awesome-Tanks-2': `${prefix}/at2`,
-  'Golf-Champs': `${prefix}/golf-champs`,
-  'Idle-Football': `${prefix}/idle-football`,
-  'Hotline-Miami': `https://hotlinemiami.wasmer.app`,
-  'BTD-5': `${prefix}/btd5.htm`,
-  'Crazy-Crash-Landing': `${prefix}/ccl.htm`,
-  'Run-3': `${prefix}/run3`,
-  'Plants-VS-Zombies': `${prefix}/pvz`,
-  'Snek-Left': `${prefix}/snek-left`,
-  'FNaF-2': `${prefix}/fnaf/2`,
-  'FNaF-3': `${prefix}/fnaf/3`,
-  'FNaF-4': `${prefix}/fnaf/4`,
-  'FNaF-Pizzeria-Simulator': `${prefix}/fnaf/ps`,
-  'FNaF-World': `${prefix}/fnaf/w`,
-  // '': `${prefix}/`,
+  'tiny-fishing': [`${prefix}/tiny-fishing`, 'Tiny Fishing'],
+  'ragdoll-archers': [`${prefix}/ragdoll-archers`, 'Ragdoll Archers'],
+  'subway-surfers': [`${prefix}/subway-surfers`, 'Subway Surfers'],
+  'duck-clicker': [`${prefix}/duck-duck-clicker`, 'Duck Clicker'],
+  'tabs': [`${prefix}/thorns-and-balloons`, 'Thorns and Balloons'],
+  'bitlife': [`${prefix}/bitlife`, 'Bitlife'],
+  'ovo': [`${prefix}/ovo`, 'OvO'],
+  'gunspin': [`${prefix}/gunspin`, 'Gunspin'],
+  'drive-mad': [`${prefix}/drive-mad`, 'Drive Mad'],
+  'fnaf': [`${prefix}/fnaf`, 'FNAF'],
+  'roper': [`${prefix}/roper`, 'Roper'],
+  // 'Ragdoll-Hit': [`${prefix}/ragdoll-hit`, 'Ragdoll Hit'],
+  'survival-race': [`https://survival-race.wasmer.app`, 'Survival Race'],
+  'pens': [`${prefix}/penkick`, 'Pen Kick'],
+  'darts': [`${prefix}/dartspro`, 'Darts Pro'],
+  'idle-foot': [`${prefix}/idle-football`, 'Idle Football'],
+  // 'Hotline-Miami': [`https://hotlinemiami.wasmer.app`, 'Hotline Miami'],
+  'btd': [`${prefix}/btd5.htm`, 'BTD5'],
+  'ccl': [`${prefix}/ccl.htm`, 'CCL'],
+  'run3': [`${prefix}/run3`, 'Run 3'],
+  'pvz': [`${prefix}/pvz`, 'PVZ'],
+  'snek-left': [`${prefix}/snek-left`, 'Snek Left'],
+  'spiral-roll': [`${prefix}/slice-roll`, 'Spiral Roll'],
+  'tap-goal': [`${prefix}/tap-goal`, 'Tap Goal'],
+  'draw-climb': [`${prefix}/draw-climber`, 'Draw Climber'],
+  'flappy-bird': [`${prefix}/flappy-bird`, 'Flappy Bird'],
+  'drift-boss': [`${prefix}/drift-boss`, 'Drift Boss'],
+  'granny': [`${prefix}/granny.htm`, 'Granny'],
+  'swoop': [`${prefix}/swoop.htm`, 'Swoop'],
+  'sharkio': [`${prefix}/sharkio`, 'Shark.io'],
+  'fast-runner': [`${prefix}/fast-runner`, 'Fast Runner'],
+  // '': [`${prefix}/`, ''],
 };
 
 export default function GameScreen() {
   const { slug } = useLocalSearchParams();
-  const gameUrl = typeof slug === 'string' ? games[slug] : null;
+  const gameUrl = typeof slug === 'string' ? games[slug]?.[0] : null;
+  const displayName = typeof slug === 'string' ? games[slug]?.[1] ?? slug.replace(/-/g, ' ') : '';
 
   useEffect(() => {
     if (!gameUrl || !analytics) return;
@@ -75,11 +75,11 @@ export default function GameScreen() {
 
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{ title: slug.replace(/-/g, ' ') }} />
+      <Stack.Screen options={{ title: displayName }} />
       <iframe
         src={gameUrl}
         style={styles.iframe}
-        title={slug.replace(/-/g, ' ')}
+        title={displayName}
         allowFullScreen={true}
       />
     </View>

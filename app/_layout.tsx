@@ -2,16 +2,18 @@ import { Stack } from "expo-router";
 import TeamsHeaderButton from '@/components/TeamsButton';
 import SparxHeaderButton from "@/components/SparxButton";
 import { Text } from "react-native";
+import React from "react";
 
 export default function RootLayout() {
   return (
     <Stack
       screenOptions={{
         headerLeft: () => (
-          <Text style={{ color: 'black', fontSize: 18, marginLeft: 10 }} onPress={() => window.history.back()}>⬅️</Text>
+          <Text style={{ color: 'white', fontSize: 36, margin: 15 }} onPress={() => window.location.href = '/'}>⌂</Text>
         ),
         headerTitleAlign: 'center',
-        headerStyle: { backgroundColor: '#f0f0f0' },
+        headerStyle: { backgroundColor: 'rgb(81,81,81)' },
+        headerTitleStyle: { color: 'white' },
         headerRight: () => (
           <>
             <SparxHeaderButton />
@@ -22,7 +24,7 @@ export default function RootLayout() {
     >
       <Stack.Screen
         name="index"
-        options={{ title: "onlinegames12" }}
+        options={{ title: "Games" }}
       />
     </Stack>
   );
