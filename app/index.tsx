@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Text, View, StyleSheet, ScrollView, Image, TouchableOpacity, Linking, Animated, Easing } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Game } from '@/components/Game';
+import { Game } from '../components/Game';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 // --- Interface and Parsing Logic (Remains the Same) ---
@@ -203,6 +203,9 @@ export default function Index() {
           </View>
           <View style={{ position: 'relative' }}>
             <Game name="Ragdoll Archers" imageSource="2" onPress={() => gameGo('ragdoll archers')} />
+          </View>
+          <View style={{ position: 'relative' }}>
+            <Game name="Red Ball 3" imageSource="u" onPress={() => gameGo('red ball')} />
           </View>
           <View style={{ position: 'relative' }}>
             <Game name="Roper (⚠︎)" imageSource="b" onPress={() => gameGo('roper')} />
