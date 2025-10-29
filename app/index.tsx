@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { Text, View, StyleSheet, ScrollView, Image, TouchableOpacity, Linking, Animated, Easing } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Game } from '@/components/Game';
+import Ionicons from '@expo/vector-icons/Ionicons';
+
+// --- Interface and Parsing Logic (Remains the Same) ---
 
 interface RemoteNotice {
   name: string;
@@ -41,9 +44,83 @@ const NewGameBadge = ({ disappear_after }: { disappear_after: number }) => {
   return <Text style={styles.newBadge}>New!</Text>;
 };
 
+// --- Updated Toast Component ---
+
+const ToastNotice = ({ notice }: { notice: RemoteNotice | null }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const translateY = useRef(new Animated.Value(-100)).current;
+
+  // CHANGED: Set auto-dismissal to 5000 milliseconds (5 seconds)
+  const DISPLAY_DURATION = 8000;
+  const ANIMATION_DURATION = 500;
+
+  useEffect(() => {
+    // Only proceed if a new notice is provided
+    if (notice) {
+      // Show the toast
+      setIsVisible(true);
+      
+      // Slide-in animation
+      Animated.timing(translateY, {
+        toValue: 0,
+        duration: ANIMATION_DURATION,
+        easing: Easing.out(Easing.ease),
+        useNativeDriver: true,
+      }).start(() => {
+        // Start timer to dismiss toast after DISPLAY_DURATION
+        const timer = setTimeout(() => {
+          // Slide-out animation
+          Animated.timing(translateY, {
+            toValue: -100, // Slide up and out
+            duration: ANIMATION_DURATION,
+            easing: Easing.in(Easing.ease),
+            useNativeDriver: true,
+          }).start(() => setIsVisible(false));
+        }, DISPLAY_DURATION);
+        
+        // Clean up the timer when component unmounts or notice changes
+        return () => clearTimeout(timer);
+      });
+    }
+  }, [notice]); 
+
+  if (!notice || !isVisible) {
+    return null;
+  }
+
+  // Handle manual dismissal
+  const dismissToast = () => {
+    Animated.timing(translateY, {
+      toValue: -100,
+      duration: ANIMATION_DURATION,
+      easing: Easing.in(Easing.ease),
+      useNativeDriver: true,
+    }).start(() => setIsVisible(false));
+  };
+
+  return (
+    <Animated.View style={[toastStyles.toastContainer, { transform: [{ translateY }] }]}>
+      <View style={toastStyles.toastContent}>
+        <View style={toastStyles.textContainer}>
+          <Text style={toastStyles.toastTitle}>{notice.name}</Text>
+          <Text style={toastStyles.toastInfo} numberOfLines={5}>
+            {notice.info}
+          </Text>
+        </View>
+        <TouchableOpacity onPress={dismissToast} style={toastStyles.closeButton}>
+          <Ionicons name="close" size={20} color="white" />
+        </TouchableOpacity>
+      </View>
+    </Animated.View>
+  );
+};
+
+
+// --- Index Component (Remains the Same) ---
+
 export default function Index() {
   const router = useRouter();
-  const [activeNotice, setActiveNotice] = useState<RemoteNotice | null>(null);
+  const [initialNotice, setInitialNotice] = useState<RemoteNotice | null>(null);
   const [showHorror, setShowHorror] = useState(false);
 
   const gameGo = (path: string) => router.push(`/game/${path.replace(/ /g, '-')}`);
@@ -54,32 +131,24 @@ export default function Index() {
       if (!response.ok) throw new Error('Network error');
       const allNotices = parseNotices(await response.text());
       const now = Date.now();
-      setActiveNotice(allNotices.find(n => n.end * 1000 > now) || null);
+      
+      const active = allNotices.find(n => n.end * 1000 > now) || null;
+      if (active) {
+        setInitialNotice(active);
+      }
     } catch {
-      setActiveNotice(null);
+      setInitialNotice(null);
     }
   };
 
-  useEffect(() => { fetchAndFilterNotices(); }, []);
+  useEffect(() => { fetchAndFilterNotices(); }, []); 
 
   return (
     <View style={styles.container}>
+      <ToastNotice notice={initialNotice} /> 
+      
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-        <Image source={require('@/assets/images/og12_logo_banner.png')} style={styles.banner} />
-
-        {activeNotice && (
-          <View style={styles.notice}>
-            <Text style={styles.noticeTitle}>{activeNotice.name}</Text>
-            <Text style={styles.noticeInfo}>{activeNotice.info}</Text>
-            <Text style={styles.noticeDetails}>
-              <Text style={{ fontWeight: 'bold' }}>Dates: </Text>{activeNotice.noticeDetails}
-            </Text>
-            <Text style={styles.noticeTimestamp}>
-              Ends: {new Date(activeNotice.end * 1000).toLocaleDateString()}
-            </Text>
-          </View>
-        )}
-
+        {/* ... Game List ... */}
         <Text style={styles.title}>🎮 Our Games 🎮</Text>
         <View style={styles.gameList}>
           <View style={{ position: 'relative' }}>
@@ -123,6 +192,9 @@ export default function Index() {
             <Game name="Idle Football" imageSource="k" onPress={() => gameGo('idle foot')} />
           </View>
           <View style={{ position: 'relative' }}>
+            <Game name="OvO" imageSource="7" onPress={() => gameGo('ovo')} />
+          </View>
+          <View style={{ position: 'relative' }}>
             <Game name="Penalty Kick" imageSource="e" onPress={() => gameGo('pens')} />
           </View>
           <View style={{ position: 'relative' }}>
@@ -133,14 +205,10 @@ export default function Index() {
             <Game name="Ragdoll Archers" imageSource="2" onPress={() => gameGo('ragdoll archers')} />
           </View>
           <View style={{ position: 'relative' }}>
-            <Game name="Roper" imageSource="b" onPress={() => gameGo('roper')} />
+            <Game name="Roper (⚠︎)" imageSource="b" onPress={() => gameGo('roper')} />
           </View>
           <View style={{ position: 'relative' }}>
             <Game name="Run 3" imageSource="o" onPress={() => gameGo('run3')} />
-          </View>
-          <View style={{ position: 'relative' }}>
-            <Game name="SharkIO" imageSource="s" onPress={() => gameGo('sharkio')} />
-            <NewGameBadge disappear_after={25110615} />
           </View>
           <View style={{ position: 'relative' }}>
             <Game name="Snek Left (⚠︎)" imageSource="q" onPress={() => gameGo('snek left')} />
@@ -192,22 +260,66 @@ export default function Index() {
           </>
         )}
       </ScrollView>
-      <code style={{ margin: 10, color: 'white' }}>v6.0.0 (wsvoko)</code>
+      <View>
+        <code style={{ margin: 10, color: 'white' }}>v6.0.0 (wsvoko)</code>
+        <View style={{ position: 'absolute', right: 10, flexDirection: 'row' }}>
+          <Ionicons name="information-circle" size={28} color="white" onPress={async () => {Linking.openURL('https://raw.githubusercontent.com/onlinegames19/main-site/refs/heads/main/CREDITS')}}/>
+          <Ionicons name="logo-github" size={28} color="white" onPress={async () => {Linking.openURL('https://github.com/onlinegames19')}}/>
+        </View>
+      </View>
     </View>
   );
 }
 
+// --- Updated Toast Styles ---
+const toastStyles = StyleSheet.create({
+  toastContainer: {
+    position: 'absolute',
+    top: 15, // CHANGED: Less padding from the top edge
+    right: 15, // CHANGED: Fixed position to the right edge
+    zIndex: 1000,
+    borderRadius: 8,
+    overflow: 'hidden',
+    maxWidth: 500, // Reduced max width to keep it "toast" sized
+    elevation: 5, 
+    shadowColor: '#000', 
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+  toastContent: {
+    backgroundColor: 'rgba(74, 168, 255, 0.95)',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10, // CHANGED: Less padding inside the toast
+  },
+  textContainer: {
+    flex: 1,
+    paddingRight: 5,
+  },
+  toastTitle: {
+    color: 'white',
+    fontSize: 14, // Slightly smaller title
+    fontWeight: 'bold',
+    marginBottom: 2,
+  },
+  toastInfo: {
+    color: 'white',
+    fontSize: 12, // Slightly smaller info text
+  },
+  closeButton: {
+    padding: 2,
+  },
+});
+
+// --- Existing Styles (Kept for completeness) ---
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#2b2b2bff' },
   scrollContent: { flexGrow: 1, justifyContent: 'center', alignItems: 'center', paddingVertical: 20 },
   banner: { width: '90%', maxWidth: 600, height: 200, marginBottom: 20, borderRadius: 10 },
   title: { color: 'white', fontSize: 24, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' },
   gameList: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' },
-  notice: { width: '90%', backgroundColor: 'rgba(74, 168, 255, 1)', padding: 15, borderRadius: 12, marginBottom: 20, borderWidth: 2, borderColor: 'rgba(135,189,229,1)', maxWidth: 600 },
   noticeTitle: { color: 'white', fontSize: 20, fontWeight: 'bold', marginBottom: 5, textAlign: 'center' },
-  noticeInfo: { color: 'white', fontSize: 14, marginBottom: 8, textAlign: 'center' },
-  noticeDetails: { color: 'white', fontSize: 14, paddingTop: 5, borderTopWidth: 1, borderTopColor: 'rgba(135,189,229,0.3)' },
-  noticeTimestamp: { color: 'white', fontSize: 12, marginTop: 5, textAlign: 'right' },
   button: { backgroundColor: 'rgba(135,189,229,1)', paddingVertical: 12, paddingHorizontal: 20, borderRadius: 8, alignItems: 'center', marginBottom: 15 },
   buttonText: { color: 'white', fontSize: 16, fontWeight: '600' },
   newBadge: { position: 'absolute', height: 30, alignContent: 'center', top: 5, right: 5, backgroundColor: 'rgba(135,189,229,1)', color: 'white', fontWeight: '600', fontSize: 10, paddingVertical: 2, paddingHorizontal: 6, borderRadius: 6, textTransform: 'uppercase' },

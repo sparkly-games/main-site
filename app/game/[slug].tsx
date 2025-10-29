@@ -1,34 +1,33 @@
 import React, { useEffect } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { Stack, useLocalSearchParams } from 'expo-router';
-import { analytics, logEvent } from '@/app/firebaseConfig';
+import { analytics, logEvent } from '../firebaseConfig';
 import { v4 as uuidv4 } from 'uuid';
 
 const prefix = '..';
 
 // Map game slugs to URLs and display names
 const games = {
+  // '': [`${prefix}/`, ''],
   'tiny-fishing': [`${prefix}/tiny-fishing`, 'Tiny Fishing'],
   'ragdoll-archers': [`${prefix}/ragdoll-archers`, 'Ragdoll Archers'],
   'subway-surfers': [`${prefix}/subway-surfers`, 'Subway Surfers'],
-  'duck-clicker': [`${prefix}/duck-duck-clicker`, 'Duck Clicker'],
+  'duck-clicker': [`${prefix}/duck-duck-clicker`, 'Duck Duck Clicker'],
   'tabs': [`${prefix}/thorns-and-balloons`, 'Thorns and Balloons'],
-  'bitlife': [`${prefix}/bitlife`, 'Bitlife'],
+  'bitlife': [`${prefix}/bitlife`, 'BitLife'],
   'ovo': [`${prefix}/ovo`, 'OvO'],
   'gunspin': [`${prefix}/gunspin`, 'Gunspin'],
   'drive-mad': [`${prefix}/drive-mad`, 'Drive Mad'],
-  'fnaf': [`${prefix}/fnaf`, 'FNAF'],
+  'fnaf': [`${prefix}/fnaf`, `Five Nights at Freddy's`],
   'roper': [`${prefix}/roper`, 'Roper'],
-  // 'Ragdoll-Hit': [`${prefix}/ragdoll-hit`, 'Ragdoll Hit'],
   'survival-race': [`https://survival-race.wasmer.app`, 'Survival Race'],
-  'pens': [`${prefix}/penkick`, 'Pen Kick'],
+  'pens': [`${prefix}/penkick`, 'Penalty Kick Online'],
   'darts': [`${prefix}/dartspro`, 'Darts Pro'],
   'idle-foot': [`${prefix}/idle-football`, 'Idle Football'],
-  // 'Hotline-Miami': [`https://hotlinemiami.wasmer.app`, 'Hotline Miami'],
   'btd': [`${prefix}/btd5.htm`, 'BTD5'],
-  'ccl': [`${prefix}/ccl.htm`, 'CCL'],
+  'ccl': [`${prefix}/ccl.htm`, 'Crazy Crash Landing'],
   'run3': [`${prefix}/run3`, 'Run 3'],
-  'pvz': [`${prefix}/pvz`, 'PVZ'],
+  'pvz': [`${prefix}/pvz`, 'Plants VS Zombies'],
   'snek-left': [`${prefix}/snek-left`, 'Snek Left'],
   'spiral-roll': [`${prefix}/slice-roll`, 'Spiral Roll'],
   'tap-goal': [`${prefix}/tap-goal`, 'Tap Goal'],
@@ -37,9 +36,9 @@ const games = {
   'drift-boss': [`${prefix}/drift-boss`, 'Drift Boss'],
   'granny': [`${prefix}/granny.htm`, 'Granny'],
   'swoop': [`${prefix}/swoop.htm`, 'Swoop'],
-  'sharkio': [`${prefix}/sharkio`, 'Shark.io'],
   'fast-runner': [`${prefix}/fast-runner`, 'Fast Runner'],
-  // '': [`${prefix}/`, ''],
+  // 'Hotline-Miami': [`https://hotlinemiami.wasmer.app`, 'Hotline Miami'],
+  // 'Ragdoll-Hit': [`${prefix}/ragdoll-hit`, 'Ragdoll Hit'],
 };
 
 export default function GameScreen() {
@@ -68,7 +67,7 @@ export default function GameScreen() {
   if (!gameUrl) {
     return (
       <View style={styles.container}>
-        <Text style={styles.errorText}>Game not found.</Text>
+        <Text style={styles.errorText}>404 - Game may have been removed or moved.</Text>
       </View>
     );
   }
