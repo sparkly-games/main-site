@@ -37,8 +37,8 @@ const games = {
   'granny': [`${prefix}/granny.htm`, 'Granny'],
   'swoop': [`${prefix}/swoop.htm`, 'Swoop'],
   'fast-runner': [`${prefix}/fast-runner`, 'Fast Runner'],
-  'red-ball': [`${prefix}/redball`, 'Red Ball 3'],
   'captcha': [`${prefix}/captcha.htm`, 'reCaptcha v2'],
+  'roll': [`${prefix}/roll.html`, 'Roll'],
   // 'Hotline-Miami': [`https://hotlinemiami.wasmer.app`, 'Hotline Miami'],
   // 'Ragdoll-Hit': [`${prefix}/ragdoll-hit`, 'Ragdoll Hit'],
 };
