@@ -38,6 +38,7 @@ const games = {
   'swoop': [`${prefix}/swoop.htm`, 'Swoop'],
   'fast-runner': [`${prefix}/fast-runner`, 'Fast Runner'],
   'red-ball': [`${prefix}/redball`, 'Red Ball 3'],
+  'captcha': [`${prefix}/captcha.htm`, 'reCaptcha v2'],
   // 'Hotline-Miami': [`https://hotlinemiami.wasmer.app`, 'Hotline Miami'],
   // 'Ragdoll-Hit': [`${prefix}/ragdoll-hit`, 'Ragdoll Hit'],
 };

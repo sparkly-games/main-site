@@ -205,6 +205,9 @@ export default function Index() {
             <Game name="Ragdoll Archers" imageSource="2" onPress={() => gameGo('ragdoll archers')} />
           </View>
           <View style={{ position: 'relative' }}>
+            <Game name="reCaptcha v2" imageSource="x" onPress={() => gameGo('captcha')} />
+          </View>
+          <View style={{ position: 'relative' }}>
             <Game name="Red Ball 3" imageSource="u" onPress={() => gameGo('red ball')} />
           </View>
           <View style={{ position: 'relative' }}>
