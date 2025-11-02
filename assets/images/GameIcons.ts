@@ -3,6 +3,7 @@
 
 // NOTE: You will need to replace this placeholder with your actual assets.
 export const gameIcons = {
+  '0': require('./game-icons/0.jpg'),
   '1': require('./game-icons/1.jpg'),
   '2': require('./game-icons/2.jpg'),
   '3': require('./game-icons/3.jpg'),
@@ -14,7 +15,7 @@ export const gameIcons = {
   '9': require('./game-icons/9.jpg'),
   'a': require('./game-icons/a.png'),
   'b': require('./game-icons/b.jpg'),
-  // 'c': require('./game-icons/c.png'),
+  'c': require('./game-icons/c.png'),
   'd': require('./game-icons/d.jpg'),
   'e': require('./game-icons/e.jpg'),
   'f': require('./game-icons/f.jpg'),
@@ -37,4 +38,5 @@ export const gameIcons = {
   'w': require('./game-icons/w.jpg'),
   'x': require('./game-icons/x.png'),
   'y': require('./game-icons/y.png'),
+  'z': require('./game-icons/z.png'),
 };

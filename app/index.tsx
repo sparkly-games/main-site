@@ -120,7 +120,7 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <ToastNotice notice={initialNotice} />
-      <Image source={require('@/assets/images/decal/halloween-atmosphere.png')} style={{ position: 'absolute', height: 350, width: 400 }} />
+      <Image source={require(`@/assets/images/decal/${decal}-atmosphere.png`)} style={{ position: 'absolute', height: 350, width: 400 }} />
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         <Text style={styles.title}>🎮 Our Games 🎮</Text>
         <View style={styles.gameList}>
@@ -134,16 +134,20 @@ export default function Index() {
           <Game name="DDC" imageSource="4" onPress={() => gameGo('duck clicker')} decor={decal} />
           <Game name="Fast Runner" imageSource="t" onPress={() => gameGo('fast runner')} decor={decal} newUntil={25110615} />
           <Game name="Flappy Bird" imageSource="h" onPress={() => gameGo('flappy bird')} decor={decal} newUntil={25110615} />
+          <Game name="G-Dash 3D" imageSource="z" onPress={() => gameGo('gd3d')} decor={decal} newUntil={25110615} />
           <Game name="GunSpin" imageSource="8" onPress={() => gameGo('gunspin')} decor={decal} />
           <Game name="Idle Football" imageSource="k" onPress={() => gameGo('idle foot')} decor={decal} />
           <Game name="OvO" imageSource="7" onPress={() => gameGo('ovo')} decor={decal} />
           <Game name="Penalty Kick" imageSource="e" onPress={() => gameGo('pens')} decor={decal} />
+          <Game name="Pill Soccer" imageSource="0" onPress={() => gameGo('pill soccer')} decor={decal} newUntil={25110615} />
           <Game name="PvZ" imageSource="p" onPress={() => gameGo('pvz')} decor={decal} newUntil={25110615} />
           <Game name="Ragdoll Archers" imageSource="2" onPress={() => gameGo('ragdoll archers')} decor={decal} />
+          <Game name="Ragdoll Hit" imageSource="c" onPress={() => gameGo('ragdoll hit')} decor={decal} newUntil={25110615} />
           <Game name="reCaptcha v2" imageSource="x" onPress={() => gameGo('captcha')} decor={decal} newUntil={25110615} />
           <Game name="Roll" imageSource="y" onPress={() => gameGo('roll')} decor={decal} newUntil={25110615} />
           <Game name="Roper (⚠︎)" imageSource="b" onPress={() => gameGo('roper')} decor={decal} />
           <Game name="Run 3" imageSource="o" onPress={() => gameGo('run3')} decor={decal} />
+          <Game name="Shark IO" imageSource="s" onPress={() => gameGo('sharkio')} decor={decal} newUntil={25110615} />
           <Game name="Snek Left (⚠︎)" imageSource="q" onPress={() => gameGo('snek left')} decor={decal} newUntil={25110615} />
           <Game name="Spiral Roll" imageSource="i" onPress={() => gameGo('spiral roll')} decor={decal} newUntil={25110615} />
           <Game name="Subway Surfers" imageSource="3" onPress={() => gameGo('subway surfers')} decor={decal} />
@@ -170,7 +174,7 @@ export default function Index() {
       </ScrollView>
 
       <View>
-        <code style={{ margin: 10, color: 'white' }}>v6.0.0 (halowen)</code>
+        <code style={{ margin: 10, color: 'white' }}>v6.0.0 (e395)</code>
         <View style={{ position: 'absolute', right: 10, flexDirection: 'row' }}>
           <Ionicons name="information-circle" size={28} color="white" onPress={() => Linking.openURL('https://raw.githubusercontent.com/onlinegames19/main-site/refs/heads/main/CREDITS')} />
           <Ionicons name="logo-github" size={28} color="white" onPress={() => Linking.openURL('https://github.com/onlinegames19')} />

@@ -37,10 +37,13 @@ const games = {
   'granny': [`${prefix}/granny.htm`, 'Granny'],
   'swoop': [`${prefix}/swoop.htm`, 'Swoop'],
   'fast-runner': [`${prefix}/fast-runner`, 'Fast Runner'],
+  'sharkio': [`${prefix}/sharkio`, 'Shark.IO'],
   'captcha': [`${prefix}/captcha.htm`, 'reCaptcha v2'],
   'roll': [`${prefix}/roll.html`, 'Roll'],
   // 'Hotline-Miami': [`https://hotlinemiami.wasmer.app`, 'Hotline Miami'],
-  // 'Ragdoll-Hit': [`${prefix}/ragdoll-hit`, 'Ragdoll Hit'],
+  'ragdoll-hit': [`${prefix}/ragdoll-hit`, 'Ragdoll Hit'],
+  'pill-soccer': [`${prefix}/pill-soccer`, 'Pill Soccer'],
+  'gd3d': [`${prefix}/gd3d`, 'Geometry Dash 3D'],
 };
 
 export default function GameScreen() {
