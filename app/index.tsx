@@ -120,7 +120,7 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <ToastNotice notice={initialNotice} />
-      <Image source={require(`@/assets/images/decal/${decal}-atmosphere.png`)} style={{ position: 'absolute', height: 350, width: 400 }} />
+      <Image source={require(`@/assets/images/decal/${decal}-atmosphere.png`)} style={styles[decal]} />
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         <Text style={styles.title}>🎮 Our Games 🎮</Text>
         <View style={styles.gameList}>
@@ -135,11 +135,12 @@ export default function Index() {
           <Game name="Fast Runner" imageSource="t" onPress={() => gameGo('fast runner')} decor={decal} newUntil={25110615} />
           <Game name="Flappy Bird" imageSource="h" onPress={() => gameGo('flappy bird')} decor={decal} newUntil={25110615} />
           <Game name="G-Dash 3D" imageSource="z" onPress={() => gameGo('gd3d')} decor={decal} newUntil={25110615} />
+          <Game name="Gobble" imageSource="u" onPress={() => gameGo('gobble')} decor={decal} newUntil={25111015} />
           <Game name="GunSpin" imageSource="8" onPress={() => gameGo('gunspin')} decor={decal} />
           <Game name="Idle Football" imageSource="k" onPress={() => gameGo('idle foot')} decor={decal} />
           <Game name="OvO" imageSource="7" onPress={() => gameGo('ovo')} decor={decal} />
           <Game name="Penalty Kick" imageSource="e" onPress={() => gameGo('pens')} decor={decal} />
-          <Game name="Pill Soccer" imageSource="0" onPress={() => gameGo('pill soccer')} decor={decal} newUntil={25110615} />
+          <Game name="Pill Soccer" imageSource="0" onPress={() => gameGo('pill soccer')} decor={decal} newUntil={25110615} pcOnly={true} />
           <Game name="PvZ" imageSource="p" onPress={() => gameGo('pvz')} decor={decal} newUntil={25110615} />
           <Game name="Ragdoll Archers" imageSource="2" onPress={() => gameGo('ragdoll archers')} decor={decal} />
           <Game name="Ragdoll Hit" imageSource="c" onPress={() => gameGo('ragdoll hit')} decor={decal} newUntil={25110615} />
@@ -166,8 +167,8 @@ export default function Index() {
           <>
             <Text style={styles.noticeTitle}>🎃 Horror Games 🎃</Text>
             <View style={styles.gameList}>
-              <Game name="Granny" imageSource="j" onPress={() => gameGo('granny')} decor={decal} newUntil={25110615} />
-              <Game name="FnaF (⚠︎)" imageSource="a" onPress={() => gameGo('fnaf')} decor={decal} newUntil={25110615} />
+              <Game name="Granny" imageSource="j" onPress={() => gameGo('granny')} decor={decal} newUntil={25110615} pcOnly={true} />
+              <Game name="FnaF (⚠︎)" imageSource="a" onPress={() => gameGo('fnaf')} decor={decal} newUntil={25110615} pcOnly={true} />
             </View>
           </>
         )}
@@ -203,4 +204,6 @@ const styles = StyleSheet.create({
   noticeTitle: { color: 'white', fontSize: 20, fontWeight: 'bold', marginBottom: 5, textAlign: 'center' },
   button: { backgroundColor: 'rgba(135,189,229,1)', paddingVertical: 12, paddingHorizontal: 20, borderRadius: 8, alignItems: 'center', marginBottom: 15 },
   buttonText: { color: 'white', fontSize: 16, fontWeight: '600' },
+  halloween: { position: 'absolute', height: 350, width: 400 },
+  christmas: { position: 'absolute', height: 350, width: 400, bottom: 0 },
 });

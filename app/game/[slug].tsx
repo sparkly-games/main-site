@@ -44,6 +44,7 @@ const games = {
   'ragdoll-hit': [`${prefix}/ragdoll-hit`, 'Ragdoll Hit'],
   'pill-soccer': [`${prefix}/pill-soccer`, 'Pill Soccer'],
   'gd3d': [`${prefix}/gd3d`, 'Geometry Dash 3D'],
+  'gobble': [`${prefix}/gobble`, 'Gobble'],
 };
 
 export default function GameScreen() {

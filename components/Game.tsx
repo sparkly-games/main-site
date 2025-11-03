@@ -11,9 +11,10 @@ interface GameProps {
   onPress: () => void;
   decor?: DecorEvent;
   newUntil?: number; // YYMMDDHH format
+  pcOnly?: boolean
 }
 
-export function Game({ name, imageSource, onPress, decor, newUntil }: GameProps) {
+export function Game({ name, imageSource, onPress, decor, newUntil, pcOnly }: GameProps) {
   const icon: ImageSourcePropType = gameIcons[imageSource];
   let decorIcon: ImageSourcePropType | null = null;
 
@@ -40,6 +41,7 @@ export function Game({ name, imageSource, onPress, decor, newUntil }: GameProps)
     const expireTime = new Date(year, month, day, hour).getTime();
     return Date.now() < expireTime;
   })();
+  const showPcBadge = pcOnly;
 
   return (
     <View style={{ position: 'relative', margin: 5 }}>
@@ -48,6 +50,7 @@ export function Game({ name, imageSource, onPress, decor, newUntil }: GameProps)
         <View style={styles.imageWrapper}>
           <Image source={icon} style={styles.image} />
           {showBadge && <Text style={styles.newBadge}>New!</Text>}
+          {showPcBadge && <Text style={styles.pcBadge}>PC</Text>}
         </View>
         <Text style={styles.text}>{name}</Text>
       </TouchableOpacity>
@@ -94,6 +97,20 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 5,
     right: 5,
+    backgroundColor: 'rgba(135,189,229,1)',
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 10,
+    paddingVertical: 2,
+    paddingHorizontal: 6,
+    borderRadius: 6,
+    textTransform: 'uppercase',
+    zIndex: 10,
+  },
+  pcBadge: {
+    position: 'absolute',
+    bottom: 5,
+    left: 10,
     backgroundColor: 'rgba(135,189,229,1)',
     color: 'white',
     fontWeight: '600',
