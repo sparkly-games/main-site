@@ -13,7 +13,7 @@ interface RemoteNotice {
   end: number;
 }
 
-const decal = "halloween";
+const decal = "";
 const errorNoticesUrl = 'https://raw.githubusercontent.com/onlinegames19/main-site/main/errors.md';
 
 const parseNotices = (rawText: string): RemoteNotice[] => {
@@ -141,7 +141,7 @@ export default function Index() {
           <Game name="OvO" imageSource="7" onPress={() => gameGo('ovo')} decor={decal} />
           <Game name="Penalty Kick" imageSource="e" onPress={() => gameGo('pens')} decor={decal} />
           <Game name="Pill Soccer" imageSource="0" onPress={() => gameGo('pill soccer')} decor={decal} newUntil={25110615} pcOnly={true} />
-          <Game name="PvZ" imageSource="p" onPress={() => gameGo('pvz')} decor={decal} newUntil={25110615} />
+          <Game name="PvZ" imageSource="p" onPress={() => gameGo('pvz')} decor={decal} newUntil={25110615} fixed />
           <Game name="Ragdoll Archers" imageSource="2" onPress={() => gameGo('ragdoll archers')} decor={decal} />
           <Game name="Ragdoll Hit" imageSource="c" onPress={() => gameGo('ragdoll hit')} decor={decal} newUntil={25110615} />
           <Game name="reCaptcha v2" imageSource="x" onPress={() => gameGo('captcha')} decor={decal} newUntil={25110615} />
@@ -167,15 +167,15 @@ export default function Index() {
           <>
             <Text style={styles.noticeTitle}>🎃 Horror Games 🎃</Text>
             <View style={styles.gameList}>
-              <Game name="Granny" imageSource="j" onPress={() => gameGo('granny')} decor={decal} newUntil={25110615} pcOnly={true} />
-              <Game name="FnaF (⚠︎)" imageSource="a" onPress={() => gameGo('fnaf')} decor={decal} newUntil={25110615} pcOnly={true} />
+              <Game name="Granny" imageSource="j" onPress={() => gameGo('granny')} decor={decal} newUntil={25110615} pcOnly />
+              <Game name="FnaF (⚠︎)" imageSource="a" onPress={() => gameGo('fnaf')} decor={decal} newUntil={25110615} pcOnly />
             </View>
           </>
         )}
       </ScrollView>
 
       <View>
-        <code style={{ margin: 10, color: 'white' }}>v6.0.0 (e395)</code>
+        <code style={{ margin: 10, color: 'white' }}>v6.0.0 (h097)</code>
         <View style={{ position: 'absolute', right: 10, flexDirection: 'row' }}>
           <Ionicons name="information-circle" size={28} color="white" onPress={() => Linking.openURL('https://raw.githubusercontent.com/onlinegames19/main-site/refs/heads/main/CREDITS')} />
           <Ionicons name="logo-github" size={28} color="white" onPress={() => Linking.openURL('https://github.com/onlinegames19')} />
@@ -206,4 +206,5 @@ const styles = StyleSheet.create({
   buttonText: { color: 'white', fontSize: 16, fontWeight: '600' },
   halloween: { position: 'absolute', height: 350, width: 400 },
   christmas: { position: 'absolute', height: 350, width: 400, bottom: 0 },
+  "": { display: 'none' }
 });

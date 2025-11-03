@@ -11,10 +11,11 @@ interface GameProps {
   onPress: () => void;
   decor?: DecorEvent;
   newUntil?: number; // YYMMDDHH format
-  pcOnly?: boolean
+  pcOnly?: boolean,
+  fixed?: boolean 
 }
 
-export function Game({ name, imageSource, onPress, decor, newUntil, pcOnly }: GameProps) {
+export function Game({ name, imageSource, onPress, decor, newUntil, pcOnly, fixed }: GameProps) {
   const icon: ImageSourcePropType = gameIcons[imageSource];
   let decorIcon: ImageSourcePropType | null = null;
 
@@ -52,6 +53,7 @@ export function Game({ name, imageSource, onPress, decor, newUntil, pcOnly }: Ga
           {showBadge && <Text style={styles.newBadge}>New!</Text>}
           {showPcBadge && <Text style={styles.pcBadge}>PC</Text>}
         </View>
+        {fixed && <Text style={styles.pcBadge}>✅ FIXED</Text>}
         <Text style={styles.text}>{name}</Text>
       </TouchableOpacity>
     </View>
