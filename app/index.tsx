@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, ScrollView, TouchableOpacity, Linking, Animated
 import { useRouter } from 'expo-router';
 import { Game } from '../components/Game';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import slugMap from './uuids';
 
 // --- Interface and Parsing Logic ---
 
@@ -13,7 +14,7 @@ interface RemoteNotice {
   end: number;
 }
 
-const decal = "";
+const decal = "christmas";
 const errorNoticesUrl = 'https://raw.githubusercontent.com/onlinegames19/main-site/main/errors.md';
 
 const parseNotices = (rawText: string): RemoteNotice[] => {
@@ -100,7 +101,11 @@ export default function Index() {
   const [initialNotice, setInitialNotice] = useState<RemoteNotice | null>(null);
   const [showHorror, setShowHorror] = useState(false);
 
-  const gameGo = (path: string) => router.push(`/game/${path.replace(/ /g, '-')}`);
+  const gameGo = (path: string) => { 
+    slug = path.replace(/ /g, '-').toLowerCase();
+    const uuid = slugMap[slug];
+    if (uuid) router.push(`/package/${uuid}`);
+  };
 
   const fetchAndFilterNotices = async () => {
     try {
@@ -124,6 +129,7 @@ export default function Index() {
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         <Text style={styles.title}>🎮 Our Games 🎮</Text>
         <View style={styles.gameList}>
+          <Game name="Battle Football" imageSource="01" onPress={() => gameGo('battle football')} decor={decal} newUntil={25112615} broken />
           <Game name="BitLife" imageSource="6" onPress={() => gameGo('bitlife')} decor={decal} />
           <Game name="BTD 5" imageSource="m" onPress={() => gameGo('btd')} decor={decal} />
           <Game name="CCL" imageSource="n" onPress={() => gameGo('ccl')} decor={decal} />
@@ -135,13 +141,14 @@ export default function Index() {
           <Game name="Fast Runner" imageSource="t" onPress={() => gameGo('fast runner')} decor={decal} newUntil={25110615} />
           <Game name="Flappy Bird" imageSource="h" onPress={() => gameGo('flappy bird')} decor={decal} newUntil={25110615} />
           <Game name="G-Dash 3D" imageSource="z" onPress={() => gameGo('gd3d')} decor={decal} newUntil={25110615} />
+          <Game name="GD Wave" imageSource="00" onPress={() => gameGo('gdash wave')} decor={decal} newUntil={25112615} broken />
           <Game name="Gobble" imageSource="u" onPress={() => gameGo('gobble')} decor={decal} newUntil={25111015} />
           <Game name="GunSpin" imageSource="8" onPress={() => gameGo('gunspin')} decor={decal} />
           <Game name="Idle Football" imageSource="k" onPress={() => gameGo('idle foot')} decor={decal} />
           <Game name="OvO" imageSource="7" onPress={() => gameGo('ovo')} decor={decal} />
           <Game name="Penalty Kick" imageSource="e" onPress={() => gameGo('pens')} decor={decal} />
           <Game name="Pill Soccer" imageSource="0" onPress={() => gameGo('pill soccer')} decor={decal} newUntil={25110615} pcOnly={true} />
-          <Game name="PvZ" imageSource="p" onPress={() => gameGo('pvz')} decor={decal} newUntil={25110615} fixed />
+          <Game name="PvZ" imageSource="p" onPress={() => gameGo('pvz')} decor={decal} newUntil={25110615} />
           <Game name="Ragdoll Archers" imageSource="2" onPress={() => gameGo('ragdoll archers')} decor={decal} />
           <Game name="Ragdoll Hit" imageSource="c" onPress={() => gameGo('ragdoll hit')} decor={decal} newUntil={25110615} />
           <Game name="reCaptcha v2" imageSource="x" onPress={() => gameGo('captcha')} decor={decal} newUntil={25110615} />
@@ -149,13 +156,13 @@ export default function Index() {
           <Game name="Roper (⚠︎)" imageSource="b" onPress={() => gameGo('roper')} decor={decal} />
           <Game name="Run 3" imageSource="o" onPress={() => gameGo('run3')} decor={decal} />
           <Game name="Shark IO" imageSource="s" onPress={() => gameGo('sharkio')} decor={decal} newUntil={25110615} />
-          <Game name="Snek Left (⚠︎)" imageSource="q" onPress={() => gameGo('snek left')} decor={decal} newUntil={25110615} />
+          <Game name="Snek Left" imageSource="q" onPress={() => gameGo('snek left')} decor={decal} newUntil={25110615} broken />
           <Game name="Spiral Roll" imageSource="i" onPress={() => gameGo('spiral roll')} decor={decal} newUntil={25110615} />
           <Game name="Subway Surfers" imageSource="3" onPress={() => gameGo('subway surfers')} decor={decal} />
           <Game name="Survival Race" imageSource="d" onPress={() => gameGo('survival race')} decor={decal} />
           <Game name="Swoop!" imageSource="r" onPress={() => gameGo('swoop')} decor={decal} newUntil={25110615} />
           <Game name="Tap Goal" imageSource="v" onPress={() => gameGo('tap goal')} decor={decal} newUntil={25110615} />
-          <Game name="Thorns and Balloons" imageSource="5" onPress={() => gameGo('tabs')} decor={decal} />
+          <Game name="TABS" imageSource="5" onPress={() => gameGo('tabs')} decor={decal} />
           <Game name="Tiny Fishing" imageSource="1" onPress={() => gameGo('tiny fishing')} decor={decal} />
         </View>
 
@@ -168,14 +175,14 @@ export default function Index() {
             <Text style={styles.noticeTitle}>🎃 Horror Games 🎃</Text>
             <View style={styles.gameList}>
               <Game name="Granny" imageSource="j" onPress={() => gameGo('granny')} decor={decal} newUntil={25110615} pcOnly />
-              <Game name="FnaF (⚠︎)" imageSource="a" onPress={() => gameGo('fnaf')} decor={decal} newUntil={25110615} pcOnly />
+              <Game name="FnaF" imageSource="a" onPress={() => gameGo('fnaf')} decor={decal} newUntil={25110615} pcOnly broken />
             </View>
           </>
         )}
       </ScrollView>
 
       <View>
-        <code style={{ margin: 10, color: 'white' }}>v6.0.0 (h097)</code>
+        <code style={{ margin: 10, color: 'white' }}>v6.0.0 (xms1)</code>
         <View style={{ position: 'absolute', right: 10, flexDirection: 'row' }}>
           <Ionicons name="information-circle" size={28} color="white" onPress={() => Linking.openURL('https://raw.githubusercontent.com/onlinegames19/main-site/refs/heads/main/CREDITS')} />
           <Ionicons name="logo-github" size={28} color="white" onPress={() => Linking.openURL('https://github.com/onlinegames19')} />

@@ -12,8 +12,9 @@
 ## Architecture & Data Flow
 - **Game Launch:**
   - Home page (`app/index.tsx`) lists games by category, each launches via Expo Router to `/game/[slug]`.
-  - Game pages (`app/game/[slug].tsx`) map slugs to URLs in `public/` or external sites, then embed via `<iframe>`.
+  - Game pages (`app/package/[slug].tsx`) map slugs to URLs in `public/` or external sites, then embed via `<iframe>`.
   - Analytics events are logged on game launch using Firebase (`app/firebaseConfig.ts`).
+  - UUIDs are mapped to slugs in `app/uuids.ts`.
 - **Remote Notices & Changelog:**
   - Notices and changelog are fetched from remote markdown files on GitHub and rendered in the UI.
 - **Header Buttons:**
@@ -33,7 +34,7 @@
 
 ## Project-Specific Patterns
 - **Game Routing:**
-  - Slug-to-URL mapping is centralized in `app/game/[slug].tsx`.
+  - Slug-to-URL mapping is centralized in `app/package/[slug].tsx`.
   - Add new games by updating the `games` object and placing assets in `public/`.
 - **Remote Data:**
   - Notices and changelog are parsed from markdown with custom YAML-like frontmatter.
@@ -52,7 +53,7 @@
 
 ## Key Files
 - `app/index.tsx`: Home page, game list, notices, changelog
-- `app/game/[slug].tsx`: Game launch logic, slug mapping
+- `app/package/[slug].tsx`: Game launch logic, slug mapping
 - `app/_layout.tsx`: Header and navigation layout
 - `app/firebaseConfig.ts`: Firebase analytics setup
 - `wasmer.toml`, `app.yaml`: Wasmer deployment config
