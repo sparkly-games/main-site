@@ -40,9 +40,7 @@ yarn-error.*
 
 app-example
 
-# Local Netlify folder
-.netlify
-.vercel
+.firebase
 
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md

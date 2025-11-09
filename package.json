@@ -12,7 +12,8 @@
     "lint": "expo lint",
     "render-deploy": "render deploys create srv-d36li58dl3ps738fg7q0 -o text --confirm",
     "wasmer-deploy": "wasmer publish && wasmer deploy",
-    "deploy": "npm run render-deploy && npm run wasmer-deploy",
+    "firebase-deploy": "firebase deploy",
+    "deploy": "npm run wasmer-deploy",
     "predeploy": "rm -rf dist && expo export --platform web"
   },
   "jest": {

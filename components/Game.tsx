@@ -52,7 +52,7 @@ export function Game({ name, imageSource, onPress, decor, newUntil, pcOnly, fixe
         <View style={styles.imageWrapper}>
           <Image source={icon} style={styles.image} />
           {showBadge && <Text style={styles.newBadge}>New!</Text>}
-          {showPcBadge && <Text style={styles.pcBadge}>PC</Text>}
+          {showPcBadge && <Text style={styles.pcBadge}>💻 PC</Text>}
         </View>
         {fixed && <Text style={styles.pcBadge}>✅ FIXED</Text>}
         {broken && <Text style={styles.pcBadge}>❎ BROKEN</Text>}

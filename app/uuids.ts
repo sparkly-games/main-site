@@ -8,7 +8,6 @@ const slugMap: { [key: string]: string } = {
     "ovo": "cbc87c41-6865-4304-bce1-7e16c18fe97e",
     "gunspin": "a84d8290-2a3e-4b7a-92d8-40208a108abd",
     "drive-mad": "44d321a8-189c-4ecc-bed7-b689252d5a18",
-    "fnaf": "9abbeb41-b630-401a-aa9e-033f07b9fd03",
     "roper": "7b1f460c-4742-4f8f-b680-3148ba160bdb",
     "survival-race": "fd357a12-c3a7-4106-ac37-2a173c4468fa",
     "pens": "6d65b100-fbca-48cf-b32f-bb463aefc833",
@@ -18,7 +17,6 @@ const slugMap: { [key: string]: string } = {
     "ccl": "b7d9e8f0-3c12-4a5e-8d6b-7f1b9c2d8e3a",
     "run3": "c1f4d5e6-7b8a-9c0d-1e2f-3a4b5c6d7e8f",
     "pvz": "d8e9f0a1-2b3c-4d5e-6f7g-8h9i0j1k2l3m",
-    "snek-left": "m4n5o6p7-8q9r-0s1t-2u3v-4w5x6y7z8a9",
     "spiral-roll": "b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q",
     "tap-goal": "r7s8t9u0-v1w2-x3y4-z5a6-b7c8d9e0f1g",
     "draw-climb": "h2i3j4k5-l6m7-n8o9-p0q1-r2s3t4u5v6w",
@@ -28,14 +26,12 @@ const slugMap: { [key: string]: string } = {
     "swoop": "t2u3v4w5-x6y7-z8a9-b0c1-d2e3f4g5h6i",
     "fast-runner": "j7k8l9m0-n1o2-p3q4-r5s6-t7u8v9w0x1",
     "sharkio": "y2z3a4b5-c6d7-e8f9-g0h1-i2j3k4l5m6n",
-    "captcha": "o7p8q9r0-s1t2-u3v4-w5x6-y7z8a9b0c1d",
     "roll": "e2f3g4h5-i6j7-k8l9-m0n1-o2p3q4r5s6t",
     "ragdoll-hit": "u7v8w9x0-y1z2-a3b4-c5d6-e7f8g9h0i1",
-    "pill-soccer": "j2k3l4m5-n6o7-p8q9-r0s1-t2u3v4w5x6",
     "gd3d": "y7z8a9b0-c1d2-e3f4-g5h6-i7j8k9l0m1n",
     "gobble": "o2p3q4r5-s6t7-u8v9-w0x1-y2z3a4b5c6d",
-    "gdash-wave": "d7e6f5g4-h3i2-j1k0-l9m8-n7o6p5q4r3s",
-    "battle-football": "t2s3r4q5-p6o7-n8m9-l0k1-j2i3h4g5f6e",
+    "fnaf-1": "f1e2d3c4-b5a6-7980-1234-56789abcdef0",
+    "slice-master": "0f1e2d3c-4b5a-6978-0123-456789abcdef",
 }
 
 export default slugMap;
