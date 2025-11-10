@@ -19,7 +19,7 @@ const games: Record<string, [string, string]> = {
   'gunspin': [`${prefix}/gunspin`, 'Gunspin'],
   'drive-mad': [`${prefix}/drive-mad`, 'Drive Mad'],
   'roper': [`${prefix}/roper`, 'Roper'],
-  // 'survival-race': [`https://survival-race.wasmer.app`, 'Survival Race'],
+  'survival-race': [`${prefix}/svlrc`, 'Survival Race'],
   'pens': [`${prefix}/penkick`, 'Penalty Kick Online'],
   'darts': [`${prefix}/dartspro`, 'Darts Pro'],
   'idle-foot': [`${prefix}/idle-football`, 'Idle Football'],
@@ -42,6 +42,7 @@ const games: Record<string, [string, string]> = {
   'gobble': [`${prefix}/gobble`, 'Gobble'],
   'fnaf-1': [`https://fnaf12.web.app/1/`, 'Five Nights at Freddy\'s 1'],
   'slice-master': [`https://game-hub.nyc3.cdn.digitaloceanspaces.com/slice-master/index.html`, 'Slice Master'],
+  'x3m-winter': [`${prefix}/x3m`, 'Moto X3M Winter'],
 };
 
 export default function GameScreen() {

@@ -155,13 +155,12 @@ export default function Index() {
           <Game name="Slice Master" imageSource="q" onPress={() => gameGo('slice master')} decor={decal} newUntil={25112015} />
           <Game name="Spiral Roll" imageSource="i" onPress={() => gameGo('spiral roll')} decor={decal} newUntil={25110615} />
           <Game name="Subway Surfers" imageSource="3" onPress={() => gameGo('subway surfers')} decor={decal} />
-          {/*
           <Game name="Survival Race" imageSource="d" onPress={() => gameGo('survival race')} decor={decal} />
-          */}
           <Game name="Swoop!" imageSource="r" onPress={() => gameGo('swoop')} decor={decal} newUntil={25110615} />
           <Game name="Tap Goal" imageSource="v" onPress={() => gameGo('tap goal')} decor={decal} newUntil={25110615} />
           <Game name="TABS" imageSource="5" onPress={() => gameGo('tabs')} decor={decal} />
           <Game name="Tiny Fishing" imageSource="1" onPress={() => gameGo('tiny fishing')} decor={decal} />
+          <Game name="X3M Winter" imageSource="02" onPress={() => gameGo('x3m winter')} decor={decal} newUntil={25112015} />
         </View>
 
         <TouchableOpacity style={styles.button} onPress={() => setShowHorror(!showHorror)}>
@@ -180,7 +179,7 @@ export default function Index() {
       </ScrollView>
 
       <View>
-        <code style={{ margin: 10, color: 'white' }}>v6.0.1 (BUGPATCH1)</code>
+        <code style={{ margin: 10, color: 'white' }}>v6.0.3 (newgmz)</code>
         <View style={{ position: 'absolute', right: 10, flexDirection: 'row' }}>
           <Ionicons name="information-circle" size={28} color="white" onPress={() => Linking.openURL('https://raw.githubusercontent.com/onlinegames19/main-site/refs/heads/main/CREDITS')} />
           <Ionicons name="logo-github" size={28} color="white" onPress={() => Linking.openURL('https://github.com/onlinegames19')} />
