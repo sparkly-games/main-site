@@ -43,6 +43,8 @@ const games: Record<string, [string, string]> = {
   'fnaf-1': [`https://fnaf12.web.app/1/`, 'Five Nights at Freddy\'s 1'],
   'slice-master': [`https://game-hub.nyc3.cdn.digitaloceanspaces.com/slice-master/index.html`, 'Slice Master'],
   'x3m-winter': [`${prefix}/x3m`, 'Moto X3M Winter'],
+  'wheelie-bike': [`${prefix}/wheelie-bike`, 'Wheelie Bike'],
+  'soccer-pro': [`${prefix}/soccer-pro`, 'Soccer Pro'],
 };
 
 export default function GameScreen() {

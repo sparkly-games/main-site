@@ -32,7 +32,9 @@ const slugMap: { [key: string]: string } = {
     "gobble": "o2p3q4r5-s6t7-u8v9-w0x1-y2z3a4b5c6d",
     "fnaf-1": "f1e2d3c4-b5a6-7980-1234-56789abcdef0",
     "slice-master": "0f1e2d3c-4b5a-6978-0123-456789abcdef",
-    "x3m-winter": "abc12345-def6-7890-ab12-cd34ef56gh78"
+    "x3m-winter": "abc12345-def6-7890-ab12-cd34ef56gh78",
+    "wheelie-bike": "123e4567-e89b-12d3-a456-426614174000",
+    "soccer-pro": "987f6543-21ba-43dc-bcde-0987654321fe"
 }
 
 export default slugMap;

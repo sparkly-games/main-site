@@ -153,6 +153,7 @@ export default function Index() {
           <Game name="Run 3" imageSource="o" onPress={() => gameGo('run3')} decor={decal} pcOnly />
           <Game name="Shark IO" imageSource="s" onPress={() => gameGo('sharkio')} decor={decal} newUntil={25110615} />
           <Game name="Slice Master" imageSource="q" onPress={() => gameGo('slice master')} decor={decal} newUntil={25112015} />
+          <Game name="Soccer Pro" imageSource="12" onPress={() => gameGo('soccer pro')} decor={decal} newUntil={25125615} />
           <Game name="Spiral Roll" imageSource="i" onPress={() => gameGo('spiral roll')} decor={decal} newUntil={25110615} />
           <Game name="Subway Surfers" imageSource="3" onPress={() => gameGo('subway surfers')} decor={decal} />
           <Game name="Survival Race" imageSource="d" onPress={() => gameGo('survival race')} decor={decal} />
@@ -160,6 +161,7 @@ export default function Index() {
           <Game name="Tap Goal" imageSource="v" onPress={() => gameGo('tap goal')} decor={decal} newUntil={25110615} />
           <Game name="TABS" imageSource="5" onPress={() => gameGo('tabs')} decor={decal} />
           <Game name="Tiny Fishing" imageSource="1" onPress={() => gameGo('tiny fishing')} decor={decal} />
+          <Game name="Wheelie Bike" imageSource="25" onPress={() => gameGo('wheelie bike')} decor={decal} newUntil={25112515} />
           <Game name="X3M Winter" imageSource="02" onPress={() => gameGo('x3m winter')} decor={decal} newUntil={25112015} />
         </View>
 
@@ -179,7 +181,7 @@ export default function Index() {
       </ScrollView>
 
       <View>
-        <code style={{ margin: 10, color: 'white' }}>v6.0.3 (newgmz)</code>
+        <code style={{ margin: 10, color: 'white' }}>v6.0.4 (tmmde)</code>
         <View style={{ position: 'absolute', right: 10, flexDirection: 'row' }}>
           <Ionicons name="information-circle" size={28} color="white" onPress={() => Linking.openURL('https://raw.githubusercontent.com/onlinegames19/main-site/refs/heads/main/CREDITS')} />
           <Ionicons name="logo-github" size={28} color="white" onPress={() => Linking.openURL('https://github.com/onlinegames19')} />

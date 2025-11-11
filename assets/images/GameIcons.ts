@@ -42,4 +42,6 @@ export const gameIcons = {
   '00': require('./game-icons/00.png'),
   '01' : require('./game-icons/01.jpg'),
   '02': require('./game-icons/02.avif'),
+  '25': require('./game-icons/25.png'),
+  '12': require('./game-icons/12.png'),
 };
