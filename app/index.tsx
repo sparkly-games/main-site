@@ -1,133 +1,40 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Text, View, StyleSheet, ScrollView, TouchableOpacity, Linking, Animated, Easing, Image } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, StyleSheet, ScrollView, TouchableOpacity, Linking, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Game } from '../components/Game';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import slugMap from './uuids';
+import Banner from '@/components/Banner';
 
-// --- Interface and Parsing Logic ---
-
-interface RemoteNotice {
-  name: string;
-  info: string;
-  noticeDetails: string;
-  end: number;
-}
 
 const decal = "";
-const errorNoticesUrl = 'https://raw.githubusercontent.com/onlinegames19/main-site/main/errors.md';
-
-const parseNotices = (rawText: string): RemoteNotice[] => {
-  return rawText
-    .split('---')
-    .filter(block => block.trim())
-    .map(block => {
-      const data: any = {};
-      block.trim().split('\n').forEach(line => {
-        const [key, ...rest] = line.split(':');
-        if (!key || !rest.length) return;
-        const value = rest.join(':').trim().replace(/^['"]|['"]$/g, '');
-        if (['name', 'info', 'noticeDetails'].includes(key)) data[key] = value;
-        if (key === 'end') data.end = parseInt(value, 10);
-      });
-      return data as RemoteNotice;
-    })
-    .filter(n => n.name && n.info && n.noticeDetails && !isNaN(n.end));
-};
-
-// --- Toast Notice Component ---
-
-const ToastNotice = ({ notice }: { notice: RemoteNotice | null }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const translateY = useRef(new Animated.Value(-100)).current;
-
-  const DISPLAY_DURATION = 8000;
-  const ANIMATION_DURATION = 500;
-
-  useEffect(() => {
-    if (notice) {
-      setIsVisible(true);
-      Animated.timing(translateY, {
-        toValue: 0,
-        duration: ANIMATION_DURATION,
-        easing: Easing.out(Easing.ease),
-        useNativeDriver: true,
-      }).start(() => {
-        const timer = setTimeout(() => {
-          Animated.timing(translateY, {
-            toValue: -100,
-            duration: ANIMATION_DURATION,
-            easing: Easing.in(Easing.ease),
-            useNativeDriver: true,
-          }).start(() => setIsVisible(false));
-        }, DISPLAY_DURATION);
-        return () => clearTimeout(timer);
-      });
-    }
-  }, [notice]);
-
-  if (!notice || !isVisible) return null;
-
-  const dismissToast = () => {
-    Animated.timing(translateY, {
-      toValue: -100,
-      duration: ANIMATION_DURATION,
-      easing: Easing.in(Easing.ease),
-      useNativeDriver: true,
-    }).start(() => setIsVisible(false));
-  };
-
-  return (
-    <Animated.View style={[toastStyles.toastContainer, { transform: [{ translateY }] }]}>
-      <View style={toastStyles.toastContent}>
-        <View style={toastStyles.textContainer}>
-          <Text style={toastStyles.toastTitle}>{notice.name}</Text>
-          <Text style={toastStyles.toastInfo} numberOfLines={5}>
-            {notice.info}
-          </Text>
-        </View>
-        <TouchableOpacity onPress={dismissToast} style={toastStyles.closeButton}>
-          <Ionicons name="close" size={20} color="white" />
-        </TouchableOpacity>
-      </View>
-    </Animated.View>
-  );
-};
-
-// --- Main Index Component ---
 
 export default function Index() {
   const router = useRouter();
-  const [initialNotice, setInitialNotice] = useState<RemoteNotice | null>(null);
   const [showHorror, setShowHorror] = useState(false);
 
   const gameGo = (path: string) => { 
-    slug = path.replace(/ /g, '-').toLowerCase();
+    const slug = path.replace(/ /g, '-').toLowerCase();
     const uuid = slugMap[slug];
-    if (uuid) router.push(`/package/${uuid}/item/${(Math.random() * 100000000000000000).toString().slice(0, 1)}`);
+    if (uuid) router.push(`/package/${uuid}/item/${(Math.random()).toString().slice(6, 7)}`);
   };
-
-  const fetchAndFilterNotices = async () => {
-    try {
-      const response = await fetch(errorNoticesUrl);
-      if (!response.ok) throw new Error('Network error');
-      const allNotices = parseNotices(await response.text());
-      const now = Date.now();
-      const active = allNotices.find(n => n.end * 1000 > now) || null;
-      if (active) setInitialNotice(active);
-    } catch {
-      setInitialNotice(null);
-    }
-  };
-
-  useEffect(() => { fetchAndFilterNotices(); }, []);
 
   return (
     <View style={styles.container}>
-      <ToastNotice notice={initialNotice} />
       <Image source={require(`@/assets/images/decal/${decal}-atmosphere.png`)} style={styles[decal]} />
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-        <Text style={styles.title}></Text>
+        <View style={styles.noticeBox}>
+          <Text style={styles.noticeTitle}>✨️ Sparkly Testers ✨️</Text>
+          <Text style={{ color: 'white', textAlign: 'center', marginTop: 6 }}>
+            Test games early and give critical feedback to speed up getting out games.
+          </Text>
+          <Text style={{ color: 'white', textAlign: 'center', marginTop: 6 }}>
+            Pay £1 one time (subject to change) and get access to a treasure trove of new games, all before they launch here!
+          </Text>
+          <TouchableOpacity style={styles.ctaButton} onPress={() => Linking.openURL('https://sparkly.sparxlearning.cloud-ip.cc')}>
+            <Text style={styles.ctaButtonText}>Gaming for More.</Text>
+          </TouchableOpacity>
+        </View>
         <View style={styles.gameList}>
           <Game name="BitLife" imageSource="6" onPress={() => gameGo('bitlife')} decor={decal} />
           <Game name="BTD 5" imageSource="m" onPress={() => gameGo('btd')} decor={decal} />
@@ -139,14 +46,13 @@ export default function Index() {
           <Game name="Drive Mad" imageSource="9" onPress={() => gameGo('drive mad')} decor={decal} />
           <Game name="DDC" imageSource="4" onPress={() => gameGo('duck clicker')} decor={decal} />
           <Game name="Fast Runner" imageSource="t" onPress={() => gameGo('fast runner')} decor={decal} newUntil={25110615} />
-          <Game name="FB + WG: Temple" imageSource="s" onPress={() => gameGo('fireboy and watergirl')} decor={decal} newUntil={25120115} />
+          <Game name="FB + WG: Temple" imageSource="s" onPress={() => gameGo('fireboy and watergirl')} decor={decal} newUntil={25120115} pcOnly />
           <Game name="Flappy Bird" imageSource="h" onPress={() => gameGo('flappy bird')} decor={decal} newUntil={25110615} />
           <Game name="G-Dash 3D" imageSource="z" onPress={() => gameGo('gd3d')} decor={decal} newUntil={25110615} />
           <Game name="Gobble" imageSource="u" onPress={() => gameGo('gobble')} decor={decal} newUntil={25111015} />
           <Game name="GunSpin" imageSource="8" onPress={() => gameGo('gunspin')} decor={decal} />
-          <Game name="Helix Jump" imageSource="03" onPress={() => gameGo('helix')} decor={decal} newUntil={25120115} />
           <Game name="Idle Football" imageSource="k" onPress={() => gameGo('idle foot')} decor={decal} />
-          <Game name="Nut Sort" imageSource="340" onPress={() => gameGo('nut sort')} decor={decal} newUntil={25120115} />
+          <Game name="Nut Sort" imageSource="340" onPress={() => gameGo('nut sort')} decor={decal} newUntil={25120115} broken />
           <Game name="OvO" imageSource="7" onPress={() => gameGo('ovo')} decor={decal} />
           <Game name="Penalty Kick" imageSource="e" onPress={() => gameGo('pens')} decor={decal} />
           <Game name="PvZ" imageSource="p" onPress={() => gameGo('pvz')} decor={decal} newUntil={25110615} />
@@ -188,7 +94,7 @@ export default function Index() {
       </ScrollView>
 
       <View>
-        <code style={{ margin: 10, color: 'white' }}>v6.1.1 [ 16/11/25 ]</code>
+        <code style={{ margin: 10, color: 'white' }}>v6.1.2 [ 17/11/25 ]</code>
         <View style={{ position: 'absolute', right: 10, flexDirection: 'row' }}>
           <Ionicons name="information-circle" size={28} color="white" onPress={() => Linking.openURL('https://raw.githubusercontent.com/onlinegames19/main-site/refs/heads/main/CREDITS')} />
           <Ionicons name="book" size={26} color="white" onPress={() => Linking.openURL('/behindcloseddoors.pdf')} />
@@ -199,18 +105,6 @@ export default function Index() {
   );
 }
 
-
-// --- Toast Styles ---
-const toastStyles = StyleSheet.create({
-  toastContainer: { position: 'absolute', top: 15, right: 15, zIndex: 1000, borderRadius: 8, overflow: 'hidden', maxWidth: 500, elevation: 5, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25, shadowRadius: 3.84 },
-  toastContent: { backgroundColor: 'rgba(74, 168, 255, 0.95)', flexDirection: 'row', alignItems: 'center', padding: 10 },
-  textContainer: { flex: 1, paddingRight: 5 },
-  toastTitle: { color: 'white', fontSize: 14, fontWeight: 'bold', marginBottom: 2 },
-  toastInfo: { color: 'white', fontSize: 12 },
-  closeButton: { padding: 2 },
-});
-
-// --- General Styles ---
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#2b2b2bff' },
   scrollContent: { flexGrow: 1, justifyContent: 'center', alignItems: 'center', paddingVertical: 20 },
@@ -221,5 +115,29 @@ const styles = StyleSheet.create({
   buttonText: { color: 'white', fontSize: 16, fontWeight: '600' },
   halloween: { position: 'absolute', height: 350, width: 400 },
   christmas: { position: 'absolute', height: 350, width: 400, bottom: 0 },
-  "": { display: 'none' }
+  "": { display: 'none' },
+  noticeBox: {
+    backgroundColor: '#001f3f',
+    padding: 15,
+    borderRadius: 10,
+    marginBottom: 15,
+    width: '50%',
+    alignSelf: 'center',
+    height: '20%',
+    alignContent: 'center',
+    justifyContent: 'center'
+  },
+  ctaButton: {
+    backgroundColor: 'rgba(135,189,229,1)',
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderRadius: 6,
+    alignItems: 'center',
+    marginTop: 10
+  },
+  ctaButtonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '600'
+  },
 });

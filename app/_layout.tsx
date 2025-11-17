@@ -2,7 +2,8 @@ import { Stack } from "expo-router";
 import TeamsHeaderButton from '@/components/TeamsButton';
 import SparxHeaderButton from "@/components/SparxButton";
 import { Text, Image, StyleSheet } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { Banner } from "@/components/Banner";
 // @ts-ignore: allow importing image assets without explicit module declarations
 // import fazber from '@/assets/images/feddy-fazber.jpg';
 const fazber = ""
@@ -17,12 +18,37 @@ const HeaderLogo = () => (
   />
 );
 
-export default function RootLayout() {
+export default function RootLayout({ initialBanner }: { initialBanner?: boolean }) {
+  const [showBanner, setShowBanner] = useState(false);
+  const [desktopAdUrl, setDesktopAdUrl] = useState<string | null>(null);
+  const [mobileAdUrl, setMobileAdUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    // Determine ad URLs based on environment
+    const desktopId = "27974103";
+    const mobileId = "27974202";
+    const desktopIdDev = "27974499";
+    const mobileIdDev = "27974532";
+
+    if (initialBanner) {
+      if (window.location.hostname.includes('devtunnels.ms')) {
+        setDesktopAdUrl(`https://adserver.adsterra.com/${desktopIdDev}`);
+        setMobileAdUrl(`https://adserver.adsterra.com/${mobileIdDev}`);
+      } else {
+        setDesktopAdUrl(`https://adserver.adsterra.com/${desktopId}`);
+        setMobileAdUrl(`https://adserver.adsterra.com/${mobileId}`);
+      }
+      setShowBanner(true);
+    }
+  }, [initialBanner]);
+
   useEffect(() => {
     if (typeof document === 'undefined') return;
 
     // 1 in 250 chance to replace the body with the fazber image
-    if (Math.random() >= 251 / 250) return;
+    if (Math.random() >= 1 / 250) return;
 
     const resolveSrc = (): string | undefined => {
       try {
@@ -52,32 +78,37 @@ export default function RootLayout() {
   }, []);
 
   return (
-    <Stack
-      screenOptions={{
-        headerLeft: () => (
-          <>
-            <Text style={{ color: 'white', fontSize: 36, margin: 15 }} onPress={() => window.location.href = '/'}>⌂</Text>
-            <Text style={{ color: 'white', fontSize: 36, margin: 15 }} onPress={() => window.location.reload()}>⟳</Text>
-          </>
-        ),
-        headerTitleAlign: 'center',
-        headerStyle: { backgroundColor: 'rgb(81,81,81)' },
-        headerTitleStyle: { color: 'white' },
-        headerRight: () => (
-          <>
-            <SparxHeaderButton />
-            <TeamsHeaderButton />
-          </>
-        ),
-      }}
-    >
-      <Stack.Screen
-        name="index"
-        options={{ 
-          headerTitle: HeaderLogo,
+    <>
+      {showBanner && desktopAdUrl && mobileAdUrl && (
+        <Banner desktopAdUrl={desktopAdUrl} mobileAdUrl={mobileAdUrl} />
+      )}
+      <Stack
+        screenOptions={{
+          headerLeft: () => (
+            <>
+              <Text style={{ color: 'white', fontSize: 36, margin: 15 }} onPress={() => window.location.href = '/'}>⌂</Text>
+              <Text style={{ color: 'white', fontSize: 36, margin: 15 }} onPress={() => window.location.reload()}>⟳</Text>
+            </>
+          ),
+          headerTitleAlign: 'center',
+          headerStyle: { backgroundColor: 'rgb(81,81,81)' },
+          headerTitleStyle: { color: 'white' },
+          headerRight: () => (
+            <>
+              <SparxHeaderButton />
+              <TeamsHeaderButton />
+            </>
+          ),
         }}
-      />
-    </Stack>
+      >
+        <Stack.Screen
+          name="index"
+          options={{ 
+            headerTitle: HeaderLogo,
+          }}>
+          </Stack.Screen>
+      </Stack>
+    </>
   );
 }
 
