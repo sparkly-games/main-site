@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { analytics, logEvent } from '../../../firebaseConfig';
+import { analytics, logEvent } from '../../../../../../firebaseConfig';
 import { v4 as uuidv4 } from 'uuid';
-import slugMap from '../../../uuids';
+import slugMap from '../../../../../../uuids';
 
-const prefix = '../../..';
+const prefix = '../../../../../..';
 
 // Map game slugs to URLs and display names
 const games: Record<string, [string, string]> = {

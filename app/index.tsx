@@ -16,7 +16,7 @@ export default function Index() {
   const gameGo = (path: string) => { 
     const slug = path.replace(/ /g, '-').toLowerCase();
     const uuid = slugMap[slug];
-    if (uuid) router.push(`/package/${uuid}/item/${(Math.random()).toString().slice(6, 7)}`);
+    if (uuid) router.push(`/student/package/${uuid}/task/2/item/${(Math.random()).toString().slice(6, 7)}`);
   };
 
   return (
