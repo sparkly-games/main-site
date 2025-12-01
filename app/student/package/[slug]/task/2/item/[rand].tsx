@@ -42,6 +42,7 @@ const games: Record<string, [string, string]> = {
   'f1': [`${prefix}/fnaf/FNAF1/`, 'Five Nights at Freddy\'s 1'],
   'stack': [`${prefix}/stack/`, 'Stack'],
   'crashy-road': [`${prefix}/crashyroad`, 'Crashy Road'],
+  'gdwv': [`${prefix}/gd-wave`, 'GD Wave']
 };
 
 export default function GameScreen() {

@@ -50,6 +50,7 @@ export default function Index() {
           <Game name="Fast Runner" imageSource="t" onPress={() => gameGo('fast runner')} decor={decal} newUntil={25110615} />
           <Game name="Flappy Bird" imageSource="h" onPress={() => gameGo('flappy bird')} decor={decal} newUntil={25110615} />
           <Game name="G-Dash 3D" imageSource="o" onPress={() => gameGo('gd3d')} decor={decal} newUntil={25110615} />
+          <Game name="G-Dash Wave" imageSource="x" onPress={() => gameGo('gdwv')} decor={decal} newUntil={25121015} />
           <Game name="Gobble" imageSource="r" onPress={() => gameGo('gobble')} decor={decal} newUntil={25111015} />
           <Game name="GunSpin" imageSource="8" onPress={() => gameGo('gunspin')} decor={decal} />
           <Game name="Idle Football" imageSource="k" onPress={() => gameGo('idle foot')} decor={decal} />

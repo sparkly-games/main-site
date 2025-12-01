@@ -41,7 +41,8 @@ const slugMap: { [key: string]: string } = {
     "crashy-road": "4567ef89-0abc-def1-2345-67890abcdef1",
     "fireboy-and-watergirl": "5678f901-2abc-def3-4567-890abcdef123",
     "helix": "03d4e5f6-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
-    "snowball-io": "67a89b0c-def1-2345-6789-0abcdef12345"
+    "snowball-io": "67a89b0c-def1-2345-6789-0abcdef12345",
+    "gdwv": "35a6a1c0-f034-45b3-b0cd-afc4d5590d1c"
 }
 
 export default slugMap;
