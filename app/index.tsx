@@ -88,7 +88,7 @@ export default function Index() {
       </ScrollView>
 
       <View>
-        <code style={{ margin: 10, color: 'white' }}>v6.1.5 [ 21/11/25 ]</code>
+        <code style={{ margin: 10, color: 'white' }}>v6.1.5 [ 01/12/25 ]</code>
         <View style={{ position: 'absolute', right: 10, flexDirection: 'row' }}>
           <Ionicons name="information-circle" size={28} color="white" onPress={() => Linking.openURL('https://raw.githubusercontent.com/onlinegames19/main-site/refs/heads/main/CREDITS')} />
           <Ionicons name="book" size={26} color="white" onPress={() => Linking.openURL('/behindcloseddoors.pdf')} />
