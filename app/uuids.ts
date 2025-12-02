@@ -46,13 +46,13 @@ const slugMap: { [key: string]: string } = {
     "blobman": "a3fbb2dd-6c97-4156-9444-694c8ce2972d",
     "gg-cricket": "21d6bcc7-d3f5-48a3-ac02-4977823b4d60",
     "gg-baseball": "eceee636-407d-4f35-acde-448c462cf273",
-    "blockblast": "e357d4a5-0ef2-45ad-8068-bc33d70e0c20"
+    "blockblast": "e357d4a5-0ef2-45ad-8068-bc33d70e0c20",
+    "bo-random": "2f0f5f7f-285a-44a7-bbf4-3164b7cc2631",
+    "ba-random": "902a1c5b-39cc-47c8-9ba5-196054435c22"
 
 }
 
 /*
-2f0f5f7f-285a-44a7-bbf4-3164b7cc2631
-902a1c5b-39cc-47c8-9ba5-196054435c22
 e0f0a508-c6ee-48dd-b5ff-46d7f1598b56
 fd820030-cdf2-47dd-b238-629f861264c9
 7a1eb3b8-f09e-4445-9fee-914ce065c33a

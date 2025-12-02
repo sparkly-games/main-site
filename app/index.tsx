@@ -35,6 +35,8 @@ export default function Index() {
           */}
         </View>
         <View style={styles.gameList}>
+          <Game name="Basket Random" imageSource="ac" onPress={() => gameGo('ba-random')} decor={decal} newUntil={25121015} />
+          <Game name="Boxing Random" imageSource="ab" onPress={() => gameGo('bo-random')} decor={decal} newUntil={25121015} />
           <Game name="BitLife" imageSource="6" onPress={() => gameGo('bitlife')} decor={decal} />
           {
             // <Game name="Blob Man" imageSource="y" onPress={() => gameGo('blobman')} decor={decal} newUntil={25121015} />

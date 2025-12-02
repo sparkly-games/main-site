@@ -46,7 +46,9 @@ const games: Record<string, [string, string]> = {
   'blobman': [`https://script.google.com/macros/s/AKfycbxzSGHk_3h5kMq-nWnMw-klXqPCvXAWtnetko4sja__qk43JO5f5bBJXkyhkt3gFDsG/exec`, 'Blob Man'],
   'gg-cricket': [`${prefix}/cricket17/`, 'GG Cricket'],
   // 'gg-baseball': [`${prefix}/ggb.htm`, 'GG Baseball'],
-  'blockblast': [`${prefix}/block-blast/`, 'Block Blast']
+  'blockblast': [`${prefix}/block-blast/`, 'Block Blast'],
+  'bo-random': [`${prefix}/randoms/boxing/`, 'Boxing Random'],
+  'ba-random': [`${prefix}/randoms/basket/`, 'Basket Random'],
 };
 
 export default function GameScreen() {
