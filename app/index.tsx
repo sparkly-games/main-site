@@ -23,6 +23,8 @@ export default function Index() {
     <View style={styles.container}>
       <Image source={require(`@/assets/images/decal/${decal}-atmosphere.png`)} style={styles[decal]} />
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+        <Text style={styles.noticeTitle}>Tiny Fishing has been updated 🎉.</Text>
+        <Game name="NEW Tiny Fishing" imageSource="1" onPress={() => gameGo('new-tiny-fishing')} decor={decal} newUntil={25123015} />
         <View style={styles.noticeBox}>
           <Text style={styles.noticeTitle}>Welcome!</Text>
           <Text style={{ color: 'white', textAlign: 'center', marginTop: 6 }}>
@@ -34,7 +36,6 @@ export default function Index() {
             </TouchableOpacity>
           */}
         </View>
-        <Game name="NEW Tiny Fishing" imageSource="1" onPress={() => gameGo('new-tiny-fishing')} decor={decal} newUntil={25123015} />
         <View style={styles.gameList}>
           <Game name="ADOFI" imageSource="ad" onPress={() => gameGo('adofai')} decor={decal} newUntil={25121015} />
           <Game name="Basket Random" imageSource="ac" onPress={() => gameGo('ba-random')} decor={decal} newUntil={25121015} />
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
   halloween: { position: 'absolute', height: 350, width: 400 },
   christmas: { position: 'absolute', height: 350, width: 400, bottom: 0 },
   "": { display: 'none' },
-  noticeBox: { backgroundColor: '#001f3f', padding: 15, borderRadius: 10, marginBottom: 15, width: '50%', paddingBottom: 20, paddingTop: 20, alignSelf: 'center', alignContent: 'center', justifyContent: 'center' },
+  noticeBox: { backgroundColor: '#001f3f', padding: 15, borderRadius: 10, marginBottom: 15, width: '90%', paddingBottom: 20, paddingTop: 20, alignSelf: 'center', alignContent: 'center', justifyContent: 'center', maxWidth: 1000 },
   ctaButton: { backgroundColor: 'rgba(135,189,229,1)', paddingVertical: 10, paddingHorizontal: 15, borderRadius: 6, alignItems: 'center', marginTop: 10 },
   ctaButtonText: { color: 'white', fontSize: 16, fontWeight: '600' },
 });
