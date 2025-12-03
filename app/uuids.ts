@@ -49,12 +49,12 @@ const slugMap: { [key: string]: string } = {
     "blockblast": "e357d4a5-0ef2-45ad-8068-bc33d70e0c20",
     "bo-random": "2f0f5f7f-285a-44a7-bbf4-3164b7cc2631",
     "ba-random": "902a1c5b-39cc-47c8-9ba5-196054435c22",
-    "there-is-no-game": "7a1eb3b8-f09e-4445-9fee-914ce065c33a"
+    "there-is-no-game": "7a1eb3b8-f09e-4445-9fee-914ce065c33a",
+    "new-tiny-fishing": "c4d37509-c41f-48c2-ba90-88c6df670df7",
 
 }
 
 /*
-c4d37509-c41f-48c2-ba90-88c6df670df7
 56ec0b98-97f3-42c5-b71b-3b2ffde7043d
 9c0e135d-40ae-453a-bbda-7c9fd4555151
 1b261b31-6256-48d4-afc4-b33f7011b743

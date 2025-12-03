@@ -49,7 +49,8 @@ const games: Record<string, [string, string]> = {
   'bo-random': [`${prefix}/randoms/boxing/`, 'Boxing Random'],
   'ba-random': [`${prefix}/randoms/basket/`, 'Basket Random'],
   'adofai': [`${prefix}/adofai/`, "A Dance of Fire and Ice"],
-  'there-is-no-game': [`${prefix}/there-is-no-game.html`, 'There is No Game.']
+  'there-is-no-game': [`${prefix}/there-is-no-game.html`, 'There is No Game.'],
+  'new-tiny-fishing': [`https://game-hub.nyc3.cdn.digitaloceanspaces.com/tiny-fishing/index.html`, "NEW TINY FISHING"]
 };
 
 export default function GameScreen() {

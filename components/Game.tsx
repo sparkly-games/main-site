@@ -54,7 +54,7 @@ export function Game({ name, imageSource, onPress, decor, newUntil, pcOnly, fixe
           {showBadge && <Text style={styles.newBadge}>New!</Text>}
           {showPcBadge && <Text style={styles.pcBadge}>💻 PC</Text>}
         </View>
-        {fixed && <Text style={styles.pcBadge}>Fixed</Text>}
+        {fixed && <Text style={styles.pcBadge}>Updated!</Text>}
         {bugged && <Text style={[styles.pcBadge, { marginBottom: 40 }]}>&#x1f41c; Bugged</Text>}
         <Text style={styles.text}>{name}</Text>
       </TouchableOpacity>

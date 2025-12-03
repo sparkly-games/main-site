@@ -34,6 +34,7 @@ export default function Index() {
             </TouchableOpacity>
           */}
         </View>
+        <Game name="NEW Tiny Fishing" imageSource="1" onPress={() => gameGo('new-tiny-fishing')} decor={decal} newUntil={25123015} />
         <View style={styles.gameList}>
           <Game name="ADOFI" imageSource="ad" onPress={() => gameGo('adofai')} decor={decal} newUntil={25121015} />
           <Game name="Basket Random" imageSource="ac" onPress={() => gameGo('ba-random')} decor={decal} newUntil={25121015} />
