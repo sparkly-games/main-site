@@ -87,7 +87,6 @@ export default function RootLayout({ initialBanner }: { initialBanner?: boolean 
           headerLeft: () => (
             <>
               <Text style={styles.iconTxt} onPress={() => window.location.href = '/'}>⌂</Text>
-              <Text style={styles.iconTxt} onPress={() => window.location.reload()}>⟳</Text>
             </>
           ),
           headerTitleAlign: 'center',

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react'; // 1. Import useRef
 import { View, StyleSheet, Text } from 'react-native';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { analytics, logEvent } from '@/app/firebaseConfig';
@@ -9,6 +9,7 @@ const prefix = '';
 
 // Map game slugs to URLs and display names
 const games: Record<string, [string, string]> = {
+  // ... (Your 'games' map remains the same)
   'tiny-fishing': [`${prefix}/tiny-fishing/`, 'Tiny Fishing'],
   'ragdoll-archers': [`${prefix}/ragdoll-archers/`, 'Ragdoll Archers'],
   'subway-surfers': [`${prefix}/subway-surfers/`, 'Subway Surfers'],
@@ -50,12 +51,15 @@ const games: Record<string, [string, string]> = {
   'ba-random': [`${prefix}/randoms/basket/`, 'Basket Random'],
   'adofai': [`${prefix}/adofai/`, "A Dance of Fire and Ice"],
   'there-is-no-game': [`${prefix}/there-is-no-game.html`, 'There is No Game.'],
-  'new-tiny-fishing': [`https://game-hub.nyc3.cdn.digitaloceanspaces.com/tiny-fishing/index.html`, "NEW TINY FISHING"]
+  'new-tiny-fishing': [`https://game-hub.nyc3.cdn.digitaloceanspaces.com/tiny-fishing/index.html`, "NEW TINY FISHING"],
+  'adventure-drivers': [`${prefix}/adventuredrivers/`, 'Adventure Drivers'],
 };
 
 export default function GameScreen() {
   const router = useRouter();
   const { slug, rand } = useLocalSearchParams();
+  // 2. Create a ref to attach to the iframe element
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   // If the incoming :slug is a friendly slug that maps to a UUID, redirect to the UUID route.
   useEffect(() => {
@@ -64,7 +68,7 @@ export default function GameScreen() {
     const uuid = (slugMap as Record<string, string>)[slug];
     if (uuid) {
       // use replace to avoid polluting history/back navigation
-      router.replace(`/student/package/${uuid}/item/${rand}`);
+      router.replace(`/student/package/${uuid}/item/5`);
     }
   }, [slug, router, rand]);
 
@@ -83,6 +87,7 @@ export default function GameScreen() {
   const displayName = friendlyKey ? games[friendlyKey]?.[1] ?? friendlyKey.replace(/-/g, ' ') : '';
 
   useEffect(() => {
+    // ... (Your logging logic remains the same)
     if (!gameUrl || !analytics) return;
 
     const logGame = async () => {
@@ -105,6 +110,18 @@ export default function GameScreen() {
     logGame();
   }, [slug, friendlyKey, gameUrl]);
 
+  // 3. Define the reload function
+  const reloadIframe = () => {
+    if (iframeRef.current && gameUrl) {
+      // A common trick to force a reload is setting the src to the current value,
+      // but a more robust method is to append a temporary, unique query parameter.
+      const newUrl = new URL(gameUrl, window.location.origin);
+      newUrl.searchParams.set('_reload', Date.now().toString());
+      iframeRef.current.src = newUrl.href;
+    }
+  };
+
+
   if (!gameUrl) {
     return (
       <View style={styles.container}>
@@ -115,12 +132,24 @@ export default function GameScreen() {
 
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{ title: displayName }} />
+      {/* 4. Update the onPress handler to use the reloadIframe function */}
+      <Stack.Screen options={{ 
+        title: (
+          <Text 
+            style={styles.iconTxt} 
+            onPress={reloadIframe} // Use the new function
+          >
+            {displayName} (⟳)
+          </Text>
+        ) 
+      }} />
       <iframe
+        ref={iframeRef} // 5. Attach the ref to the iframe
         src={gameUrl}
         style={styles.iframe}
         title={displayName}
         allowFullScreen={true}
+        className={"iframeInternalGame"}
       />
     </View>
   );
@@ -130,4 +159,5 @@ const styles = StyleSheet.create({
   container: { flex: 1, width: '100%', height: '100%' },
   iframe: { flex: 1, width: '100%', height: '100%', borderWidth: 0 },
   errorText: { fontSize: 20, color: 'red', textAlign: 'center', marginTop: 50 },
+  iconTxt: { color: 'white', fontSize: 20, margin: 15 }
 });
