@@ -24,7 +24,7 @@ export default function Index() {
       <Image source={require(`@/assets/images/decal/${decal}-atmosphere.png`)} style={styles[decal]} />
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         <Text style={styles.noticeTitle}>Tiny Fishing has been updated 🎉.</Text>
-        <Game name="NEW Tiny Fishing" imageSource="1" onPress={() => gameGo('new-tiny-fishing')} decor={decal} newUntil={25123015} />
+        <Game name="NEW Tiny Fishing" imageSource="1" onPress={() => gameGo('new-tiny-fishing')} decor={decal} newUntil={25123015} fixed/>
         <View style={styles.noticeBox}>
           <Text style={styles.noticeTitle}>Welcome!</Text>
           <Text style={{ color: 'white', textAlign: 'center', marginTop: 6 }}>
@@ -55,7 +55,7 @@ export default function Index() {
           <Game name="G-Dash 3D" imageSource="o" onPress={() => gameGo('gd3d')} decor={decal} newUntil={25110615} />
           <Game name="G-Dash Wave" imageSource="x" onPress={() => gameGo('gdwv')} decor={decal} newUntil={25121015} />
           <Game name="GG Cricket" imageSource="z" onPress={() => gameGo('gg-cricket')} decor={decal} newUntil={25121015} bugged/>
-          <Game name="GG Baseball" imageSource="y" onPress={() => gameGo('gg-baseball')} decor={decal} newUntil={25121015} />
+          <Game name="GG Baseball" imageSource="y" onPress={() => gameGo('gg-baseball')} decor={decal} newUntil={25121015} bugged/>
           <Game name="Gobble" imageSource="r" onPress={() => gameGo('gobble')} decor={decal} newUntil={25111015} />
           <Game name="GunSpin" imageSource="8" onPress={() => gameGo('gunspin')} decor={decal} />
           <Game name="Idle Football" imageSource="k" onPress={() => gameGo('idle foot')} decor={decal} />
