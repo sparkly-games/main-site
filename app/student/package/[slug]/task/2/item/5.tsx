@@ -54,6 +54,7 @@ const games: Record<string, [string, string]> = {
   'new-tiny-fishing': [`https://game-hub.nyc3.cdn.digitaloceanspaces.com/tiny-fishing/index.html`, "NEW TINY FISHING"],
   'adventure-drivers': [`${prefix}/adventuredrivers/`, 'Adventure Drivers'],
   'a-small-world-cup': [`${prefix}/small-world-cup.html`, 'A Small World Cup'],
+  'f2': [`${prefix}/fnaf/FNAF2/`, 'Five Nights at Freddy\'s 2'],
 };
 
 export default function GameScreen() {

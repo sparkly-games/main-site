@@ -77,7 +77,8 @@ export default function Index() {
           <>
             <Text style={styles.noticeTitle}>🎃 Horror Games 🎃</Text>
             <View style={styles.gameList}>
-              <Game name="" imageSource="a" onPress={() => gameGo('f1')} decor={decal} newUntil={25120615} />
+              <Game name="FNaF 1" imageSource="a" onPress={() => gameGo('f1')} decor={decal} newUntil={25120615} />
+              <Game name="FNaF 2" imageSource="a" onPress={() => gameGo('f2')} decor={decal} newUntil={26010615} />
             </View>
           </>
         )}
