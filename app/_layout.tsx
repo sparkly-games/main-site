@@ -1,9 +1,9 @@
 import { Stack } from "expo-router";
-import TeamsHeaderButton from '@/components/TeamsButton';
-import SparxHeaderButton from "@/components/SparxButton";
+import TeamsHeaderButton from '@/assets/components/TeamsButton';
+import SparxHeaderButton from "@/assets/components/SparxButton";
 import { Text, Image, StyleSheet } from "react-native";
 import React, { useEffect, useState } from "react";
-import { Banner } from "@/components/Banner";
+import { Banner } from "@/assets/components/Banner";
 // @ts-ignore: allow importing image assets without explicit module declarations
 // import fazber from '@/assets/images/feddy-fazber.jpg';
 const fazber = ""

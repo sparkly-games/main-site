@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, ScrollView, TouchableOpacity, Linking, Image } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Game } from '../components/Game';
+import { Game } from '../assets/components/Game';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import slugMap from './uuids';
-import Banner from '@/components/Banner';
+import Banner from '@/assets/components/Banner';
 
 
 const decal = "";
@@ -85,7 +85,7 @@ export default function Index() {
       </ScrollView>
 
       <View>
-        <code style={{ margin: 10, color: 'white' }}>v6.7.105 [ 05/12/25 ]</code>
+        <code style={{ margin: 10, color: 'white' }}>v6.7.4 [ 06/12/25 ]</code>
         <View style={{ position: 'absolute', right: 10, flexDirection: 'row' }}>
           <Ionicons name="information-circle" size={28} color="white" onPress={() => Linking.openURL('https://raw.githubusercontent.com/sparkly-games/main-site/refs/heads/main/CREDITS')} />
           <Ionicons name="book" size={26} color="white" onPress={() => {}} />
