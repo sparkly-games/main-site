@@ -102,6 +102,7 @@ export default function Index() {
         {/* Clicker & Idle Games Category */}
         <Text style={styles.categoryTitle}>🎣 Clicker & Idle Games 💰</Text>
         <View style={styles.gameList}>
+          <Game name="Capybara Clicker" imageSource="ao" onPress={() => gameGo('cbc')} decor={decal} newUntil={26011215} showText bugged />  
           <Game name="Duck Duck Clicker" imageSource="4" onPress={() => gameGo('duck clicker')} decor={decal} showText />
           <Game name="NEW Tiny Fishing" imageSource="1" onPress={() => gameGo('new tiny fishing')} decor={decal} newUntil={25123015} fixed/>
           <Game name="Tiny Fishing" imageSource="1" onPress={() => gameGo('tiny fishing')} decor={decal} customBadge={"⭐️ FAN FAVOURITE ⭐️"}/>
