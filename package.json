@@ -14,7 +14,7 @@
     "wasmer-deploy": "wasmer publish --bump && wasmer deploy",
     "firebase-deploy": "firebase deploy",
     "vercel-deploy": "vercel --prod",
-    "deploy": "git add . && git commit -m \"$1\" && git push origin main",
+    "deploy": "sh ./deploy.sh $@",
     "pre-deploy": "rm -rf dist && expo export --platform web"
   },
   "jest": {
