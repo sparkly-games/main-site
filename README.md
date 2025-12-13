@@ -130,3 +130,5 @@ This project is released under the **MIT License**, allowing personal and commer
 ## 💬 Support / Contact
 
 If you have questions, suggestions, or just want to say hi, feel free to open an issue or reach out through the <a href="https://github.com/orgs/sparkly-games/discussions">Discussions.</a>
+
+I might not respond, so don't expect much.
